@@ -26,7 +26,7 @@ function Home() {
       </div>
 
       <img
-        src="https://i.pinimg.com/736x/78/51/50/785150636d707cb0a20112acfc7fa77c.jpg"
+        src="https://png.pngtree.com/png-vector/20220614/ourmid/pngtree-human-lungs-anatomy-vector-illustration-on-white-background-png-image_5054631.png"
         className="lungImage"
       />
 
@@ -62,8 +62,8 @@ function Home() {
           />
         </div>
       </div>
-      <CircularLights />
-      <CircularLights />
+      <CircularLights number="1" />
+      <CircularLights number="2" />
     </Fragment>
   );
 }

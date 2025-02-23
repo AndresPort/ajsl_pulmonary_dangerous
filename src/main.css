@@ -1,0 +1,111 @@
+*{
+    color: rgb(255,255,255);
+    box-sizing: border-box;
+    margin: 0;
+    font-family: "Montserrat";
+}
+
+body{
+    background-color: rgb(0,0,35);;
+}
+
+
+.principalTextSection{
+    position: absolute;
+    top: 260px;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+    width: 850px;
+    text-align: left;
+}
+
+.principalTextSection__tittle{
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+.principalTextSection__paragraph{
+    font-size: 30px;
+}
+
+.lungImage{
+    width: 750px; 
+    position: absolute;
+    top: 160px;
+    right: 100px;
+}
+
+.lungImage:hover{
+    width: 1000px;     
+    right: -10px;
+    top: 50px;
+}
+
+.circularLights1{
+    background-color: rgb(255,255,255);
+    width: 500px;
+    height: 500px;
+    opacity: 0.9;
+    border-radius: 100%;
+    filter: blur(300px);
+    position: absolute;
+    right: -200px;
+}
+
+.callToActionSection{
+    width: 1500px;
+    height: 500px;
+    position: absolute;
+    top: 1000px;
+    left: 250px;
+    display: flex;
+    flex-direction: column;
+}
+
+.callToActionSection__tittle{
+    font-size: 40px;
+    margin-bottom: 50px;   
+    text-align: center;
+}
+
+.callToActionButtons__btnContainer{
+    align-self: center;
+    display: grid;
+    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-rows: 150px;
+    width: 1218px;
+    height: 150px;
+}
+
+.callToActionButtons__btnPneumonia,
+.callToActionButtons__btnTuberculosis,
+.callToActionButtons__btnLungsCancer,
+.callToActionButtons__btnECP{
+    font-size: 30px;
+    border: solid 4px rgb(0,0,0);
+    background-color: rgb(40,40,76);
+}
+.callToActionButtons__btnPneumonia:hover,
+.callToActionButtons__btnTuberculosis:hover,
+.callToActionButtons__btnLungsCancer:hover,
+.callToActionButtons__btnECP:hover{
+    font-size: 30px;
+    border: solid 4px rgb(155,155,155);
+    background-color: rgb(70,70,146);
+    transition: background-color 0.2s;
+}
+
+.circularLights2{
+    background-color: rgb(255,255,255);
+    width: 500px;
+    height: 500px;
+    opacity: 0.7;
+    border-radius: 100%;
+    filter: blur(300px);
+    position: absolute;
+    bottom: -500px;
+    left: -100px;
+}

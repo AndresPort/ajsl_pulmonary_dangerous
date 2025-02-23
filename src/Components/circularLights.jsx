@@ -1,5 +1,5 @@
-function circularLights() {
-  return <div className="circularLights" />;
+function circularLights(props) {
+  return <div className={`circularLights${props.number}`} />;
 }
 
 export default circularLights;
