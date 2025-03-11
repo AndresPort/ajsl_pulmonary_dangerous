@@ -1,0 +1,32 @@
+.footer{
+    display:flexbox;
+    flex-direction: column;
+    text-align: left;
+    padding: 10px 20px;
+    background: linear-gradient(to right, #111827, #1e3a8a);
+    color: white;
+  }
+
+.correo {
+    width: 45px;
+    height: 45px;
+}
+
+.informacion{
+    width: 42px;
+    height: 42px;
+}
+
+.copyright {
+    text-align: center;
+    height: 0px;
+    width: 100%; 
+    margin-top: 10px; 
+}
+
+.links{
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    gap: 4px;
+}
