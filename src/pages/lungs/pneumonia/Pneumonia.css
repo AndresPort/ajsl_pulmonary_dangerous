@@ -1,0 +1,15 @@
+.pneumonia-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+canvas{
+    /* border: 1px solid #ccc; */
+    align-self: center;
+    height: 40vh;
+    width: 40vw;
+}

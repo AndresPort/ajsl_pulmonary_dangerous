@@ -39,7 +39,7 @@ function Home() {
         <div className="callToActionButtons__btnContainer">
           <Button
             className="callToActionButtons__btnPneumonia"
-            text="Neumonia"
+            text="Neumonía"
             onClick={() => navigate("/Pneumonia")}
           />
 
@@ -51,13 +51,13 @@ function Home() {
 
           <Button
             className="callToActionButtons__btnLungsCancer"
-            text="Cancer de pulmon"
+            text="Cancer de Pulmón"
             onClick={() => navigate("/LungsCancer")}
           />
 
           <Button
             className="callToActionButtons__btnECP"
-            text="Enfermedad cronica pulmonar"
+            text="Enfermedad Crónica Pulmonar"
             onClick={() => navigate("/e-c-p")}
           />
         </div>
