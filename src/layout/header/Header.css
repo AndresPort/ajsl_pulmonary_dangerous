@@ -19,6 +19,15 @@
     border-radius: 50%;
   }
   
+  .logo:hover {
+    cursor: pointer;
+  }
+  
+  .tittle_name{
+    margin-top:10px ;
+    margin-left: 20px;
+  }
+
   .nav-buttons {
     display: flex;
     align-items: center;
@@ -33,6 +42,10 @@
   .nav-links a {
     color: white;
     text-decoration: none;
+  }
+
+  .nav-links a:hover {
+    cursor: pointer;
   }
   
   .buttons {

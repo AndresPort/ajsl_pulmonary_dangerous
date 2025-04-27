@@ -3,6 +3,10 @@ import "./Home.css";
 import CircularLights from "../../Components/circularLights";
 import Button from "../../Components/button";
 import { Route } from "react-router";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, SoftShadows } from "@react-three/drei";
+import Lights from "./Lights/Lights";
+import HealthyLungSemiVisible from "./models-3d/HealthyLungSemiVisible";
 import { useNavigate } from "react-router";
 
 function Home() {
@@ -15,20 +19,22 @@ function Home() {
           Aprende sobre horribles enfermedades pulmonares y como evitarlas
         </h1>
         <p className="principalTextSection__paragraph">
-          Los pulmones son un organo tan importante que muchas veces pasamos por
-          alto su importancia, a continuación se mostrará de manera inmersiva
-          información sobre 4 enfermedades potencialmente peligrosas o mortales
-          que podrían generarse en el caso de exponerse a multiples situaciones
-          que puedan generarle daños al pulmon incluso de manera irreversible,
-          el proyecto por fines educativos y para promover el cuidado de los
-          pulmones en la comunidad Yumbeña encuestada.
+          Los pulmones son esenciales para nuestra vida, pero a menudo olvidamos
+          su verdadero valor. Este proyecto, creado con fines educativos para la
+          comunidad Yumbeña, te sumergirá en información sobre cuatro
+          enfermedades graves que pueden surgir al exponer nuestros pulmones a
+          daños irreversibles. ¡Cuidar de ellos es cuidar de tu vida!
         </p>
       </div>
 
-      <img
-        src="https://png.pngtree.com/png-vector/20220614/ourmid/pngtree-human-lungs-anatomy-vector-illustration-on-white-background-png-image_5054631.png"
-        className="lungImage"
-      />
+      <div className="model_container">
+        <Canvas camera={{ position: [0, 0, 1.3] }} shadows={true}>
+          <SoftShadows size={40} samples={20} focus={0.8} />
+          <Lights />
+          <OrbitControls target={[0, 0, 0]} />
+          <HealthyLungSemiVisible scale={0.001} />
+        </Canvas>
+      </div>
 
       <div className="callToActionSection">
         <h1 className="callToActionSection__tittle">
