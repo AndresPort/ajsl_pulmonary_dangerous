@@ -10,6 +10,7 @@ createRoot(document.getElementById("root")).render(
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/e-c-p" element={<ECP />} />
       </Routes>
     </Layout>
     </BrowserRouter>
