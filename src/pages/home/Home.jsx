@@ -51,8 +51,8 @@ function Home() {
 
           <Button
             className="callToActionButtons__btnLungsCancer"
-            text="Cancer de Pulmón"
-            onClick={() => navigate("/LungsCancer")}
+            text="Cancer de pulmon"
+            onClick={() => navigate("/lungs-cancer")}
           />
 
           <Button

@@ -1,0 +1,45 @@
+import React, { useRef } from "react";
+import { useFrame } from "@react-three/fiber";
+import { useGLTF } from "@react-three/drei";
+import { useEffect } from "react";
+
+const SickLung = (props) => {
+  const sickLungModel = useGLTF("models-3d/lung-cancer-models/sick-lung.glb");
+  const lungsRef = useRef();
+
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime();
+    const baseScale = 0.004; // El tamaño inicial
+    const breathing = Math.sin(time * 2) * 0.0001; // Más movimiento
+    if (lungsRef.current) {
+      const newScale = baseScale + breathing;
+      lungsRef.current.scale.set(newScale, newScale, newScale);
+    }
+  });
+
+  useEffect(() => {
+    if (!sickLungModel) return;
+
+    sickLungModel.scene.traverse((child) => {
+      if (child.isMesh) {
+        child.castShadow = true;
+        child.receiveShadow = true;
+      }
+    });
+  }, [sickLungModel]);
+
+  return (
+    <primitive
+      object={sickLungModel.scene}
+      ref={lungsRef}
+      scale={0.005}
+      castShadow
+      receiveShadow
+      {...props}
+    />
+  );
+};
+
+export default SickLung;
+
+useGLTF.preload("models-3d/lung-cancer-models/sick-lung.glb");
