@@ -4,6 +4,7 @@ import Home from "./pages/home/Home";
 import { BrowserRouter, Routes, Route } from "react-router";
 import Layout from "./layout/Layout";
 import Tuberculosis from "./pages/lungs/tuberculosis/Tuberculosis";
+import Pneumonia from "./pages/lungs/pneumonia/Pneumonia";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -12,6 +13,7 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tuberculosis" element={<Tuberculosis />} />
+        <Route path="/pneumonia" element={<Pneumonia />} />
       </Routes>
     </Layout>
     </BrowserRouter>
