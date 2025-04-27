@@ -16,6 +16,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/lungs-cancer" element={<LungsCancer />} />
           <Route path="/tuberculosis" element={<Tuberculosis />} />
           <Route path="/pneumonia" element={<Pneumonia />} />
+          <Route path="/e-c-p" element={<ECP />} />
         </Routes>
       </Layout>
     </BrowserRouter>
