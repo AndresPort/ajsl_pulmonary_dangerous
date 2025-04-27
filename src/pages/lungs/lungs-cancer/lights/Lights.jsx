@@ -22,7 +22,7 @@ const Lights = () => {
   useHelper(hemisphereLightRef, HemisphereLightHelper);
   return (
     <>
-      <ambientLight color={"#F5F5DC"} intensity={1} />
+      <ambientLight color={"#F5F5DC"} intensity={1.5} />
       <directionalLight
         ref={directionalLightRef}
         color={"white"}
