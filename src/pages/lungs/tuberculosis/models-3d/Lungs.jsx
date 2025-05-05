@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
 export function Lungs(props) {
-  const { nodes, materials } = useGLTF('/models-3d/Lungs.glb')
+  const { nodes, materials } = useGLTF('/models-3d/tuberculosis/Lungs.glb')
   const lungsRef = useRef();
 
   useFrame((state) => {
@@ -26,4 +26,4 @@ export function Lungs(props) {
   )
 }
 
-useGLTF.preload('/models-3d/Lungs.glb')
+useGLTF.preload('/models-3d/tuberculosis/Lungs.glb')
