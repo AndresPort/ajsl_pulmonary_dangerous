@@ -1,11 +1,18 @@
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background: linear-gradient(to right, #111827, #1e3a8a);
-    color: white;
-  }
+  position: fixed; 
+  top: 0;    
+  left: 0;
+  width: 100%;              
+  z-index: 1000;    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background: linear-gradient(to right, #111827, #1e3a8a);
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3); 
+}
+
   
   .logo-container {
     display: flex;
@@ -26,26 +33,6 @@
   .tittle_name{
     margin-top:10px ;
     margin-left: 20px;
-  }
-
-  .nav-buttons {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 15px;
-  }
-  
-  .nav-links a {
-    color: white;
-    text-decoration: none;
-  }
-
-  .nav-links a:hover {
-    cursor: pointer;
   }
   
   .buttons {
@@ -73,4 +60,61 @@
   .btn.dark-green {
     background-color: #0f3b21;
     color: white;
+  }
+  
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+  
+  .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-links li {
+    position: relative;
+  }
+  
+  .nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    white-space: nowrap;
+  }
+  
+  .nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 5px;
+  }
+  
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #112761;
+    border-radius: 4px;
+    padding: 0;
+    margin: 0;
+    min-width: 180px;
+    z-index: 1000;
+  }
+  
+  .dropdown-menu li {
+    list-style: none;
+  }
+  
+  .dropdown-menu a {
+    padding: 10px 15px;
+    white-space: nowrap;
+  }
+  
+  .dropdown:hover .dropdown-menu {
+    display: block;
   }
