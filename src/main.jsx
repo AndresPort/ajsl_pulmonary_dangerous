@@ -7,7 +7,7 @@ import Layout from "./layout/Layout";
 import Tuberculosis from "./pages/lungs/tuberculosis/Tuberculosis";
 import Pneumonia from "./pages/lungs/pneumonia/Pneumonia";
 import ECP from "./pages/lungs/e-c-p/e-c-p";
-
+import About from "./pages/about/About";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -19,6 +19,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/tuberculosis" element={<Tuberculosis />} />
           <Route path="/pneumonia" element={<Pneumonia />} />
           <Route path="/e-c-p" element={<ECP/>} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </Layout>
     </BrowserRouter>
