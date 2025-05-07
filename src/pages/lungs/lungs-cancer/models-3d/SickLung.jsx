@@ -32,7 +32,7 @@ const SickLung = (props) => {
     <primitive
       object={sickLungModel.scene}
       ref={lungsRef}
-      scale={0.005}
+      scale={0.003}
       castShadow
       receiveShadow
       {...props}

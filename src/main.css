@@ -6,43 +6,31 @@
 }
 
 body{
-    background-color: rgb(0,0,35);;
+    background-color: rgb(0,0,35);
 }
 
 
 .principalTextSection{
     position: absolute;
-    top: 260px;
-    left: 100px;
+    top: 22%;
+    left: 3%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 600px;
-    width: 850px;
+    width: 680px;
     text-align: left;
 }
 
 .principalTextSection__tittle{
-    font-size: 40px;
+    font-size: 38px;
     margin-bottom: 50px;
 }
 .principalTextSection__paragraph{
-    font-size: 30px;
+    font-size: 28px;
 }
 
-.lungImage{
-    width: 750px; 
-    position: absolute;
-    top: 160px;
-    right: 100px;
-}
-
-.lungImage:hover{
-    width: 1000px;     
-    right: -10px;
-    top: 50px;
-}
 
 .circularLights1{
     background-color: rgb(255,255,255);
@@ -56,11 +44,11 @@ body{
 }
 
 .callToActionSection{
-    width: 1500px;
-    height: 500px;
+    width: 95%;
+    height: 350px;
     position: absolute;
-    top: 1000px;
-    left: 250px;
+    margin-left: auto;
+    margin-top: 50%;
     display: flex;
     flex-direction: column;
 }
@@ -74,9 +62,9 @@ body{
 .callToActionButtons__btnContainer{
     align-self: center;
     display: grid;
-    grid-template-columns: 300px 300px 300px 300px;
+    grid-template-columns: 25% 25% 25% 25%;
     grid-template-rows: 150px;
-    width: 1218px;
+    width: 90%;
     height: 150px;
 }
 
