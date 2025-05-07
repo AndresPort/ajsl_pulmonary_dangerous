@@ -14,6 +14,15 @@ function Home() {
   return (
     //principal text section
     <Fragment>
+
+      <div className="popupHome" open>
+        <CircularLights number="3" />
+        <CircularLights number="4" />
+        <h2 className="popupHome__tittle">Bienvenido</h2>
+        <p> Texto de bienvenida</p>
+        <button className="popupHome__BtnClose"> Cerrar </button>
+      </div>
+
       <div className="principalTextSection">
         <h1 className="principalTextSection__tittle">
           Aprende sobre horribles enfermedades pulmonares y como evitarlas
