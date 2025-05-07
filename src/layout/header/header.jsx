@@ -29,7 +29,7 @@ const Header = () => {
           </li>
 
           <li><a href="#">Quiz interactivo</a></li>
-          <li><a href="/about">Sobre nosotros</a></li>
+          <li><a onClick={() => navigate("/about")}>Sobre nosotros </a></li>
         </ul>
         <div className="buttons">
           <button className="btn white">Ingresar</button>
