@@ -1,11 +1,14 @@
 import "./LungsCancer.css";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, SoftShadows } from "@react-three/drei";
+import { OrbitControls} from "@react-three/drei";
 import SickLung from "./models-3d/SickLung";
 import SickLungsSemiVisibles from "./models-3d/SickLungsSemiVisibles";
 import Floor from "./models-3d/Floor";
 import Lights from "./lights/Lights";
+import MultipleAmbientLights from "./lights/MultipleAmbientLights";
 import Tittle from "./texts/Tittle";
+import SkyStaging from "./staging/SkyStaging";
+import SparklesStaging from "./staging/SparklesStaging";
 
 const LungsCancer = () => {
   return (
@@ -15,6 +18,7 @@ const LungsCancer = () => {
               {/* <SoftShadows size={40} samples={40} focus={0.8} /> */}
               <Lights />
               <Tittle tittle="Cáncer de Pulmón" />
+              <SparklesStaging/>
             </Canvas>
           </div>
       <section className="SickLungSection">
@@ -65,10 +69,11 @@ const LungsCancer = () => {
           <div className="SickLungsSemiVisiblesModelContainer">
             <Canvas camera={{ position: [0, 0, 1.3] }} shadows={true}>
               {/* <SoftShadows size={40} samples={40} focus={0.8} /> */}
-              <Lights />
+              <MultipleAmbientLights />
               <OrbitControls target={[0, 0, 0]} />
               <SickLungsSemiVisibles scale={0.001} />
-              <Floor scale={0.001} />
+              <Floor scale={0.001} /> 
+              <SkyStaging />
             </Canvas>
           </div>
         </div>

@@ -20,11 +20,13 @@ const SickLungsSemiVisibles = (props) => {
   useEffect(() => {
     if (!SickLungsSemiVisiblesModel) return;
 
+
     SickLungsSemiVisiblesModel.scene.traverse((child) => {
       if (child.isMesh) {
         child.castShadow = true;
         child.receiveShadow = true;
       }
+      
     });
   }, [SickLungsSemiVisiblesModel]);
 
