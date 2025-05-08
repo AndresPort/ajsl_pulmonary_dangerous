@@ -9,7 +9,7 @@ const SickLungsSemiVisibles = (props) => {
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
-    const baseScale = 0.004; // El tamaño inicial
+    const baseScale = 0.0055; // El tamaño inicial
     const breathing = Math.sin(time * 2) * 0.0001; // Más movimiento
     if (lungsRef.current) {
       const newScale = baseScale + breathing;
