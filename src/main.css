@@ -10,19 +10,6 @@ body{
 }
 
 
-.principalTextSection{
-    position: absolute;
-    top: 22%;
-    left: 3%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 600px;
-    width: 680px;
-    text-align: left;
-}
-
 .principalTextSection__tittle{
     font-size: 38px;
     margin-bottom: 50px;
@@ -44,6 +31,18 @@ body{
 }
 
 @media (max-height: 700px) {
+    .principalTextSection{
+        position: absolute;
+        top: 12%;
+        left: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+        width: 680px;
+        text-align: left;
+    }
     .callToActionSection{
         width: 95%;
         height: 350px;
@@ -56,6 +55,18 @@ body{
 }
 
 @media (min-height: 780px) {
+    .principalTextSection{
+        position: absolute;
+        top: 20%;
+        left: 3%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+        width: 680px;
+        text-align: left;
+    }
     .callToActionSection{
         width: 95%;
         height: 350px;
