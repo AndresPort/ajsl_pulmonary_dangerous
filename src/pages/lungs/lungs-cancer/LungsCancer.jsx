@@ -2,6 +2,7 @@ import "./LungsCancer.css";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, SoftShadows } from "@react-three/drei";
 import SickLung from "./models-3d/SickLung";
+import SickLungsSemiVisibles from "./models-3d/SickLungsSemiVisibles";
 import Floor from "./models-3d/Floor";
 import Lights from "./lights/Lights";
 
@@ -13,7 +14,7 @@ const LungsCancer = () => {
         <div className="content">
           <div className="model-container">
             <Canvas camera={{ position: [0, 0, 1.3] }} shadows={true}>
-              <SoftShadows size={40} samples={40} focus={0.8} />
+              {/* <SoftShadows size={40} samples={40} focus={0.8} /> */}
               <Lights />
               <OrbitControls target={[0, 0, 0]} />
               <SickLung scale={0.001} />
@@ -22,17 +23,14 @@ const LungsCancer = () => {
           </div>
           <div className="text-container">
             <h1>¿Qué es el cancer de pulmón?</h1>
-            <p>
-              ​El cáncer de pulmón es una enfermedad en la que las células del
-              tejido pulmonar crecen de manera descontrolada debido a mutaciones
-              en su ADN. Estas alteraciones permiten que las células se dividan
-              sin control y eviten la muerte celular programada, formando
-              tumores que pueden invadir tejidos cercanos y diseminarse a otras
-              partes del cuerpo (metástasis) .​
+            <p className="meanText">
+            El cáncer de pulmón ocurre cuando células del pulmón crecen
+             sin control por mutaciones en su ADN, formando tumores que pueden
+              invadir otros tejidos y causar metástasis.​
             </p>
 
             <h1>Principales Causas</h1>
-            <p>
+            <p className="causesText">
               -Tabaquismo
               <br /> -Exposición al humo de segunda mano
               <br /> -Exposición a sustancias noscivas
@@ -40,15 +38,10 @@ const LungsCancer = () => {
               <br /> -Factores genéticos y enfermedades pulmonares previas
             </p>
             <h1>Efectos en el cuerpo humano</h1>
-            <p>
-              El cáncer de pulmón puede causar síntomas respiratorios como tos
-              persistente, dificultad para respirar, dolor en el pecho y tos con
-              sangre. A medida que avanza, puede provocar pérdida de peso,
-              fatiga y, si se disemina, afectar otros órganos, causando dolor
-              óseo o síntomas neurológicos . La detección temprana mediante
-              tomografías computarizadas de baja dosis puede mejorar las tasas
-              de supervivencia, ya que permite identificar la enfermedad en
-              etapas iniciales, cuando es más tratable .​
+            <p className="effectsText">El cáncer de pulmón causa tos persistente, dificultad para respirar,
+               dolor en el pecho y tos con sangre. En etapas avanzadas, puede provocar fatiga,
+               pérdida de peso y afectar otros órganos. La detección temprana con tomografía
+               de baja dosis mejora la supervivencia.         
             </p>
           </div>
         </div>
@@ -57,20 +50,19 @@ const LungsCancer = () => {
       <section className="section2" id="intro">
         <div className="content">
           <div className="text-container">
-            <h1>Sintomas</h1>
-            <p>
-            Tos persistente, dificultad para respirar, dolor en el pecho, tos con sangre, ronquera, fatiga y pérdida de peso sin causa..​
+            <h1 className="symptomsTittle">Sintomas</h1>
+            <p className="symptomsText">
+            Tos persistente, dificultad para respirar, dolor en el pecho, tos con sangre, ronquera, fatiga y pérdida de peso sin causa.​
             </p>
-
           </div>
           <div className="model-container">
-            {/* <Canvas camera={{ position: [0, 0, 1.3] }} shadows={true}>
-              <SoftShadows size={40} samples={40} focus={0.8} />
+            <Canvas camera={{ position: [0, 0, 1.3] }} shadows={true}>
+              {/* <SoftShadows size={40} samples={40} focus={0.8} /> */}
               <Lights />
               <OrbitControls target={[0, 0, 0]} />
-              <SickLung scale={0.001} />
+              <SickLungsSemiVisibles scale={0.001} />
               <Floor />
-            </Canvas> */}
+            </Canvas>
           </div>
         </div>
       </section>
