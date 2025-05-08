@@ -43,16 +43,31 @@ body{
     right: -200px;
 }
 
-.callToActionSection{
-    width: 95%;
-    height: 350px;
-    position: absolute;
-    margin-left: auto;
-    margin-top: 50%;
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
+@media (max-height: 700px) {
+    .callToActionSection{
+        width: 95%;
+        height: 350px;
+        position: absolute;
+        bottom: -65%;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+    }
 }
+
+@media (min-height: 780px) {
+    .callToActionSection{
+        width: 95%;
+        height: 350px;
+        position: absolute;
+        bottom: -50%;
+        display: flex;
+        flex-direction: column;
+        z-index: 1000;
+    }
+}
+
+
 
 .callToActionSection__tittle{
     font-size: 40px;
@@ -103,3 +118,5 @@ body{
 footer{
     z-index: 100;
 }
+
+
