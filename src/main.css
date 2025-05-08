@@ -30,7 +30,7 @@ body{
     right: -200px;
 }
 
-@media (max-height: 700px) {
+@media (max-height: 740px) {
     .principalTextSection{
         position: absolute;
         top: 12%;
@@ -54,7 +54,7 @@ body{
     }
 }
 
-@media (min-height: 780px) {
+@media (min-height: 750px) {
     .principalTextSection{
         position: absolute;
         top: 20%;

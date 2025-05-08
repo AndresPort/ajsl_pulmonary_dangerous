@@ -25,5 +25,3 @@ createRoot(document.getElementById("root")).render(
     </BrowserRouter>
   </StrictMode>
 );
-console.log(window.innerHeight)
-console.log(window.innerWidth)
