@@ -11,7 +11,7 @@ const HealthyLungSemiVisible = (props) => {
 
   useFrame((state) => {
     const time = state.clock.getElapsedTime();
-    const baseScale = 0.003; // El tamaño inicial
+    const baseScale = 0.0064; // El tamaño inicial
     const breathing = Math.sin(time * 2) * 0.0001; // Más movimiento
     if (lungsRef.current) {
       const newScale = baseScale + breathing;
@@ -34,7 +34,7 @@ const HealthyLungSemiVisible = (props) => {
     <primitive
       object={HealthyLungSemiVisibleModel.scene}
       ref={lungsRef}
-      scale={0.005}
+      scale={0.05}
       castShadow
       receiveShadow
       {...props}

@@ -41,7 +41,7 @@ function Home() {
           <SoftShadows size={40} samples={20} focus={0.8} />
           <Lights />
           <OrbitControls target={[0, 0, 0]} />
-          <HealthyLungSemiVisible scale={0.001} />
+          <HealthyLungSemiVisible scale={0.01} />
         </Canvas>
       </div>
 
