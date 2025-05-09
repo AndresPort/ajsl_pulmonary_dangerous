@@ -4,9 +4,13 @@ import { Canvas } from "@react-three/fiber";
 import Controls from "./controls/Controls";
 import Lights from "./lights/Lights";
 import PneumoniaLungs from "./models-3d/PneumoniaLungs";
+import PersonCoughing from "./models-3d/PersonCoughing";
 import FirstSectionReader from "./data/data_readers/first_section_reader";
 import { pneumoniaFirstSection } from "./data/pneumonia-first-section";
 import Recipient from "./models-3d/Recipient";
+import Staging from "./staging/Staging";
+import Button from "./models-3d/html-3d/Button";
+import Sunlight from "./lights/Sunlight";
 
 const Pneumonia = () => {
   const symptomsRef = useRef(null);
@@ -16,7 +20,7 @@ const Pneumonia = () => {
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -32,6 +36,7 @@ const Pneumonia = () => {
               <Controls />
               <PneumoniaLungs scale={2} />
               <Recipient />
+              <Staging/>
             </Canvas>
           </div>
           <div className="text-container">
@@ -45,7 +50,14 @@ const Pneumonia = () => {
       <section className="section" ref={symptomsRef} id="symptoms">
         <div className="content">
           <div className="model-container">
-            {/* Placeholder for 3D model */}
+            <Canvas camera={{ position: [-5, 3, 8] }} shadows={true}>
+              <Sunlight />
+              <Controls />
+              <PersonCoughing scale={5} position={[0, -3, 0]}/>
+              <Button />
+              <Staging />
+              <Recipient />
+            </Canvas>
           </div>
           <div className="text-container">
             <h2>Síntomas</h2>
