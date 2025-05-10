@@ -3,8 +3,11 @@ import './Tuberculosis.css';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { Lungs } from './models-3d/Lungs';
+import { ManCoughing } from './models-3d/ManCoughing';
 import LightsLungs from './lights/LightsLungs';
 import Floor from './models-3d/Floor';
+import FloorMan from './models-3d/FloorMan'
+import LightsManCoughing from './lights/LightsManCoughing';
 
 
 const Tuberculosis = () => {
@@ -44,7 +47,12 @@ const Tuberculosis = () => {
       <section className="section" ref={sintomasRef} id="sintomas">
         <div className="content">
           <div className="model-container">
-            {/* Aquí irá el modelo 3D de síntomas */}
+          <Canvas camera={{ position: [0, 1, 4] }} shadows={true}>
+            <OrbitControls target={[0, 0, 0]} />
+            <LightsManCoughing />
+            <ManCoughing scale={2.6} />
+            <FloorMan />
+          </Canvas>
           </div>
           <div className="text-container">
             <h2>Síntomas</h2>
