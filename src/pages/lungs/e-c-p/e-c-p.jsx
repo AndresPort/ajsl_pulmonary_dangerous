@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import "./e-c-p.css";
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
@@ -6,12 +6,32 @@ import SaneLungs from './models-3d/SaneLungs';
 import Lights from './lights/Lights';
 import Floor from './models-3d/Floor';
 import Controls from './controls/Controls';
+import Button from "./models-3d/html-3d/Button";
+import Smoker from './models-3d/Smoker';
+import Staging from './staging/Staging';
+import CityLights from './lights/CityLights';
+import useSmokerStore from "/src/stores/e-c-p-stores/use-smoker-store";
+
 
 const ECP = () => {
     const sintomasRef = useRef(null);
     const tratamientoRef = useRef(null);
     const prevencionRef = useRef(null);
-    
+    const { setCurrentAnimation } = useSmokerStore();
+    useEffect(() => {
+        const handleKeyPress = (event) => {
+            if (event.code === "KeyR") {
+                setCurrentAnimation("Idle");
+            }
+            if (event.code === "Escape") {
+                setCurrentAnimation("Idle");
+            }
+        };
+
+        document.addEventListener("keydown", handleKeyPress);
+        return () => document.removeEventListener("keydown", handleKeyPress);
+    }, []);
+
     return (
         <div className="ecp-page">
             <section className="section" id="intro">
@@ -31,9 +51,7 @@ const ECP = () => {
                             La enfermedad crónica pulmonar o tambien llamada
                             Enfermedad pulmonar obstructiva crónica (EPOC)
                             se trata de una enfermedad pulmonar común causando
-                            dificultades a la hora de respirar causada principalmente
-                            por el tabaco, aunque hay ciertos casos en los que podria
-                            desarrollarse inclusive sin la necesidad de uno.
+                            dificultades a la hora de respirar
                             <p>
                                 Hay dos formas principales de la enfermedad:
                             </p>
@@ -58,7 +76,14 @@ const ECP = () => {
             <section className="section" ref={sintomasRef} id="sintomas">
                 <div className="content">
                     <div className="model-container">
-                        {/* Aquí irá el modelo 3D de síntomas */}
+                        <Canvas camera={{ position: [0, 2, 7.85] }} shadows={true}>
+                            <CityLights />
+                            <Smoker scale={3} position={[1, 1, 1]} />
+                            <Floor />
+                            <Button />
+                            <Staging />
+                            <Controls />
+                        </Canvas>
                     </div>
                     <div className="text-container">
                         <h2>Síntomas</h2>

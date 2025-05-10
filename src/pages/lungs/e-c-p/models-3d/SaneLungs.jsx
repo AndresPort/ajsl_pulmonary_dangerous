@@ -1,10 +1,10 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useFrame } from '@react-three/fiber'
 
 
 export function SaneLungs(props) {
-  const { nodes, materials } = useGLTF("/models-3d/SaneLungs.glb");
+  const { nodes, materials } = useGLTF("/models-3d/e-c-p/SaneLungs.glb");
   const lungsRef = useRef();
 
   useFrame((state) => {
@@ -36,4 +36,4 @@ export function SaneLungs(props) {
 
 export default SaneLungs;
 
-useGLTF.preload("/models-3d/SaneLungs.glb");
+useGLTF.preload("/models-3d/e-c-p/SaneLungs.glb");

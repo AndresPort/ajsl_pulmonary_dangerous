@@ -7,7 +7,7 @@ const Floor = () => {
   const floorTexture = useTexture({
     map: `${PATH}albedo.png`,
     normalMap: `${PATH}normal-ogl.png`,
-    //displacementMap: `${PATH}height.png`,
+    displacementMap: `${PATH}height.png`,
     aoMap: `${PATH}ao.png`,
   });
 
