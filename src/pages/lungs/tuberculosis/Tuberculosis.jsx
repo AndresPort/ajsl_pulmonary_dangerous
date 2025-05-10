@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import './Tuberculosis.css';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
@@ -8,12 +8,16 @@ import LightsLungs from './lights/LightsLungs';
 import Floor from './models-3d/Floor';
 import FloorMan from './models-3d/FloorMan'
 import LightsManCoughing from './lights/LightsManCoughing';
-
+import StagingMan from './staging/StagingMan';
+import Button from './texts/Button';
+import { KeyboardControls } from '@react-three/drei';
 
 const Tuberculosis = () => {
   const sintomasRef = useRef(null);
-  const tratamientoRef = useRef(null);
-  const prevencionRef = useRef(null);
+  const manCoughingRef = useRef();
+  const keyMap = [
+    { name: 'stopCough', keys: ['Space'] }
+  ];
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
@@ -33,7 +37,7 @@ const Tuberculosis = () => {
         </Canvas>
       </div>
       <div className="text-container">
-        <h1>¿Qué es la Tuberculosis?</h1>
+        <h2>¿Qué es la Tuberculosis?</h2>
         <p>
           La tuberculosis (TB) es una enfermedad infecciosa causada por la bacteria Mycobacterium tuberculosis. 
           Afecta principalmente los pulmones pero puede dañar otros órganos.
@@ -47,29 +51,38 @@ const Tuberculosis = () => {
       <section className="section" ref={sintomasRef} id="sintomas">
         <div className="content">
           <div className="model-container">
+          <KeyboardControls map={keyMap}>
           <Canvas camera={{ position: [0, 1, 4] }} shadows={true}>
             <OrbitControls target={[0, 0, 0]} />
+            <StagingMan />
             <LightsManCoughing />
-            <ManCoughing scale={2.6} />
+            <ManCoughing scale={2.6} ref={manCoughingRef}/>
+            <Button 
+              label="Toser" 
+              onClick={() => manCoughingRef.current?.startCoughing()} 
+            />
             <FloorMan />
           </Canvas>
+          </KeyboardControls>
           </div>
           <div className="text-container">
             <h2>Síntomas</h2>
             <p>
-              Tos persistente, fiebre, sudores nocturnos, pérdida de peso y fatiga son síntomas frecuentes de tuberculosis pulmonar.
+            La tos que dura más de tres semanas es un síntoma común, La tos con sangre (hemoptisis) 
+            o moco es un síntoma que indica que la infección ha llegado a los pulmones, ademas de sintomas como fiebre, 
+            sudores nocturnos, pérdida de peso y fatiga los cuales son frecuentes en la tuberculosis pulmonar.
             </p>
-            <button onClick={() => scrollToSection(tratamientoRef)}>Ver más</button>
+            {/* <button onClick={() => scrollToSection(tratamientoRef)}>Ver más</button> */}
           </div>
         </div>
       </section>
 
       {/* Sección 3: Tratamientos */}
-      <section className="section" ref={tratamientoRef} id="tratamiento">
+      {/* <section className="section" ref={tratamientoRef} id="tratamiento">
         <div className="content">
-          <div className="model-container">
+          <div className="model-container"> */}
             {/* Aquí irá el modelo 3D de tratamiento */}
-          </div>
+          {/* </div>
           <div className="text-container">
             <h2>Tratamiento</h2>
             <p>
@@ -78,14 +91,14 @@ const Tuberculosis = () => {
             <button onClick={() => scrollToSection(prevencionRef)}>Ver más</button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* Sección 4: Prevención */}
-      <section className="section" ref={prevencionRef} id="prevencion">
+      {/* <section className="section" ref={prevencionRef} id="prevencion">
         <div className="content">
-          <div className="model-container">
+          <div className="model-container"> */}
             {/* Aquí irá el modelo 3D de prevención */}
-          </div>
+          {/* </div>
           <div className="text-container">
             <h2>Prevención</h2>
             <p>
@@ -93,7 +106,7 @@ const Tuberculosis = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
