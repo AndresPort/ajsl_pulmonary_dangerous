@@ -4,7 +4,7 @@ import { DirectionalLightHelper } from "three";
 
 const Lights = () => {
     const directionalLightRef = useRef();
-    useHelper(directionalLightRef, DirectionalLightHelper);
+    //useHelper(directionalLightRef, DirectionalLightHelper);
 
 
     return(
