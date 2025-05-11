@@ -15,19 +15,20 @@ canvas {
 }
 
 .pneumonia-page {
-  background-color: #050b1e;
+  background: linear-gradient(to right, rgb(21, 34, 63), rgb(30, 58, 138));
   font-family: 'Arial', sans-serif;
   color: #ffffff;
   scroll-behavior: smooth;
 }
 
 .section {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 98%;
 }
 
 .content {
@@ -40,7 +41,7 @@ canvas {
 }
 
 .model-container {
-  flex: 1;
+  width: 100%;
   height: 500px;
   background-color: rgba(255, 255, 255, 0.05);
   border-radius: 20px;
@@ -51,8 +52,9 @@ canvas {
 }
 
 .text-container {
-  flex: 1;
+  font-size: 20px;
   text-align: left;
+  flex: 1;
   max-width: 600px;
   display: flex;
   flex-direction: column;
@@ -61,6 +63,7 @@ canvas {
 }
 
 h1, h2 {
+  text-align: center;
   margin-bottom: 20px;
 }
 
@@ -82,13 +85,13 @@ button {
 
 button:hover {
   background-color: #1467b8;
-  transform: scale(1.05); /* Slightly enlarge the button */
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Add a shadow effect */
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 button:active {
-  transform: scale(0.95); /* Slightly shrink the button when clicked */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Reduce shadow on click */
+  transform: scale(0.95);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 /* Responsive for mobile */

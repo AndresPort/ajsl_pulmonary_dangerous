@@ -3,11 +3,9 @@ import { OrbitControls } from "@react-three/drei";
 const Controls = () => {
     return (
         <OrbitControls
-            //maxPolarAngle={1.75}
-            //minPolarAngle={1}
-            //maxAzimuthAngle={0.75}
-            //minAzimuthAngle={-0.75}
             enableZoom={true}
+            minDistance={2} // Minimum zoom distance
+            maxDistance={20} // Maximum zoom distance
             enablePan={true}
             target={[0, 0, 0]}
             enableDamping={true}  // Smooth movement
