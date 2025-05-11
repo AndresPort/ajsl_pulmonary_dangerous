@@ -11,6 +11,7 @@ import Staging from './staging/Staging';
 import CityLights from './lights/CityLights';
 import useSmokerStore from "/src/stores/e-c-p-stores/use-smoker-store";
 import Title from './texts/title';
+import { OrbitControls } from '@react-three/drei';
 
 
 const ECP = () => {
