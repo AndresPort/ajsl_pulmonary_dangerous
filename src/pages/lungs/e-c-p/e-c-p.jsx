@@ -1,7 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import "./e-c-p.css";
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls } from '@react-three/drei';
 import SaneLungs from './models-3d/SaneLungs';
 import Lights from './lights/Lights';
 import Floor from './models-3d/Floor';
@@ -11,6 +10,7 @@ import Smoker from './models-3d/Smoker';
 import Staging from './staging/Staging';
 import CityLights from './lights/CityLights';
 import useSmokerStore from "/src/stores/e-c-p-stores/use-smoker-store";
+import Title from './texts/title';
 
 
 const ECP = () => {
@@ -38,7 +38,6 @@ const ECP = () => {
                 <div className="content">
                     <div className="model-container">
                         <Canvas camera={{ position: [0, 1, 4] }} shadows={true}>
-                            <OrbitControls target={[0, 0, 0]} />
                             <Controls />
                             <Lights />
                             <SaneLungs scale={5} />
@@ -77,6 +76,7 @@ const ECP = () => {
                 <div className="content">
                     <div className="model-container">
                         <Canvas camera={{ position: [0, 2, 7.85] }} shadows={true}>
+                            <Title title={"Presiona r o esc para volver a la animacion base"}/>
                             <CityLights />
                             <Smoker scale={3} position={[1, 1, 1]} />
                             <Floor />
