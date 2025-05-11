@@ -8,9 +8,9 @@ const Staging = () => {
         sunPosition={[100, 20, 100]} // Position of the sun in the sky
         inclination={0} // Angle of the sun's inclination
         azimuth={0} // Angle of the sun's azimuth
-        turbidity={10} // Turbidity of the atmosphere
-        rayleigh={1} // Rayleigh scattering factor
-        mieCoefficient={0.005} // Mie scattering coefficient
+        turbidity={15} // Increased turbidity for a darker, hazier sky
+        rayleigh={0.5} // Reduced Rayleigh scattering for less blue light
+        mieCoefficient={0.1} // Increased Mie scattering for a darker atmosphere
         mieDirectionalG={0.7} // Mie directional factor
     />
 
