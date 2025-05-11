@@ -1,8 +1,5 @@
 .tuberculosis-page {
-  background-color: #050b1e; 
-  font-family: 'Arial', sans-serif;
-  color: #ffffff;
-  scroll-behavior: smooth;
+  background: linear-gradient(to right, rgb(21, 34, 63), rgb(30, 58, 138));
 }
 
 .section {

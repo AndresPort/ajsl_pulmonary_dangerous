@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import './Tuberculosis.css';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
@@ -11,17 +11,33 @@ import LightsManCoughing from './lights/LightsManCoughing';
 import StagingMan from './staging/StagingMan';
 import Button from './texts/Button';
 import { KeyboardControls } from '@react-three/drei';
+import Controls from './controls/Controls';
+import useManStore from '/src/stores/tuberculosis-stores/use-man-store.js';
 
 const Tuberculosis = () => {
   const sintomasRef = useRef(null);
-  const manCoughingRef = useRef();
-  const keyMap = [
-    { name: 'stopCough', keys: ['Space'] }
-  ];
-
+  const { currentAnimation, setCurrentAnimation } = useManStore();
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
   };
+  const keyMap = [
+    { name: 'stopCough', keys: ['Space', 'r', 'R'] }
+  ];
+
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const key = event.code;
+
+      if ((key === 'Space' || key === 'KeyR') && currentAnimation !== 'Normal') {
+        event.preventDefault();
+        setCurrentAnimation('Normal');
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [currentAnimation]);
 
   return (
     <div className="tuberculosis-page">
@@ -31,6 +47,7 @@ const Tuberculosis = () => {
       <div className="model-container">
         <Canvas camera={{ position: [0, 1, 4] }} shadows={true}>
           <OrbitControls target={[0, 0, 0]} />
+          <Controls />
           <LightsLungs />
           <Lungs scale={20} />
           <Floor />
@@ -52,15 +69,13 @@ const Tuberculosis = () => {
         <div className="content">
           <div className="model-container">
           <KeyboardControls map={keyMap}>
-          <Canvas camera={{ position: [0, 1, 4] }} shadows={true}>
+          <Canvas camera={{ position: [0, 3, 6.85] }} shadows={true}>
             <OrbitControls target={[0, 0, 0]} />
+            <Controls />
             <StagingMan />
             <LightsManCoughing />
-            <ManCoughing scale={2.6} ref={manCoughingRef}/>
-            <Button 
-              label="Toser" 
-              onClick={() => manCoughingRef.current?.startCoughing()} 
-            />
+            <ManCoughing scale={3.3}/>
+            <Button/>
             <FloorMan />
           </Canvas>
           </KeyboardControls>
@@ -70,7 +85,7 @@ const Tuberculosis = () => {
             <p>
             La tos que dura más de tres semanas es un síntoma común, La tos con sangre (hemoptisis) 
             o moco es un síntoma que indica que la infección ha llegado a los pulmones, ademas de sintomas como fiebre, 
-            sudores nocturnos, pérdida de peso y fatiga los cuales son frecuentes en la tuberculosis pulmonar.
+            sudores nocturnos, pérdida de peso y fatiga.
             </p>
             {/* <button onClick={() => scrollToSection(tratamientoRef)}>Ver más</button> */}
           </div>
