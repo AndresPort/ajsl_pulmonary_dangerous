@@ -7,11 +7,11 @@ const Button = () => {
 
   return (
     <Html className="buttons-container"center position={[0, -5, 0]}>
-        <button className="coughing-button" onClick={() => setCurrentAnimation("Coughing")}>
+        <button className="coughing-button" title="Con 'R' o 'Espacio' se reinicia la animación" onClick={() => setCurrentAnimation("Coughing")}>
             {"Toser"}
         </button>
         <p>ㅤ</p>
-        <button className="sweat-button" onClick={() => setCurrentAnimation("Sweat")}>
+        <button className="sweat-button" title="Con 'R' o 'Espacio' se reinicia la animación" onClick={() => setCurrentAnimation("Sweat")}>
             {"Sudar"}
         </button>
     </Html>
