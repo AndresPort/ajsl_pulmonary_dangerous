@@ -10,7 +10,7 @@ import Smoker from './models-3d/Smoker';
 import Staging from './staging/Staging';
 import CityLights from './lights/CityLights';
 import useSmokerStore from "/src/stores/e-c-p-stores/use-smoker-store";
-import Title from './texts/title';
+import Title from './texts/Title';
 import { OrbitControls } from '@react-three/drei';
 
 
