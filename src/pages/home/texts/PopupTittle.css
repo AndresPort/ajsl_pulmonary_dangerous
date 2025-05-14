@@ -1,0 +1,43 @@
+
+.htmlPupup{
+    position: absolute;
+    width:610px;
+    height: 245px;
+    left: -223px;
+    top: -160px;
+}
+
+.title h1{
+    text-shadow: 
+    0 0 4px rgb(255,255,255)
+    0 0 8px rgb(255,255,255)
+    0 0 16px rgb(255,255,255);
+}
+
+.tittlePart1{
+    position:absolute;
+    font-size: 38px;
+    bottom: 110px;
+    left: 10px;
+}
+
+.tittlePart2{
+    position: absolute;
+    font-size: 38px;
+    bottom: 70px;
+    left: 95px;
+}
+
+.tittlePart3{
+    position: absolute;
+    font-size: 38px;
+    bottom: 110px;
+    left: 370px;
+}
+
+.tittlePart4{
+    position: absolute;
+    font-size: 38px;
+    bottom: 70px;
+    left: 370px;
+}

@@ -15,16 +15,65 @@ body{
 }
 
 
-.popupHome{
-    visibility: hidden;
+@media (max-height: 740px) {
+    .popupHome{
+    visibility: visible;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    margin-top: -22%;
+    display: flex;
+    flex-direction: column;
+    margin-top: -40%;
     width: 90%;
     height:85%;
+    padding: 10px;
+    background: linear-gradient(to right, rgb(14, 24, 44), rgb(33, 49, 94));
+    border-radius: 50px;
+    z-index: 999;
+}
+}
+
+@media (min-height: 750px) {
+    .popupHome{
+    visibility: visible;
+    position: absolute;
+    margin-left: auto;
+    display: flex;
+    margin-right: auto;
+    margin-top: -45%;
+    width: 90%;
+    height:85%;
+    
     background-color: rgb(3, 3, 41);
     z-index: 999;
+}
+}
+
+.popupHome__tittle{
+    margin-top: 20px;
+}
+
+.popupText{
+    display: flex;
+    justify-self: start;
+    margin-left: 200px;
+}
+
+.popupModelContainer{   
+    width: 100%;
+    height: 480px;
+}
+
+.popupCanvas{
+    width: 100%;
+    height: 100%;
+    margin-top: 20;
+}
+
+.popupHome__BtnClose{
+    width: 1000px;
+    position: absolute;
+    bottom: 5dvh;
 }
 
 .circularLights3{
