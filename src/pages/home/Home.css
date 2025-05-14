@@ -1,22 +1,21 @@
-*{
-    box-sizing: border-box;
-    font-family: "Montserrat";
+* {
+  box-sizing: border-box;
+  font-family: "Montserrat";
 }
 
-body{
-    overflow-x: hidden;
+body {
+  overflow-x: hidden;
 }
 
-.model_container{
-    height: 650px;
-    width: 800px;
-    margin-top: -30%;
-    margin-left: 50%; 
+.model_container {
+  height: 650px;
+  width: 800px;
+  margin-top: -30%;
+  margin-left: 50%;
 }
-
 
 @media (max-height: 740px) {
-    .popupHome{
+  .popupHome {
     visibility: visible;
     position: absolute;
     margin-left: auto;
@@ -25,16 +24,33 @@ body{
     flex-direction: column;
     margin-top: -40%;
     width: 90%;
-    height:85%;
+    height: 85%;
     padding: 10px;
     background: linear-gradient(to right, rgb(14, 24, 44), rgb(33, 49, 94));
     border-radius: 50px;
     z-index: 999;
-}
+  }
+
+  .popupModelContainer {
+    width: 100%;
+    height: 480px;
+  }
+
+  .popupCanvas {
+    width: 100%;
+    height: 100%;
+    margin-top: 20;
+  }
+
+  .popupHome__BtnClose {
+    width: 1000px;
+    position: absolute;
+    bottom: 5dvh;
+  }
 }
 
 @media (min-height: 750px) {
-    .popupHome{
+  .popupHome {
     visibility: visible;
     position: absolute;
     margin-left: auto;
@@ -42,68 +58,55 @@ body{
     margin-right: auto;
     margin-top: -45%;
     width: 90%;
-    height:85%;
-    
-    background-color: rgb(3, 3, 41);
+    height: 85%;
+    background: linear-gradient(to right, rgb(14, 24, 44), rgb(33, 49, 94));
+    border-radius: 50px;
     z-index: 999;
-}
-}
+  }
 
-.popupHome__tittle{
-    margin-top: 20px;
-}
-
-.popupText{
-    display: flex;
-    justify-self: start;
-    margin-left: 200px;
-}
-
-.popupModelContainer{   
+  .popupModelContainer {
     width: 100%;
-    height: 480px;
-}
+    height: 600px;
+  }
 
-.popupCanvas{
+  .popupCanvas {
     width: 100%;
     height: 100%;
-    margin-top: 20;
-}
+  }
 
-.popupHome__BtnClose{
-    width: 1000px;
+  .popupHome__BtnClose {
+    width: 95%;
+    height: 7%;
     position: absolute;
-    bottom: 5dvh;
+    bottom: 5%;
+    left: 2.5%;
+  }
 }
 
-.circularLights3{
-    background-color: rgb(255,255,255);
-    width: 500px;
-    height: 500px;
-    opacity: 0.5;
-    border-radius: 100%;
-    filter: blur(300px);
-    position: absolute;
-    left: 1400px;
+.circularLights3 {
+  background-color: rgb(255, 255, 255);
+  width: 500px;
+  height: 500px;
+  opacity: 0.5;
+  border-radius: 100%;
+  filter: blur(300px);
+  position: absolute;
+  left: 1400px;
 }
 
-.circularLights4{
-    background-color: rgb(255,255,255);
-    width: 500px;
-    height: 500px;
-    opacity: 0.5;
-    border-radius: 100%;
-    filter: blur(300px);
-    position: absolute;
-    top: 600px;
-    left:-100px ;
+.circularLights4 {
+  background-color: rgb(255, 255, 255);
+  width: 500px;
+  height: 500px;
+  opacity: 0.5;
+  border-radius: 100%;
+  filter: blur(300px);
+  position: absolute;
+  top: 600px;
+  left: -100px;
 }
 
-.popupHome__tittle{
-    font-size: 60px;
+.popupHome__tittle {
+  font-size: 60px;
 }
 
-.popupHome__BtnClose{
-    width: 90%;
-    height: 6%;
-}
