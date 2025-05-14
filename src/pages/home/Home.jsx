@@ -1,27 +1,53 @@
-import { Fragment } from "react";
 import "./Home.css";
 import CircularLights from "../../Components/circularLights";
 import Button from "../../Components/button";
-import { Route } from "react-router";
+import PopupTittle from "./texts/PopupTittle";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, SoftShadows } from "@react-three/drei";
 import Lights from "./Lights/Lights";
 import HealthyLungSemiVisible from "./models-3d/HealthyLungSemiVisible";
 import { useNavigate } from "react-router";
+import KittyGirlWaving from "./models-3d/KittyGirlWaving";
+import SparklesStaging from "./models-3d/staging/SparklesStaging";
+import { Fragment, useState } from "react";
 
 function Home() {
   const navigate = useNavigate();
+  const [isPopupVisible, setIsPopupVisible] = useState(true);
+
   return (
     //principal text section
     <Fragment>
-
-      <div className="popupHome" open>
-        <CircularLights number="3" />
-        <CircularLights number="4" />
-        <h2 className="popupHome__tittle">Bienvenido</h2>
-        <p> Texto de bienvenida</p>
-        <button className="popupHome__BtnClose"> Cerrar </button>
-      </div>
+      {isPopupVisible && (
+        <div className="popupHome">
+          <CircularLights number="3" />
+          <CircularLights number="4" />
+          <div className="popupModelContainer">
+            <Canvas
+              className="popupCanvas"
+              camera={{ position: [0, 2, 3] }}
+              shadows={true}
+            >
+              <Lights />
+              <OrbitControls target={[0, 2, 0]} />
+              <PopupTittle
+                tittlePart1="Bienvenido a"
+                tittlePart2={"AJSL"}
+                tittlePart3={"Pulmonary"}
+                tittlePart4={"Dangerous"}
+              />
+              <SparklesStaging />
+              <KittyGirlWaving scale={0.024} />
+            </Canvas>
+          </div>
+          <button
+            className="popupHome__BtnClose"
+            onClick={() => setIsPopupVisible(false)}
+          >
+            Continuar
+          </button>
+        </div>
+      )}
 
       <div className="principalTextSection">
         <h1 className="principalTextSection__tittle">
