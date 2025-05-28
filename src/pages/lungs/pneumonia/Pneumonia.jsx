@@ -10,12 +10,17 @@ import Staging from "./staging/Staging";
 import Button from "./models-3d/html-3d/Button";
 import Sunlight from "./lights/Sunlight";
 import SparklesEffect from "./staging/Sparkles";
+import LungsModel from "./models-3d/LungsModel";
 
 const Pneumonia = () => {
   const symptomsRef = useRef(null);
   const treatmentRef = useRef(null);
   const preventionRef = useRef(null);
   const [showSparkles, setShowSparkles] = useState(false);
+  const [showLungsModel, setShowLungsModel] = useState(false);
+  // Nuevo estado para transición
+  const [fade, setFade] = useState(1); // 1 = visible, 0 = invisible
+  const [pendingSwitch, setPendingSwitch] = useState(false);
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
@@ -28,6 +33,24 @@ const Pneumonia = () => {
   const handleReset = () => {
     setShowSparkles(false); // Hide sparkles when "r" is pressed
   };
+
+  // Maneja el cambio de modelo con transición
+  const handleModelSwitch = () => {
+    setFade(0); // Inicia fade out
+    setPendingSwitch(true);
+  };
+
+  // Efecto para cambiar modelo después del fade out
+  useEffect(() => {
+    if (fade === 0 && pendingSwitch) {
+      const timeout = setTimeout(() => {
+        setShowLungsModel((prev) => !prev);
+        setFade(1); // Inicia fade in
+        setPendingSwitch(false);
+      }, 300); // Duración del fade out en ms
+      return () => clearTimeout(timeout);
+    }
+  }, [fade, pendingSwitch]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -83,8 +106,22 @@ const Pneumonia = () => {
 
       <section className="section" ref={treatmentRef} id="treatment">
         <div className="content">
-          <div className="model-container">
-            {/* Placeholder for 3D model */}
+          <div className="model-container" style={{ transition: "opacity 0.3s", opacity: fade }}>
+            <Canvas camera={{ position: [2, 0, 7] }}  shadows={true}>
+              <Sunlight />
+              <Controls />
+              {/* Renderizado condicional de modelos */}
+              {showLungsModel ? <LungsModel /> : <PneumoniaLungs />}
+              <Staging />
+              <Recipient />
+            </Canvas>
+            {/* Botón para alternar modelos */}
+            <button
+              onClick={handleModelSwitch}
+              disabled={fade !== 1} // Deshabilita durante la transición
+            >
+              {showLungsModel ? "Antes" : "Después"}
+            </button>
           </div>
           <div className="text-container">
             <h2>Tratamiento</h2>
@@ -110,7 +147,8 @@ const Pneumonia = () => {
             </p>
           </div>
         </div>
-      </section>
+      </section> 
+      
     </div>
   );
 };
