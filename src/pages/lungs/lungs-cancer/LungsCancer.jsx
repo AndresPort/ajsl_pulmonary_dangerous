@@ -9,6 +9,8 @@ import MultipleAmbientLights from "./lights/MultipleAmbientLights";
 import Tittle from "./texts/Tittle";
 import SkyStaging from "./staging/SkyStaging";
 import SparklesStaging from "./staging/SparklesStaging";
+import Button from "../../../Components/button/";
+import CoughSound from "./sounds/CoughSound";
 
 const LungsCancer = () => {
   return (
@@ -76,6 +78,9 @@ const LungsCancer = () => {
               <SkyStaging />
             </Canvas>
           </div>
+          <CoughSound 
+          className= "btnPlaySound"/>
+          <h5 className="coughIndications">Presione "P" para parar de toser</h5>
         </div>
       </section>
     </div>

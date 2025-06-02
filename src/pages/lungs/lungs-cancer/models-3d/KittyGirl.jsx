@@ -2,16 +2,18 @@
 import React, { useEffect, useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
-export function Model(props) {
+export function KittyGirl(props) {
   const group = useRef()
   const { nodes, materials, animations } = useGLTF('/models-3d/lung-cancer-models/KittyGirl.glb')
   const { actions } = useAnimations(animations, group)
 
 
 useEffect(() => {
+  if (actions?.Smoking) {
     actions.Smoking.play();
     return () => actions.Smoking.stop();
-    },[actions.Smoking]);
+  }
+}, [actions]);
 
   return (
     <group ref={group} {...props} dispose={null}>
@@ -109,5 +111,7 @@ useEffect(() => {
     </group>
   )
 }
+
+export default KittyGirl;
 
 useGLTF.preload('/models-3d/lung-cancer-models/KittyGirl.glb')
