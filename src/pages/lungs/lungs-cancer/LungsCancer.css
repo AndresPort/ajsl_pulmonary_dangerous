@@ -75,3 +75,15 @@
     text-align: center;
 }
 
+.btnPlaySound{
+    position: absolute;
+    margin-left: 18.5%;
+    bottom: -130% 
+}
+
+.coughIndications{
+    position: absolute;
+    margin-left: 12%;
+    bottom: -137%;
+    font-size: 16px;
+}
