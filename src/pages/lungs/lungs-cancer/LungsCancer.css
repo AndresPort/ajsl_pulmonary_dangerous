@@ -78,12 +78,12 @@
 .btnPlaySound{
     position: absolute;
     margin-left: 18.5%;
-    bottom: -130% 
+    bottom: -85% 
 }
 
 .coughIndications{
     position: absolute;
     margin-left: 12%;
-    bottom: -137%;
+    bottom: -90%;
     font-size: 16px;
 }
