@@ -7,7 +7,7 @@ import { OrbitControls, SoftShadows } from "@react-three/drei";
 import Lights from "./Lights/Lights";
 import HealthyLungSemiVisible from "./models-3d/HealthyLungSemiVisible";
 import { useNavigate } from "react-router";
-import KittyGirlWaving from "./models-3d/KittyGirlWaving";
+import AnimeNurse from "./models-3d/AnimeNurse";
 import SparklesStaging from "./models-3d/staging/SparklesStaging";
 import { Fragment, useState } from "react";
 
@@ -37,7 +37,7 @@ function Home() {
                 tittlePart4={"Dangerous"}
               />
               <SparklesStaging />
-              <KittyGirlWaving scale={0.024} />
+              <AnimeNurse scale={0.035} />
             </Canvas>
           </div>
           <button

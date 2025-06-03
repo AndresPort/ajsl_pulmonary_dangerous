@@ -9,7 +9,6 @@ import MultipleAmbientLights from "./lights/MultipleAmbientLights";
 import Tittle from "./texts/Tittle";
 import SkyStaging from "./staging/SkyStaging";
 import SparklesStaging from "./staging/SparklesStaging";
-import Button from "../../../Components/button/";
 import CoughSound from "./sounds/CoughSound";
 
 const LungsCancer = () => {
