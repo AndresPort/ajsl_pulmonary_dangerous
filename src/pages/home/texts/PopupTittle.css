@@ -14,37 +14,37 @@
 }
 
 
-@media (max-height: 740px) {
+@media (max-height: 779px) {
   .tittlePart1{
     position:absolute;
-    font-size: 38px;
+    font-size: 33px;
     bottom: 110px;
-    left: 10px;
+    left: 35px;
 }
 
 .tittlePart2{
     position: absolute;
     font-size: 38px;
     bottom: 70px;
-    left: 95px;
+    left: 110px;
 }
 
 .tittlePart3{
     position: absolute;
-    font-size: 38px;
-    bottom: 110px;
-    left: 370px;
+    font-size: 36px;
+    bottom: 105px;
+    left: 350px;
 }
 
 .tittlePart4{
     position: absolute;
-    font-size: 38px;
-    bottom: 70px;
-    left: 370px;
+    font-size: 36px;
+    bottom: 75px;
+    left: 350px;
 }
 }
 
-@media (min-height: 750px) {
+@media (min-height: 780px) {
   .tittlePart1{
     position:absolute;
     font-size: 35px;

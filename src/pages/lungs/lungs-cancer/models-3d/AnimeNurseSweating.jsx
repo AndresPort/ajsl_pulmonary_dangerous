@@ -1,27 +1,27 @@
 import { useRef,useEffect } from "react";
 import { useGLTF, useAnimations } from "@react-three/drei";
 
-const AnimeNurse = (props) => {
+const AnimeNurseSweating = (props) => {
   const group = useRef();
   const { nodes, materials, animations } = useGLTF("/models-3d/lung-cancer-models/AnimeNurse.glb");
   const { actions } = useAnimations(animations, group);
 
   useEffect(() => {
-    if (actions?.HighGreetings) {
-      actions.HighGreetings.play();
+    if (actions?.initialPose) {
+      actions.initialPose.play();
       return () => {
-        actions.HighGreetings?.stop();
+        actions.initialPose?.stop();
       };
     }
-  }, [actions?.HighGreetings]);
+  }, [actions?.initialPose]);
 
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group
           name="Armature"
-          position={[0.046, 6, -0.009]}
-          rotation={[Math.PI / 2, 0, 0]}
+          position={[0.046, -55, -0.009]} 
+          rotation={[Math.PI / 1.95, 0, 0]}
         >
           <skinnedMesh
             name="LeftSide"
@@ -42,6 +42,6 @@ const AnimeNurse = (props) => {
   );
 };
 
-export default AnimeNurse;
+export default AnimeNurseSweating;
 
 useGLTF.preload("/models-3d/lung-cancer-models/AnimeNurse.glb");
