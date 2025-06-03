@@ -1,27 +1,28 @@
 import "./LungsCancer.css";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls} from "@react-three/drei";
+import { OrbitControls } from "@react-three/drei";
 import SickLung from "./models-3d/SickLung";
 import SickLungsSemiVisibles from "./models-3d/SickLungsSemiVisibles";
+import AnimeNurseSweating from "./models-3d/AnimeNurseSweating";
 import Floor from "./models-3d/Floor";
 import Lights from "./lights/Lights";
 import MultipleAmbientLights from "./lights/MultipleAmbientLights";
 import Tittle from "./texts/Tittle";
 import SkyStaging from "./staging/SkyStaging";
 import SparklesStaging from "./staging/SparklesStaging";
-import CoughSound from "./sounds/CoughSound";
+// import CoughSound from "./sounds/CoughSound";
 
 const LungsCancer = () => {
   return (
     <div className="lungs-cancer-page">
       <div className="tittleContainer">
-            <Canvas camera={{ position: [0, 0, 1.3] }} shadows={true} >
-              {/* <SoftShadows size={40} samples={40} focus={0.8} /> */}
-              <Lights />
-              <Tittle tittle="Cáncer de Pulmón" />
-              <SparklesStaging/>
-            </Canvas>
-          </div>
+        <Canvas camera={{ position: [0, 0, 1.3] }} shadows={true}>
+          {/* <SoftShadows size={40} samples={40} focus={0.8} /> */}
+          <Lights />
+          <Tittle tittle="Cáncer de Pulmón" />
+          <SparklesStaging />
+        </Canvas>
+      </div>
       <section className="SickLungSection">
         <div className="content">
           <div className="sickLungModelContainer">
@@ -36,8 +37,8 @@ const LungsCancer = () => {
           <div className="sickLungTextContainer">
             <h1>¿Qué es el cancer de pulmón?</h1>
             <p className="meanText">
-            El cáncer de pulmón ocurre cuando células del pulmón crecen
-             sin control por mutaciones en su ADN, formando tumores que pueden
+              El cáncer de pulmón ocurre cuando células del pulmón crecen sin
+              control por mutaciones en su ADN, formando tumores que pueden
               invadir otros tejidos y causar metástasis.​
             </p>
 
@@ -50,36 +51,63 @@ const LungsCancer = () => {
               <br /> -Factores genéticos y enfermedades pulmonares previas
             </p>
             <h1>Efectos en el cuerpo humano</h1>
-            <p className="effectsText">El cáncer de pulmón causa tos persistente, dificultad para respirar,
-               dolor en el pecho y tos con sangre. En etapas avanzadas, puede provocar fatiga,
-               pérdida de peso y afectar otros órganos. La detección temprana con tomografía
-               de baja dosis mejora la supervivencia.         
+            <p className="effectsText">
+              El cáncer de pulmón causa tos persistente, dificultad para
+              respirar, dolor en el pecho y tos con sangre. En etapas avanzadas,
+              puede provocar fatiga, pérdida de peso y afectar otros órganos. La
+              detección temprana con tomografía de baja dosis mejora la
+              supervivencia.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="SickLungsSemiVisiblesSection">
+      <section className="sickLungsSemiVisiblesSection">
         <div className="content">
-          <div className="SickLungsSemiVisiblesTextContainer">
+          <div className="sickLungsSemiVisiblesTextContainer">
             <h1 className="symptomsTittle">Sintomas</h1>
             <p className="symptomsText">
-            Tos persistente, dificultad para respirar, dolor en el pecho, tos con sangre, ronquera, fatiga y pérdida de peso sin causa.​
+              Tos persistente, dificultad para respirar, dolor en el pecho, tos
+              con sangre, ronquera, fatiga y pérdida de peso sin causa.​
             </p>
           </div>
-          <div className="SickLungsSemiVisiblesModelContainer">
+          <div className="sickLungsSemiVisiblesModelContainer">
             <Canvas camera={{ position: [0, 0, 1.3] }} shadows={true}>
-              {/* <SoftShadows size={40} samples={40} focus={0.8} /> */}
               <MultipleAmbientLights />
               <OrbitControls target={[0, 0, 0]} />
               <SickLungsSemiVisibles scale={0.001} />
-              <Floor scale={0.001} /> 
+              <Floor scale={0.001} />
               <SkyStaging />
             </Canvas>
           </div>
-          <CoughSound 
-          className= "btnPlaySound"/>
-          <h5 className="coughIndications">Presione "P" para parar de toser</h5>
+          {/* <CoughSound className="btnPlaySound" /> */}
+          {/* <h5 className="coughIndications">Presione "P" para parar de toser</h5> */}
+        </div>
+      </section>
+
+      <section className="animeNurseSection">
+        <div className="animeNurseContent">
+          <div className="animeNurseTextContainer">
+            <h1 className="treatementTittle">Tratamiento</h1>
+            <p className="treatmentText">
+            - Cirugía
+            <br />
+            - Quimioterapia
+            <br />
+            - Radioterapia
+            <br />
+            - Inmunoterapia  
+            </p>
+          </div>
+          <div className="animeNurseModelContainer">
+            <Canvas camera={{ position: [0, 0.3, 1.7] }} shadows={true}>
+              <OrbitControls target={[0, 0, 0]} />
+              <Lights />
+              <AnimeNurseSweating scale={0.022} />
+              <Floor scale={0.001} />
+              <SkyStaging />
+            </Canvas>
+          </div>
         </div>
       </section>
     </div>

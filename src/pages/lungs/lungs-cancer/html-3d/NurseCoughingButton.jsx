@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import  { useEffect, useRef } from "react";
+import { Html } from "@react-three/drei";
 
-const CoughSound = (props) => {
+const NurseCoughingButton = (props) => {
   const audioRef = useRef(null);
 
   const reproducir = () => {
@@ -32,10 +33,12 @@ const CoughSound = (props) => {
   }, []);
 
   return (
+    <Html className="buttonContainer" center position={[0, -5, 0]}>
     <button className={props.className} onClick={reproducir}>
       Sintoma
     </button>
+    </Html>
   );
 };
 
-export default CoughSound;
+export default NurseCoughingButton;
