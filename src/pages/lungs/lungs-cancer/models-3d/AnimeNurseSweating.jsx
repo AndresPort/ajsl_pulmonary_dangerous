@@ -28,14 +28,21 @@ const AnimeNurseSweating = (props) => {
             geometry={nodes.LeftSide.geometry}
             material={materials.RightAndLeftSideMaterial}
             skeleton={nodes.LeftSide.skeleton}
+            castShadow
+            receiveShadow
           />
           <skinnedMesh
             name="RightSide"
             geometry={nodes.RightSide.geometry}
             material={materials.RightAndLeftSideMaterial}
             skeleton={nodes.RightSide.skeleton}
+            castShadow
+            receiveShadow
           />
-          <primitive object={nodes.mixamorigHips} />
+          <primitive 
+            object={nodes.mixamorigHips} 
+            castShadow
+            receiveShadow/>
         </group>
       </group>
     </group>
