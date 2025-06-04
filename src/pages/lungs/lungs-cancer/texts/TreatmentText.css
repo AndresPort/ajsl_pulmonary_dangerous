@@ -1,0 +1,47 @@
+@media (max-height: 779px) {
+  .textPart1 {
+    margin-top: 195px;
+    font-size: 13px;
+  }
+
+  .textPart2 {
+    font-size: 13px;
+    margin-top: -15px;
+  }
+
+  .textPart3 {
+    font-size: 13px;
+    margin-top: -15px;
+}
+
+  .textPart4 {
+    font-size: 13px;
+    margin-top: -15px;
+  }
+}
+
+@media (min-height: 780px) {
+  .textPart1 {
+    margin-top: 185px;
+    margin-left: 50px;
+    font-size: 13px;
+  }
+
+  .textPart2 {
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
+  }
+
+  .textPart3 {
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
+}
+
+  .textPart4 {
+    font-size: 13px;
+    margin-left: 50px;
+    margin-top: -15px;
+  }
+} 
