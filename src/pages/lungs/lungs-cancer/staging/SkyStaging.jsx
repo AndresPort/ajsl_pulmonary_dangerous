@@ -1,4 +1,4 @@
-import { Sky } from "@react-three/drei";
+import { Sky} from "@react-three/drei";
 
 const SkyStaging = () => {
   return (

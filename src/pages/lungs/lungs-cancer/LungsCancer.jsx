@@ -6,9 +6,11 @@ import SickLungsSemiVisibles from "./models-3d/SickLungsSemiVisibles";
 import AnimeNurseSweating from "./models-3d/AnimeNurseSweating";
 import Floor from "./models-3d/Floor";
 import Lights from "./lights/Lights";
+import SpotLight from "./lights/SpotLight";
 import MultipleAmbientLights from "./lights/MultipleAmbientLights";
 import Tittle from "./texts/Tittle";
 import SkyStaging from "./staging/SkyStaging";
+import StarsStaging from "./staging/StarsStaging";
 import SparklesStaging from "./staging/SparklesStaging";
 // import CoughSound from "./sounds/CoughSound";
 
@@ -102,10 +104,10 @@ const LungsCancer = () => {
           <div className="animeNurseModelContainer">
             <Canvas camera={{ position: [0, 0.3, 1.7] }} shadows={true}>
               <OrbitControls target={[0, 0, 0]} />
-              <Lights />
+              <SpotLight/>
               <AnimeNurseSweating scale={0.022} />
               <Floor scale={0.001} />
-              <SkyStaging />
+              <StarsStaging />
             </Canvas>
           </div>
         </div>
