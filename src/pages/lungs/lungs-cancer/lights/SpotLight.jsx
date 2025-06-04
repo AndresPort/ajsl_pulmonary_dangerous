@@ -19,7 +19,7 @@ const SpotLight = () => {
         color={"lightblue"}
         position={[0, 1.2, 0.7]}
         distance={3.8}
-        intensity={8}
+        intensity={7}
         angle={Math.PI / 2}
         penumbra={1}
         castShadow={true}
@@ -35,7 +35,7 @@ const SpotLight = () => {
         ref={directionalLightRef}
         color={"white"}
         position={[1, 1, 2]}
-        intensity={0.3}
+        intensity={0.2}
         castShadow={true}
       />
     </>

@@ -12,6 +12,8 @@ import Tittle from "./texts/Tittle";
 import SkyStaging from "./staging/SkyStaging";
 import StarsStaging from "./staging/StarsStaging";
 import SparklesStaging from "./staging/SparklesStaging";
+import TreatmentTitle from "./texts/TreatmentTitle";
+import TreatmentText from "./texts/TreatmentText";
 // import CoughSound from "./sounds/CoughSound";
 
 const LungsCancer = () => {
@@ -89,17 +91,17 @@ const LungsCancer = () => {
 
       <section className="animeNurseSection">
         <div className="animeNurseContent">
-          <div className="animeNurseTextContainer">
-            <h1 className="treatementTittle">Tratamiento</h1>
-            <p className="treatmentText">
-            - Cirugía
-            <br />
-            - Quimioterapia
-            <br />
-            - Radioterapia
-            <br />
-            - Inmunoterapia  
-            </p>
+          <div className="treatmentTextContainer">
+            <Canvas camera={{ position: [0, 0, 1.7] }} className="treatmentTextCanvas" shadows={true}>
+              <TreatmentTitle title={"Tratamiento"}/>
+              <TreatmentText 
+              textPart1= "-Cirugía"
+              textPart2= "-Quimioterapia"
+              textPart3= "-Inmunoterapia"
+              textPart4= "-Radioterapia"
+              />
+            </Canvas>
+
           </div>
           <div className="animeNurseModelContainer">
             <Canvas camera={{ position: [0, 0.3, 1.7] }} shadows={true}>
