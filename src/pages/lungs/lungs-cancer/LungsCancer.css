@@ -126,4 +126,18 @@
 
 }
 
+.btnSweat{
+    background-color: rgb(9, 38, 165);
+    margin-top: 150px;
+    margin-left: -265px;
+    width: 200px;
+    font-size: 20px;
+}
 
+.btnCough{
+    background-color: rgb(9, 38, 165);
+    margin-top: 150px;
+    margin-left: 120px;
+    width: 200px;
+    font-size: 20px;
+}

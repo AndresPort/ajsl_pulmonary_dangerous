@@ -14,9 +14,38 @@ import StarsStaging from "./staging/StarsStaging";
 import SparklesStaging from "./staging/SparklesStaging";
 import TreatmentTitle from "./texts/TreatmentTitle";
 import TreatmentText from "./texts/TreatmentText";
-// import CoughSound from "./sounds/CoughSound";
+import UseSweatStore from "../../../stores/lung-cancer-stores/use-sweat-store";
+import { useRef, useEffect } from "react";
+import { Html } from "@react-three/drei";
+import useSoundStore from "../../../stores/lung-cancer-stores/use-sound-store";
 
 const LungsCancer = () => {
+  const nurseRef = useRef();
+  const { currentAnimation, setCurrentAnimation } = UseSweatStore();
+  const reproducir = useSoundStore((state) => state.reproducir);
+  const detener = useSoundStore((state) => state.detener);
+
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      const key = event.key.toLowerCase();
+
+      if (key === "s" && currentAnimation === "Sweat") {
+        setCurrentAnimation("initialPose");
+        detener();
+      }
+
+      if (key === "t" && currentAnimation === "SevereCoughLaying") {
+        setCurrentAnimation("initialPose");
+        detener();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentAnimation, setCurrentAnimation, detener]);
+
   return (
     <div className="lungs-cancer-page">
       <div className="tittleContainer">
@@ -92,24 +121,50 @@ const LungsCancer = () => {
       <section className="animeNurseSection">
         <div className="animeNurseContent">
           <div className="treatmentTextContainer">
-            <Canvas camera={{ position: [0, 0, 1.7] }} className="treatmentTextCanvas" shadows={true}>
-              <TreatmentTitle title={"Tratamiento"}/>
-              <TreatmentText 
-              textPart1= "-Cirugía"
-              textPart2= "-Quimioterapia"
-              textPart3= "-Inmunoterapia"
-              textPart4= "-Radioterapia"
+            <Canvas
+              camera={{ position: [0, 0, 1.7] }}
+              className="treatmentTextCanvas"
+              shadows={true}
+            >
+              <TreatmentTitle title={"Tratamiento"} />
+              <TreatmentText
+                textPart1="-Cirugía"
+                textPart2="-Quimioterapia"
+                textPart3="-Inmunoterapia"
+                textPart4="-Radioterapia"
               />
             </Canvas>
-
           </div>
           <div className="animeNurseModelContainer">
             <Canvas camera={{ position: [0, 0.3, 1.7] }} shadows={true}>
               <OrbitControls target={[0, 0, 0]} />
-              <SpotLight/>
+              <SpotLight />
               <AnimeNurseSweating scale={0.022} />
               <Floor scale={0.001} />
               <StarsStaging />
+              <Html>
+                <button
+                  className="btnSweat"
+                  onClick={() => {
+                    setCurrentAnimation("Sweat");
+                    reproducir("/lung-cancer-sounds/TiredSound.mp3");
+                  }}
+                  title="presione S para parar de sudar"
+                >
+                  Sudor excesivo
+                </button>
+
+                <button
+                  className="btnCough"
+                  onClick={() => {
+                    setCurrentAnimation("SevereCoughLaying");
+                    reproducir("/lung-cancer-sounds/CoughSound.mp3");
+                  }}
+                  title="presione T para parar de toser"
+                >
+                  Tos muy fuerte
+                </button>
+              </Html>
             </Canvas>
           </div>
         </div>
