@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import "./Pneumonia.css";
 import { Canvas } from "@react-three/fiber";
 import Controls from "./controls/Controls";
@@ -11,6 +11,9 @@ import Button from "./models-3d/html-3d/Button";
 import Sunlight from "./lights/Sunlight";
 import SparklesEffect from "./staging/Sparkles";
 import LungsModel from "./models-3d/LungsModel";
+import Title from "./models-3d/html-3d/Title";
+import TreatmentText from "./models-3d/html-3d/TreatmentText";
+import data from "./data/data.json"; // Importing data from JSON file
 
 const Pneumonia = () => {
   const symptomsRef = useRef(null);
@@ -21,7 +24,11 @@ const Pneumonia = () => {
   // Nuevo estado para transición
   const [fade, setFade] = useState(1); // 1 = visible, 0 = invisible
   const [pendingSwitch, setPendingSwitch] = useState(false);
+  // Función para cambiar entre textos
+  const [treatmentText, setTreatmentText] = useState(false);
 
+
+  // Función para desplazar a una sección específica
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -45,9 +52,10 @@ const Pneumonia = () => {
     if (fade === 0 && pendingSwitch) {
       const timeout = setTimeout(() => {
         setShowLungsModel((prev) => !prev);
+        setTreatmentText((prev) => !prev); // Cambia el texto del tratamiento
         setFade(1); // Inicia fade in
         setPendingSwitch(false);
-      }, 300); // Duración del fade out en ms
+      },300); // Duración del fade out en ms
       return () => clearTimeout(timeout);
     }
   }, [fade, pendingSwitch]);
@@ -82,9 +90,10 @@ const Pneumonia = () => {
       <section className="section" ref={symptomsRef} id="symptoms">
         <div className="content">
           <div className="model-container">
-            <Canvas camera={{ position: [-5, 3, 8] }} shadows={true}>
+            <Canvas camera={{ position: [-8, 3, 10] }} shadows={true}>
               <Sunlight />
               <Controls />
+              <Title title="Sintomas" />
               <PersonCoughing scale={5} position={[0, -3, 0]} />
               <Button onSymptomsClick={handleSymptomsClick} onReset={handleReset} />
               {showSparkles && <SparklesEffect />}
@@ -111,9 +120,10 @@ const Pneumonia = () => {
               <Sunlight />
               <Controls />
               {/* Renderizado condicional de modelos */}
-              {showLungsModel ? <LungsModel /> : <PneumoniaLungs />}
+              {showLungsModel ? <LungsModel position={[3,0,0]} /> : <PneumoniaLungs position={[3,0,0]}/>}
               <Staging />
               <Recipient />
+              <TreatmentText text={treatmentText ? (data.despues_tratamiento):(data.antes_tratamiento)} />
             </Canvas>
             {/* Botón para alternar modelos */}
             <button
