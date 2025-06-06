@@ -23,7 +23,7 @@ const Button = ({ onSymptomsClick, onReset }) => {
   }, [setCurrentAnimation, onReset]);
 
   return (
-    <Html className="buttons-container" center position={[0, -5, 0]}>
+    <Html className="buttons-container" center position={[0, -5, 0]} zIndex={0} portal={{ zIndex: 10 }}>
       <button
         className="symptoms-button"
         onClick={() => {
@@ -32,7 +32,7 @@ const Button = ({ onSymptomsClick, onReset }) => {
           onSymptomsClick(); // Notify parent component
         }}
       >
-        {"Sintomas"}
+        {"Demostración"}
       </button>
       {showText && (
         <p className="text-reset blinking">Presiona " r " para reiniciar</p>

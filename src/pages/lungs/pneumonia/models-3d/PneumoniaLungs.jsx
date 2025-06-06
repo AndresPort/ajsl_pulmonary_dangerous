@@ -18,7 +18,7 @@ const PneumoniaLungs = (props) => {
 
     return (
         <group {...props} dispose={null} ref={groupRef}>
-            <Float floatIntensity={0} speed={4} rotationIntensity={0} rotation={[0, Math.PI / 1.7, 0]}>
+            <Float floatIntensity={0} speed={4} rotationIntensity={0} rotation={[0, Math.PI / 1.9, 0]}>
                 <mesh geometry={nodes.PneunoniaLungs.geometry} material={materials.PneumoniaLungsMaterial} castShadow>
                 </mesh>
             </Float>

@@ -2,6 +2,10 @@
   display: none;
 }
 
+section#symptoms {
+  z-index: -1;
+}
+
 .pneumonia-container {
   display: flex;
   flex-direction: column;
@@ -23,6 +27,7 @@ canvas {
   font-family: 'Arial', sans-serif;
   color: #ffffff;
   scroll-behavior: smooth;
+  z-index: 1;
 }
 
 .section {
@@ -143,3 +148,4 @@ button:active {
     height: 350px;
   }
 }
+

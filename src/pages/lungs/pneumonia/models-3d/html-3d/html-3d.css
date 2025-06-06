@@ -1,7 +1,7 @@
 .buttons-container {
-    gap: 5px;
-    z-index: 0; /* Ensure the container stays below the header */
-    position: relative; /* Maintain stacking context */
+    gap: 5px;   
+    position:relative ; /* Maintain stacking context */
+    z-index: 1;
     pointer-events: auto; /* Ensure button clicks are still registered */
 }
 
@@ -15,11 +15,6 @@
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
-}
-
-.symptoms-button {
-    z-index: inherit; /* Inherit z-index from the container */
-    position: relative; /* Maintain stacking context */
 }
 
 .text-reset {
