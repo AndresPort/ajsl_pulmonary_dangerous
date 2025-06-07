@@ -14,6 +14,7 @@ import LungsModel from "./models-3d/LungsModel";
 import Title from "./models-3d/html-3d/Title";
 import TreatmentText from "./models-3d/html-3d/TreatmentText";
 import data from "./data/data.json"; // Importing data from JSON file
+import SecondaryLight from "./lights/SecondaryLight";
 
 const Pneumonia = () => {
   const symptomsRef = useRef(null);
@@ -140,7 +141,7 @@ const Pneumonia = () => {
             style={{ transition: "opacity 0.3s", opacity: fade }}
           >
             <Canvas camera={{ position: [2, 0, 10] }} shadows={true}>
-              <Sunlight />
+              <SecondaryLight position={[3, 3, 0]} />
               <Controls />
               {/* Renderizado condicional de modelos */}
               {showLungsModel ? (
