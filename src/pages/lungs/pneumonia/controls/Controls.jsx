@@ -11,6 +11,8 @@ const Controls = () => {
             enableDamping={true}  // Smooth movement
             dampingFactor={0.25} // Adjust damping strength
             autoRotate={false}
+            maxPolarAngle={1.75} // Limit vertical rotation
+            minPolarAngle={0.1} // Prevent flipping over the top
         />
     );
 };
