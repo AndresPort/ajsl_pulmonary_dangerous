@@ -20,6 +20,8 @@ import { Html } from "@react-three/drei";
 import useSoundStore from "../../../stores/lung-cancer-stores/use-sound-store";
 
 const LungsCancer = () => {
+const alto = window.innerHeight;
+
   const nurseRef = useRef();
   const { currentAnimation, setCurrentAnimation } = UseSweatStore();
   const reproducir = useSoundStore((state) => state.reproducir);
@@ -89,7 +91,7 @@ const LungsCancer = () => {
               respirar, dolor en el pecho y tos con sangre. En etapas avanzadas,
               puede provocar fatiga, pérdida de peso y afectar otros órganos. La
               detección temprana con tomografía de baja dosis mejora la
-              supervivencia.
+              supervivencia.{alto}
             </p>
           </div>
         </div>
