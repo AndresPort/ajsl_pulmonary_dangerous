@@ -4,3 +4,10 @@
     0 0 8px rgb(255,255,255)
     0 0 16px rgb(255,255,255);
 }
+
+@media (min-height: 780px) {
+    .Tittle{
+    margin-right: 40px;
+}    
+}
+

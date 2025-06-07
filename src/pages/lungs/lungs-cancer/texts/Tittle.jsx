@@ -10,7 +10,7 @@ const Tittle = ({ tittle }) => {
       distanceFactor={10}
       wrapperClass="tittle"
     >
-      <h1>{tittle}</h1>
+      <h1 className="Tittle">{tittle}</h1>
     </Html>
   );
 };
