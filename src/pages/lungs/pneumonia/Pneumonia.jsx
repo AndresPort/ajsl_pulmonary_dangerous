@@ -26,7 +26,7 @@ const Pneumonia = () => {
   const [pendingSwitch, setPendingSwitch] = useState(false);
   // Función para cambiar entre textos
   const [treatmentText, setTreatmentText] = useState(false);
-
+  const [showPopup, setShowPopup] = useState(false);
 
   // Función para desplazar a una sección específica
   const scrollToSection = (ref) => {
@@ -55,7 +55,7 @@ const Pneumonia = () => {
         setTreatmentText((prev) => !prev); // Cambia el texto del tratamiento
         setFade(1); // Inicia fade in
         setPendingSwitch(false);
-      },300); // Duración del fade out en ms
+      }, 300); // Duración del fade out en ms
       return () => clearTimeout(timeout);
     }
   }, [fade, pendingSwitch]);
@@ -63,6 +63,16 @@ const Pneumonia = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Handler para mostrar el popup
+  const handleTreatmentTextClick = () => {
+    setShowPopup(true);
+  };
+
+  // Handler para cerrar el popup
+  const handleClosePopup = () => {
+    setShowPopup(false);
+  };
 
   return (
     <div className="pneumonia-page">
@@ -80,7 +90,12 @@ const Pneumonia = () => {
           <div className="text-container">
             <h1>Neumonía</h1>
             <p>
-              La neumonía es una infección que inflama los sacos de aire en uno o ambos pulmones. Los sacos de aire pueden llenarse de líquido o pus, lo que dificulta la respiración y puede causar tos con flema, fiebre y escalofríos. La neumonía puede ser causada por bacterias, virus u hongos, y su gravedad varía desde leve hasta potencialmente mortal. El tratamiento depende de la causa y la gravedad de la enfermedad.
+              La neumonía es una infección que inflama los sacos de aire en uno o
+              ambos pulmones. Los sacos de aire pueden llenarse de líquido o pus,
+              lo que dificulta la respiración y puede causar tos con flema, fiebre
+              y escalofríos. La neumonía puede ser causada por bacterias, virus u
+              hongos, y su gravedad varía desde leve hasta potencialmente mortal.
+              El tratamiento depende de la causa y la gravedad de la enfermedad.
             </p>
             <button onClick={() => scrollToSection(symptomsRef)}>Ver más</button>
           </div>
@@ -95,7 +110,10 @@ const Pneumonia = () => {
               <Controls />
               <Title title="Sintomas" />
               <PersonCoughing scale={5} position={[0, -3, 0]} />
-              <Button onSymptomsClick={handleSymptomsClick} onReset={handleReset} />
+              <Button
+                onSymptomsClick={handleSymptomsClick}
+                onReset={handleReset}
+              />
               {showSparkles && <SparklesEffect />}
               <Staging />
               <Recipient />
@@ -104,9 +122,11 @@ const Pneumonia = () => {
           <div className="text-container">
             <h2>Síntomas</h2>
             <p>
-              Los síntomas de la neumonía incluyen dificultad para respirar, tos con flema, fiebre y dolor en el pecho. 
-              En casos graves, puede causar fatiga extrema y labios azulados por falta de oxígeno. 
-              Es importante buscar atención médica si estos síntomas persisten o empeoran.
+              Los síntomas de la neumonía incluyen dificultad para respirar, tos
+              con flema, fiebre y dolor en el pecho. En casos graves, puede
+              causar fatiga extrema y labios azulados por falta de oxígeno. Es
+              importante buscar atención médica si estos síntomas persisten o
+              empeoran.
             </p>
             <button onClick={() => scrollToSection(treatmentRef)}>Ver más</button>
           </div>
@@ -115,15 +135,25 @@ const Pneumonia = () => {
 
       <section className="section" ref={treatmentRef} id="treatment">
         <div className="content">
-          <div className="model-container" style={{ transition: "opacity 0.3s", opacity: fade }}>
-            <Canvas camera={{ position: [2, 0, 7] }}  shadows={true}>
+          <div
+            className="model-container"
+            style={{ transition: "opacity 0.3s", opacity: fade }}
+          >
+            <Canvas camera={{ position: [2, 0, 10] }} shadows={true}>
               <Sunlight />
               <Controls />
               {/* Renderizado condicional de modelos */}
-              {showLungsModel ? <LungsModel position={[3,0,0]} /> : <PneumoniaLungs position={[3,0,0]}/>}
+              {showLungsModel ? (
+                <LungsModel position={[3, 0, 0]} />
+              ) : (
+                <PneumoniaLungs position={[3, 0, 0]} />
+              )}
               <Staging />
               <Recipient />
-              <TreatmentText text={treatmentText ? (data.despues_tratamiento):(data.antes_tratamiento)} />
+              <TreatmentText
+                text={treatmentText ? data.despues_tratamiento : data.antes_tratamiento}
+                onClick={handleTreatmentTextClick}
+              />
             </Canvas>
             {/* Botón para alternar modelos */}
             <button
@@ -132,6 +162,21 @@ const Pneumonia = () => {
             >
               {showLungsModel ? "Antes" : "Después"}
             </button>
+            {/* Popup para mostrar el texto de tratamiento */}
+            {showPopup && (
+              <div className="popup-overlay" onClick={handleClosePopup}>
+                <div
+                  className="popup-content"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <h3>Tratamiento {treatmentText ? "después" : "antes"}</h3>
+                  <p>
+                    {treatmentText ? data.despues_tratamiento : data.antes_tratamiento}
+                  </p>
+                  <button onClick={handleClosePopup}>Cerrar</button>
+                </div>
+              </div>
+            )}
           </div>
           <div className="text-container">
             <h2>Tratamiento</h2>
@@ -157,8 +202,7 @@ const Pneumonia = () => {
             </p>
           </div>
         </div>
-      </section> 
-      
+      </section>
     </div>
   );
 };
