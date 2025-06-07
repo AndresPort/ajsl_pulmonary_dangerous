@@ -108,23 +108,23 @@
     margin-bottom: 1000px;
 }
 
-@media (max-height: 779px) {
+@media (max-height: 849px) {
     .treatmentTextContainer{
     position: absolute;
     width: 40%;
     height: 65%;
     left: 7%;
-    bottom: -180%;
+    bottom: -190%;
 }   
 }
 
-@media (min-height: 780px) {
+@media (min-height: 850px) {
     .treatmentTextContainer{
     position: absolute;
     width: 35%;
     height: 50%;
-    left: 12.5%;
-    bottom: -148%;
+    left: 11.5%;
+    bottom: -140%;
 }
 }
 
