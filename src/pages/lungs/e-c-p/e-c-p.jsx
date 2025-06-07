@@ -9,29 +9,24 @@ import Button from "./models-3d/html-3d/Button";
 import Smoker from './models-3d/Smoker';
 import Staging from './staging/Staging';
 import CityLights from './lights/CityLights';
-import useSmokerStore from "/src/stores/e-c-p-stores/use-smoker-store";
 import Title from './texts/Title';
-import { OrbitControls } from '@react-three/drei';
+import Nurse from './models-3d/Nurse';
+import Chair from './models-3d/Chair';
+import StagingLobby from './staging/StagingLobby';
+import Recipient from './models-3d/Recipient';
+import SmokerController from './controls/SmokerController';
+import Smoker2 from './models-3d/Smoker2';
+import Button2 from './models-3d/html-3d/Button2';
+import LobbyLight from './lights/LobbyLights';
+
+
 
 
 const ECP = () => {
     const sintomasRef = useRef(null);
     const tratamientoRef = useRef(null);
     const prevencionRef = useRef(null);
-    const { setCurrentAnimation } = useSmokerStore();
-    useEffect(() => {
-        const handleKeyPress = (event) => {
-            if (event.code === "KeyR") {
-                setCurrentAnimation("Idle");
-            }
-            if (event.code === "Escape") {
-                setCurrentAnimation("Idle");
-            }
-        };
-
-        document.addEventListener("keydown", handleKeyPress);
-        return () => document.removeEventListener("keydown", handleKeyPress);
-    }, []);
+    const refSmoker2 = useRef();
 
     return (
         <div className="ecp-page">
@@ -77,7 +72,6 @@ const ECP = () => {
                 <div className="content">
                     <div className="model-container">
                         <Canvas camera={{ position: [0, 2, 7.85] }} shadows={true}>
-                            <Title title={"Presiona r o esc para volver a la animacion base"}/>
                             <CityLights />
                             <Smoker scale={3} position={[1, 1, 1]} />
                             <Floor />
@@ -125,7 +119,18 @@ const ECP = () => {
             <section className="section" ref={tratamientoRef} id="tratamiento">
                 <div className="content">
                     <div className="model-container">
-                        {/* Aquí irá el modelo 3D de tratamiento */}
+                        <Canvas camera={{ position: [0, 2, 7.85] }} shadows={true}>
+                            <Title title={"Presiona r para volver a la posicion inicial"}/>
+                            <LobbyLight />
+                            <Smoker2 ref={refSmoker2} scale={3} position={[1, -0.85, 3.5]} />
+                            <SmokerController targetRef={refSmoker2} modelId="smoker2" />
+                            <Nurse scale={3} position={[-1, -0.20, -2.5]} />
+                            <Chair scale={4} position={[-1,-0.85,-2.5]}  />
+                            <Recipient />
+                            <StagingLobby />
+                            <Button2 />
+                            <Controls />
+                        </Canvas>
                     </div>
                     <div className="text-container">
                         <h2>Tratamiento</h2>
@@ -133,26 +138,6 @@ const ECP = () => {
                             Actualmente no hay ninguna posible cura para la ECP, mas sin embargo,
                             hay muchas medidas para poder aliviar los síntomas y asi impedir que
                             la enfermedad pueda empeorar.
-                        </p>
-                    </div>
-                </div>
-            </section>
-            <section className="section" ref={prevencionRef} id="prevencion">
-                <div className="content">
-                    <div className="model-container">
-                        {/* Aquí irá el modelo 3D de prevención */}
-                    </div>
-                    <div className="text-container">
-                        <h2>Prevención</h2>
-
-                        <p>
-                            <li>
-                                El hecho de no fumar previene la mayoría de casos de ECP.
-                            </li>
-                            <li>
-                                Tener una dieta saludable y balanceada puede ayudar a disminuir
-                                los sintomas, se recomienda hablar con un profesional para esto.
-                            </li>
                         </p>
                     </div>
                 </div>
