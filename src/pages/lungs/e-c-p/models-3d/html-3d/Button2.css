@@ -1,0 +1,50 @@
+.buttons-container1 {
+  display:block;
+  gap: 0px;
+}
+
+
+.text-reset1 {
+  font-size: 16px;
+  color: #ffffff;
+  margin-top: -50px;
+  white-space: nowrap;
+  max-width: 150px; 
+}
+
+.blinking {
+  animation: blinkingText 1.5s infinite;
+}
+
+@keyframes blinkingText {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.popup-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.popup {
+  background: rgba(255, 255, 255, 0);
+  color: black;
+  padding: 1rem;
+  border-radius: 8px;
+  border: 2px solid black;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  max-width: 250px;
+  height: 750px;
+}
+
+.popup button {
+  margin-top: 10px;
+  background: black;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
