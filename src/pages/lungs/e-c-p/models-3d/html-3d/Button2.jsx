@@ -37,13 +37,13 @@ const Button2 = ({ onReset }) => {
 
     return (
         <>
-            <Html className="buttons-container1" center position={[0, -5, 0]}>
+            <Html className="buttons-container1" center position={[0, -4.5, 0]}>
                 {showText && (
                     <p className="text-reset1 blinking">
                         Muevete con "w a s d" y recorre la habitacion
                     </p>
                 )}
-                <button className="help-button" onClick={handleClick}>
+                <button className="help-button" title="Clickea la cabeza del fumador para una sorpresa" onClick={handleClick}>
                     {"Pedir ayuda"}
                 </button>
             </Html>

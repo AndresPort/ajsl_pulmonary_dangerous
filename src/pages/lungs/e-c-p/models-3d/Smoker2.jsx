@@ -60,6 +60,7 @@ const Smoker2 = (props, ref) => {
                         morphTargetDictionary={nodes.Wolf3D_Head.morphTargetDictionary}
                         morphTargetInfluences={nodes.Wolf3D_Head.morphTargetInfluences}
                         castShadow
+                        onClick={()=>{actions.Twerk.play()}}
                     />
                     <skinnedMesh
                         name="Wolf3D_Outfit_Bottom"
