@@ -1,0 +1,29 @@
+.title h1{
+    text-shadow: 
+    0 0 4px black,
+    0 0 8px black,
+    0 0 16px black;
+    font-size: x-large;
+}
+
+.titulo-container {
+    position: relative;
+    text-align: center;
+}
+
+.tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 10px;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+}
+

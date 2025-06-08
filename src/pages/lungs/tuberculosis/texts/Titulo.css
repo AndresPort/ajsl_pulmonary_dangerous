@@ -1,0 +1,30 @@
+.Titulo h1 {
+    text-shadow: 
+        0 0 4px rgb(68, 68, 214),
+        0 0 8px rgb(224, 223, 231),
+        0 0 16px rgb(48, 114, 176);
+    font-size: x-large;
+    cursor: pointer;
+}
+
+.titulo-container {
+    position: relative;
+    text-align: center;
+}
+
+.tooltip {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.75);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 5px;
+    font-size: 18px;
+    white-space: nowrap;
+    z-index: 10;
+    pointer-events: none;
+}
+

@@ -113,3 +113,20 @@ body {
   font-size: 60px;
 }
 
+.callToActionButtons__btnContainer button {
+  height: 150px;
+  width: 300px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  white-space: normal; 
+  padding: 10px;
+}
+
+.callToActionSection {
+  position: flex; 
+  z-index: 200;  
+  padding: 2rem 1rem;
+  background-color: transparent; 
+}
