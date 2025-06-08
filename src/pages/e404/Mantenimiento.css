@@ -1,0 +1,38 @@
+.maintenance-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* centra vertical */
+  align-items: center;     /* centra horizontal */
+  background: linear-gradient(to bottom right, #0d1b45, #1a3f8b); /* opcional */
+  padding: 2rem;
+}
+
+
+.maintenance-title {
+  font-size: 3rem;
+  color: #f7f2f2;
+  margin-bottom: 1rem;
+}
+
+.maintenance-text {
+  font-size: 1.2rem;
+  color: #eee3e3;
+  margin-bottom: 2rem;
+  max-width: 600px;
+}
+
+.maintenance-button {
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  background-color: #7d8b99;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.maintenance-button:hover {
+  background-color: #005099;
+}

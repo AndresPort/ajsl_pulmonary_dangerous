@@ -8,6 +8,7 @@ import Tuberculosis from "./pages/lungs/tuberculosis/Tuberculosis";
 import Pneumonia from "./pages/lungs/pneumonia/Pneumonia";
 import ECP from "./pages/lungs/e-c-p/e-c-p";
 import About from "./pages/about/About";
+import MaintenancePage from "./pages/e404/Mantenimiento";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -19,6 +20,9 @@ createRoot(document.getElementById("root")).render(
           <Route path="/tuberculosis" element={<Tuberculosis />} />
           <Route path="/pneumonia" element={<Pneumonia />} />
           <Route path="/e-c-p" element={<ECP/>} />
+          <Route path="/quiz" element={<MaintenancePage />} />
+          <Route path="/ingresar" element={<MaintenancePage />} />
+          <Route path="/registrarse" element={<MaintenancePage />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </Layout>
