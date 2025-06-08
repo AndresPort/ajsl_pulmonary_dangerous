@@ -4,6 +4,7 @@ import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import { Lungs } from './models-3d/Lungs';
 import { ManCoughing } from './models-3d/ManCoughing';
+import { OxygenTheraphy } from './models-3d/OxygenTheraphy';
 import LightsLungs from './lights/LightsLungs';
 import Floor from './models-3d/Floor';
 import FloorMan from './models-3d/FloorMan'
@@ -13,9 +14,12 @@ import Button from './texts/Button';
 import { KeyboardControls } from '@react-three/drei';
 import Controls from './controls/Controls';
 import useManStore from '/src/stores/tuberculosis-stores/use-man-store.js';
+import LightsOxygen from './lights/LightsOxygen';
+import Title from './texts/Title';
 
 const Tuberculosis = () => {
   const sintomasRef = useRef(null);
+  const tratamientoRef = useRef(null);
   const { currentAnimation, setCurrentAnimation } = useManStore();
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
@@ -45,7 +49,7 @@ const Tuberculosis = () => {
   <section className="section" id="intro">
     <div className="content">
       <div className="model-container">
-        <Canvas camera={{ position: [0, 1, 4] }} shadows={true}>
+        <Canvas camera={{ position: [0, 1, 5] }} shadows={true}>
           <OrbitControls target={[0, 0, 0]} />
           <Controls />
           <LightsLungs />
@@ -93,20 +97,27 @@ const Tuberculosis = () => {
       </section>
 
       {/* Sección 3: Tratamientos */}
-      {/* <section className="section" ref={tratamientoRef} id="tratamiento">
+      <section className="section" ref={tratamientoRef} id="tratamiento">
         <div className="content">
-          <div className="model-container"> */}
-            {/* Aquí irá el modelo 3D de tratamiento */}
-          {/* </div>
+          <div className="model-container"> 
+            <Canvas camera={{ position: [0, 2, 6] }} shadows={true}>
+            <OrbitControls target={[0, 0, 0]} />
+            <Controls />
+            <LightsOxygen />
+            <OxygenTheraphy scale={4} />
+            <Title title={"La oxigenoterapia es un tratamiento \n complementario usado en pacientes \n con tuberculosis pulmonar severa."}/>
+            <Floor />
+            </Canvas>
+          </div>
           <div className="text-container">
             <h2>Tratamiento</h2>
             <p>
               Se basa en una combinación de antibióticos administrados durante un periodo mínimo de 6 meses, con seguimiento médico estricto.
             </p>
-            <button onClick={() => scrollToSection(prevencionRef)}>Ver más</button>
+            {/* <button onClick={() => scrollToSection(prevencionRef)}>Ver más</button> */}
           </div>
         </div>
-      </section> */}
+      </section> 
 
       {/* Sección 4: Prevención */}
       {/* <section className="section" ref={prevencionRef} id="prevencion">
