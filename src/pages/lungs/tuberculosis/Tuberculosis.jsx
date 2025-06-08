@@ -18,11 +18,13 @@ import LightsOxygen from './lights/LightsOxygen';
 import Title from './texts/Title';
 import StagingOxygen from './staging/StagingOxygen';
 import Encabezado from './texts/Encabezado';
+import Titulo from './texts/Titulo';
 
 const Tuberculosis = () => {
   const sintomasRef = useRef(null);
   const tratamientoRef = useRef(null);
   const { currentAnimation, setCurrentAnimation } = useManStore();
+  const [useLungsLight, setUseLungsLight] = useState(false);
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
   };
@@ -38,6 +40,9 @@ const Tuberculosis = () => {
       if ((key === 'Space' || key === 'KeyR') && currentAnimation !== 'Normal') {
         event.preventDefault();
         setCurrentAnimation('Normal');
+      }
+      if (key === "KeyL") {
+        setUseLungsLight(prev => !prev); // Alternar entre luces
       }
     };
 
@@ -76,11 +81,12 @@ const Tuberculosis = () => {
         <div className="content">
           <div className="model-container">
           <KeyboardControls map={keyMap}>
-          <Canvas camera={{ position: [0, 3, 6.85] }} shadows={true}>
+          <Canvas camera={{ position: [0, 3, 7] }} shadows={true}>
             <OrbitControls target={[0, 0, 0]} />
             <Controls />
             <StagingMan />
             <LightsManCoughing />
+            <Titulo Titulo={"¿Tienes alguno de estos síntomas?"}/>
             <ManCoughing scale={3.3}/>
             <Button/>
             <FloorMan />
@@ -94,7 +100,7 @@ const Tuberculosis = () => {
             o moco es un síntoma que indica que la infección ha llegado a los pulmones, ademas de sintomas como fiebre, 
             sudores nocturnos, pérdida de peso y fatiga.
             </p>
-            {/* <button onClick={() => scrollToSection(tratamientoRef)}>Ver más</button> */}
+            <button onClick={() => scrollToSection(tratamientoRef)}>Ver más</button> 
           </div>
         </div>
       </section>
@@ -107,7 +113,7 @@ const Tuberculosis = () => {
             <OrbitControls target={[0, 0, 0]} />
             <Controls />
             <StagingOxygen />
-            <LightsOxygen />
+            {useLungsLight ? <LightsLungs /> : <LightsOxygen />}
             <OxygenTheraphy scale={4} />
             <Title title={"La oxigenoterapia es un tratamiento \n complementario usado en pacientes \n con tuberculosis pulmonar severa"}/>
             <Floor />
@@ -116,7 +122,9 @@ const Tuberculosis = () => {
           <div className="text-container">
             <h2>Tratamiento</h2>
             <p>
-              Se basa en una combinación de antibióticos administrados durante un periodo mínimo de 6 meses, con seguimiento médico estricto.
+              El tratamiento de la tuberculosis implica el uso de antibióticos durante un período prolongado, 
+              generalmente de seis a nueve meses. Es crucial seguir estrictamente las indicaciones médicas y tomar 
+              todos los medicamentos como se prescribe para evitar la reaparición de la enfermedad y el desarrollo de resistencia a los antibióticos. 
             </p>
             {/* <button onClick={() => scrollToSection(prevencionRef)}>Ver más</button> */}
           </div>

@@ -44,8 +44,8 @@ const LightsOxygen = () => {
         color={"white"}
         position={[0, 7, 2]}
         distance={12}
-        intensity={80}
-        angle={Math.PI / 14}
+        intensity={120}
+        angle={Math.PI / 10}
         penumbra={1}
       /> {/*}
       <pointLight
