@@ -20,6 +20,10 @@ import { Html } from "@react-three/drei";
 import useSoundStore from "../../../stores/lung-cancer-stores/use-sound-store";
 
 const LungsCancer = () => {
+  const ancho = window.innerWidth;
+  const alto = window.innerHeight;
+  console.log(`Ancho: ${ancho}px, Alto: ${alto}px`);
+
   const nurseRef = useRef();
   const { currentAnimation, setCurrentAnimation } = UseSweatStore();
   const reproducir = useSoundStore((state) => state.reproducir);
