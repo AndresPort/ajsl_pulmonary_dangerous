@@ -136,6 +136,7 @@ const LungsCancer = () => {
                 textPart2="-Quimioterapia"
                 textPart3="-Inmunoterapia"
                 textPart4="-Radioterapia"
+                className="treatmentText"
               />
             </Canvas>
           </div>
