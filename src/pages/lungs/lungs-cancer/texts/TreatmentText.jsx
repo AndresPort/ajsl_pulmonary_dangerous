@@ -5,7 +5,7 @@ const TreatmentText = ({ textPart1, textPart2, textPart3, textPart4 }) => {
   return (
     <Html
       center
-      position={[-2.5, 1.5, -1]}
+      position={[-1.8, 1.5, -1]}
       transform
       distanceFactor={10}
       wrapperClass="text"

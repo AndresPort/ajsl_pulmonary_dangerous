@@ -1,4 +1,4 @@
-@media (max-height: 779px) {
+@media (max-height: 799px) {
   .textPart1 {
     margin-top: 195px;
     font-size: 13px;
@@ -20,7 +20,7 @@
   }
 }
 
-@media (min-height: 780px) {
+@media (min-height: 800px) {
   .textPart1 {
     margin-top: 185px;
     margin-left: 50px;
