@@ -16,6 +16,8 @@ import Controls from './controls/Controls';
 import useManStore from '/src/stores/tuberculosis-stores/use-man-store.js';
 import LightsOxygen from './lights/LightsOxygen';
 import Title from './texts/Title';
+import StagingOxygen from './staging/StagingOxygen';
+import Encabezado from './texts/Encabezado';
 
 const Tuberculosis = () => {
   const sintomasRef = useRef(null);
@@ -51,6 +53,7 @@ const Tuberculosis = () => {
       <div className="model-container">
         <Canvas camera={{ position: [0, 1, 5] }} shadows={true}>
           <OrbitControls target={[0, 0, 0]} />
+          <Encabezado Encabezado={"Tuberculosis"}/>
           <Controls />
           <LightsLungs />
           <Lungs scale={20} />
@@ -103,9 +106,10 @@ const Tuberculosis = () => {
             <Canvas camera={{ position: [0, 2, 6] }} shadows={true}>
             <OrbitControls target={[0, 0, 0]} />
             <Controls />
+            <StagingOxygen />
             <LightsOxygen />
             <OxygenTheraphy scale={4} />
-            <Title title={"La oxigenoterapia es un tratamiento \n complementario usado en pacientes \n con tuberculosis pulmonar severa."}/>
+            <Title title={"La oxigenoterapia es un tratamiento \n complementario usado en pacientes \n con tuberculosis pulmonar severa"}/>
             <Floor />
             </Canvas>
           </div>

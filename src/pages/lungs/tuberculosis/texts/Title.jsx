@@ -9,6 +9,7 @@ const Title = ({ title }) => {
             transform
             distanceFactor={5}
             wrapperClass="title"
+            fontSize={0.8}
         >
             {title}
         </Text>

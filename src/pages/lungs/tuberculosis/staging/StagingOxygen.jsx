@@ -1,15 +1,22 @@
-import {Sparkles} from "@react-three/drei";
+import {Sky, Stars} from "@react-three/drei";
+import {Color} from "three";
   
   const StagingOxygen = () => {
     return (
-        <Sparkles
-        count={150} // Number of particles (default: 100)
-        speed={1.1} // Speed of particles (default: 1)
-        opacity={0.7} // Opacity of particles (default: 1)
-        color={"green"} // Color of particles (default: 100)
-        size={2} // Size of particles (default: randomized between 0 and 1)
-        scale={[10, 10, 10]} // The space the particles occupy (default: 1)
-        noise={1} // Movement factor (default: 1)
+        <>
+      <Sky
+        sunPosition={[0, -2, 0]} // Places the sun below the horizon
+        inclination={0.6} // Adjusts the inclination to simulate the sunset
       />
+      <Stars
+        radius={100} // Radius of the sphere in which stars are placed
+        depth={50} // Depth of the star field, creating a layered effect
+        count={500} // Total number of stars in the scene
+        factor={4} // Star size factor, affecting how large they appear
+        saturation={0} // Color saturation of the stars, 0 means grayscale
+        fade // Enables fading effect for a more realistic sky
+        speed={1} // Speed at which the stars move (if animated)
+      />
+    </>
     )}
 export default StagingOxygen
