@@ -12,7 +12,7 @@ import MaintenancePage from "./pages/e404/Mantenimiento";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Perfil from "./pages/profile/Profile";
-import ScrollToTop from "../ScrolltoTop";
+import ScrollToTop from "../ScrollToTop";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
