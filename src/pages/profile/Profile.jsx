@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
 import useAuthStore from "../../stores/use-auth-store";
 import { useNavigate } from "react-router";
+import "./Profile.css";
 
 const Profile = () => {
   const { userLooged, logout } = useAuthStore();
@@ -28,22 +29,35 @@ const Profile = () => {
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         return await response.json();
       } catch (error) {
-        console.error(`Error creating user:`, error);
-        throw error;
+        console.error(`Error creando usuario:`, error);
       }
     };
     fetchData();
   }, [userLooged]);
 
   return (
-    <>
-      <h2>Perfil de usuario</h2>
-      <p>¡Bienvenido! {userLooged?.displayName}</p>
-      <button onClick={handleLogout} title="Cerrar sesión">
-        Cerrar sesión
-      </button>
-    </>
+    <div className="profile-container">
+      <div className="profile-card">
+        <div className="profile-image">
+          <img
+            src={`https://ui-avatars.com/api/?name=${userLooged?.displayName}&background=0D8ABC&color=fff`}
+            alt="Avatar"
+          />
+        </div>
+        <div className="profile-info">
+          <h2>Perfil de Usuario</h2>
+          <p><strong>Nombre:</strong> {userLooged?.displayName}</p>
+          <p><strong>Correo:</strong> {userLooged?.email}</p>
+          <p><strong>Rol:</strong> Usuario registrado</p>
+          <p><strong>Estado:</strong> Activo</p>
+        </div>
+        <button className="logout-button" onClick={handleLogout}>
+          Cerrar sesión
+        </button>
+      </div>
+    </div>
   );
 };
 
 export default Profile;
+
