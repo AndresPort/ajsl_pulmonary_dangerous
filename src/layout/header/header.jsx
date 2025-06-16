@@ -32,8 +32,8 @@ const Header = () => {
           <li><a onClick={() => navigate("/about")}>Sobre nosotros </a></li>
         </ul>
         <div className="buttons">
-          <button className="btn white" onClick={() => navigate("/ingresar")}>Ingresar</button>
-          <button className="btn green" onClick={() => navigate("/registrarse")}>Registrarse</button>
+          <button className="btn white" onClick={() => navigate("/login")}>Ingresar</button>
+          <button className="btn green" onClick={() => navigate("/register")}>Registrarse</button>
         </div>
       </nav>
     </header>

@@ -1,0 +1,83 @@
+/* Register.css */
+.register-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -33%;
+  margin-bottom: 5%;
+  padding: 1rem;
+}
+
+.left-section {
+  width: 40%;
+  text-align: center;
+}
+
+.left-section h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.left-section p {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.brain-img {
+  width: 100%;
+  max-width: 300px;
+}
+
+.form-section {
+  width: 50%;
+  background-color: #2f2a60;
+  padding: 3rem;
+  border-radius: 20px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.form-section h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.form-section input {
+  padding: 0.8rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+}
+
+.register-btn {
+  padding: 0.8rem;
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.separator {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.google-btn {
+  background-color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.google-btn img {
+  width: 20px;
+}

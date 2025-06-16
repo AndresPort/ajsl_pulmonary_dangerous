@@ -9,6 +9,9 @@ import Pneumonia from "./pages/lungs/pneumonia/Pneumonia";
 import ECP from "./pages/lungs/e-c-p/e-c-p";
 import About from "./pages/about/About";
 import MaintenancePage from "./pages/e404/Mantenimiento";
+import Login from "./pages/auth/Login";
+import Register from "./pages/auth/Register";
+import Perfil from "./pages/profile/Profile";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -21,9 +24,10 @@ createRoot(document.getElementById("root")).render(
           <Route path="/pneumonia" element={<Pneumonia />} />
           <Route path="/e-c-p" element={<ECP/>} />
           <Route path="/quiz" element={<MaintenancePage />} />
-          <Route path="/ingresar" element={<MaintenancePage />} />
-          <Route path="/registrarse" element={<MaintenancePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
+          <Route path="/perfil" element={<Perfil />} />
         </Routes>
       </Layout>
     </BrowserRouter>
