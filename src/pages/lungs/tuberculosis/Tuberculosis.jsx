@@ -23,6 +23,7 @@ import Titulo from './texts/Titulo';
 const Tuberculosis = () => {
   const sintomasRef = useRef(null);
   const tratamientoRef = useRef(null);
+  const prevencionRef = useRef(null);
   const { currentAnimation, setCurrentAnimation } = useManStore();
   const [useLungsLight, setUseLungsLight] = useState(false);
   const scrollToSection = (ref) => {
@@ -57,7 +58,6 @@ const Tuberculosis = () => {
     <div className="content">
       <div className="model-container">
         <Canvas camera={{ position: [0, 1, 5] }} shadows={true}>
-          <OrbitControls target={[0, 0, 0]} />
           <Encabezado Encabezado={"Tuberculosis"}/>
           <Controls />
           <LightsLungs />
@@ -82,7 +82,6 @@ const Tuberculosis = () => {
           <div className="model-container">
           <KeyboardControls map={keyMap}>
           <Canvas camera={{ position: [0, 3, 7] }} shadows={true}>
-            <OrbitControls target={[0, 0, 0]} />
             <Controls />
             <StagingMan />
             <LightsManCoughing />
@@ -110,7 +109,6 @@ const Tuberculosis = () => {
         <div className="content">
           <div className="model-container"> 
             <Canvas camera={{ position: [0, 2, 6] }} shadows={true}>
-            <OrbitControls target={[0, 0, 0]} />
             <Controls />
             <StagingOxygen />
             {useLungsLight ? <LightsLungs /> : <LightsOxygen />}
@@ -126,25 +124,27 @@ const Tuberculosis = () => {
               generalmente de seis a nueve meses. Es crucial seguir estrictamente las indicaciones médicas y tomar 
               todos los medicamentos como se prescribe para evitar la reaparición de la enfermedad y el desarrollo de resistencia a los antibióticos. 
             </p>
-            {/* <button onClick={() => scrollToSection(prevencionRef)}>Ver más</button> */}
+            <button onClick={() => scrollToSection(prevencionRef)}>Ver más</button> 
           </div>
         </div>
       </section> 
 
       {/* Sección 4: Prevención */}
-      {/* <section className="section" ref={prevencionRef} id="prevencion">
+      <section className="section" ref={prevencionRef} id="prevencion">
         <div className="content">
-          <div className="model-container"> */}
+          <div className="model-container">
             {/* Aquí irá el modelo 3D de prevención */}
-          {/* </div>
+          </div>
           <div className="text-container">
             <h2>Prevención</h2>
             <p>
-              La vacunación (BCG), el tratamiento temprano y las medidas de control como el uso de mascarillas ayudan a prevenir la transmisión.
+              La vacunación (BCG), el tratamiento temprano y las medidas de control como 
+              lavarse las manos frecuentemente, cubrirse la boca y nariz al toser o estornudar, y 
+              evitar compartir utensilios o toallas son medidas básicas de higiene que ayudan a prevenir la transmisión. 
             </p>
           </div>
         </div>
-      </section> */}
+      </section>
     </div>
   );
 };
