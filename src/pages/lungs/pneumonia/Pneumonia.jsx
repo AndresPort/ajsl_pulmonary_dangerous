@@ -15,6 +15,7 @@ import Title from "./models-3d/html-3d/Title";
 import TreatmentText from "./models-3d/html-3d/TreatmentText";
 import data from "./data/data.json"; // Importing data from JSON file
 import SecondaryLight from "./lights/SecondaryLight";
+import Chair from "./models-3d/Chair";
 
 const Pneumonia = () => {
   const symptomsRef = useRef(null);
@@ -47,6 +48,17 @@ const Pneumonia = () => {
     setFade(0); // Inicia fade out
     setPendingSwitch(true);
   };
+
+  // Evento de teclado para cambiar modelo con flechas izquierda/derecha
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (fade === 1 && (e.key === "ArrowLeft" || e.key === "ArrowRight")) {
+        handleModelSwitch();
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [fade]); // Dependencia de fade para evitar cambio durante transición
 
   // Efecto para cambiar modelo después del fade out
   useEffect(() => {
@@ -193,7 +205,15 @@ const Pneumonia = () => {
       <section className="section" ref={preventionRef} id="prevention">
         <div className="content">
           <div className="model-container">
-            {/* Placeholder for 3D model */}
+            <Canvas camera={{ position: [-4, 3, 5] }} shadows={true}>
+              <Lights />
+              <Controls />
+              <PneumoniaLungs scale={2} position={[0, 0, 0]} />
+              {/* <PersonCoughing scale={2}/>
+              <Chair position={[0, -2, 0]}/> */}
+              <Recipient />
+              <Staging />
+            </Canvas>
           </div>
           <div className="text-container">
             <h2>Prevención</h2>
