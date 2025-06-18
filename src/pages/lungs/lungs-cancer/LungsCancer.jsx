@@ -4,6 +4,7 @@ import { OrbitControls } from "@react-three/drei";
 import SickLung from "./models-3d/SickLung";
 import SickLungsSemiVisibles from "./models-3d/SickLungsSemiVisibles";
 import AnimeNurseSweating from "./models-3d/AnimeNurseSweating";
+import Doctor from "./models-3d/Doctor";
 import Floor from "./models-3d/Floor";
 import Lights from "./lights/Lights";
 import SpotLight from "./lights/SpotLight";
@@ -20,9 +21,6 @@ import { Html } from "@react-three/drei";
 import useSoundStore from "../../../stores/lung-cancer-stores/use-sound-store";
 
 const LungsCancer = () => {
-  const ancho = window.innerWidth;
-  const alto = window.innerHeight;
-  console.log(`Ancho: ${ancho}px, Alto: ${alto}px`);
 
   const nurseRef = useRef();
   const { currentAnimation, setCurrentAnimation } = UseSweatStore();
@@ -174,6 +172,31 @@ const LungsCancer = () => {
           </div>
         </div>
       </section>
+
+      <section className="doctorSection">
+        <div className="doctorContent">
+          <div className="preventionTextContainer">
+            <Canvas
+              camera={{ position: [0, 0, 1.7] }}
+              className="preventionTextCanvas"
+              shadows={true}
+            >
+            </Canvas>
+          </div>
+
+          <div className="doctorModelContainer">
+            <Canvas camera={{ position: [0, 0.8, 2.0] }} shadows={true}>
+              <OrbitControls target={[0, 0.25, 0]} />
+              <Floor scale={0.001} />
+              <StarsStaging />
+              <Lights />
+              <Doctor scale={0.015} />
+            </Canvas>
+          </div>
+        </div>
+      </section>
+
+
     </div>
   );
 };

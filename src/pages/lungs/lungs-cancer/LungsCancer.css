@@ -1,173 +1,214 @@
-.lungs-cancer-page{
-    background: linear-gradient(to right, rgb(21, 34, 63), rgb(30, 58, 138));
-    width: 100%;
+.lungs-cancer-page {
+  background: linear-gradient(to right, rgb(21, 34, 63), rgb(30, 58, 138));
+  width: 100%;
 }
 
 @media (max-height: 779px) {
-    .tittleContainer {
-        position: relative;
-        user-select: none;
-        z-index: 1;
-    }   
+  .tittleContainer {
+    position: relative;
+    user-select: none;
+    z-index: 1;
+  }
 }
 
 @media (min-height: 780px) {
-    .tittleContainer {
-        position: relative;
-        right: -0.1%;
-        user-select: none;
-        z-index: 1;
-    }
+  .tittleContainer {
+    position: relative;
+    right: -0.1%;
+    user-select: none;
+    z-index: 1;
+  }
 }
 
-.SickLungSection{
-    border: 5px solid rgba(255,255,255,0.1);
-    border-radius: 50px;
-    padding: 20px;
-    margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 88%;
+.SickLungSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
 }
 
-.sickLungModelContainer{
-    width: 100%;
-    height: 500px;
+.sickLungModelContainer {
+  width: 100%;
+  height: 500px;
 }
 
-.causesText{
-    font-size: 20px;
-    text-align: left;
+.causesText {
+  font-size: 20px;
+  text-align: left;
 }
 
-.meanText{
-    font-size: 20px;
-    text-align: left;
+.meanText {
+  font-size: 20px;
+  text-align: left;
 }
 
-.effectsText{
-    font-size: 20px;
-    text-align: left;
+.effectsText {
+  font-size: 20px;
+  text-align: left;
 }
 
 /*segunda sección*/
 
-.sickLungsSemiVisiblesSection{
-    border: 5px solid rgba(255,255,255,0.1);
-    border-radius: 50px;
-    padding: 20px;
-    margin-bottom: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 88%;
+.sickLungsSemiVisiblesSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
 }
 @media (max-height: 799px) {
-    .sickLungsSemiVisiblesModelContainer{
+  .sickLungsSemiVisiblesModelContainer {
     width: 100%;
     height: 500px;
-}
+  }
 }
 
-@media (min-height: 800px)  {
-    .sickLungsSemiVisiblesModelContainer{
+@media (min-height: 800px) {
+  .sickLungsSemiVisiblesModelContainer {
     width: 100%;
     height: 500px;
-}
+  }
 }
 
-@media (min-height: 890px)  {
-    .sickLungsSemiVisiblesModelContainer{
+@media (min-height: 890px) {
+  .sickLungsSemiVisiblesModelContainer {
     width: 100%;
     height: 500px;
     position: relative;
     left: 10%;
+  }
 }
 
+.symptomsTittle {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.symptomsTittle{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.symptomsText{
-    font-size: 25px;
-    text-align: center;
+.symptomsText {
+  font-size: 25px;
+  text-align: center;
 }
 
 /*Tercera seccion*/
 
- .animeNurseSection{
-    border: 5px solid rgba(255,255,255,0.1);
-    border-radius: 50px;
-    padding: 20px;
-    margin-bottom: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 88%;
-    height: 550px;
+.animeNurseSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 550px;
 }
 
-.animeNurseModelContainer{
-    width: 50%;
-    height: 500px;
-    margin-left: auto;
-    margin-bottom: 1000px;
+.animeNurseModelContainer {
+  width: 50%;
+  height: 500px;
+  margin-left: auto;
+  margin-bottom: 1000px;
 }
 
 @media (max-height: 799px) {
-    .treatmentTextContainer{
+  .treatmentTextContainer {
     position: absolute;
     width: 40%;
     height: 65%;
     left: 7%;
     bottom: -222%;
-}
+  }
 }
 
 @media (min-height: 800px) {
-    .treatmentTextContainer{
+  .treatmentTextContainer {
     position: absolute;
     width: 35%;
     height: 50%;
     left: 11%;
     bottom: -155%;
-}
+  }
 }
 
-@media (min-height: 890px)  {
-    .treatmentTextContainer{
+@media (min-height: 890px) {
+  .treatmentTextContainer {
     position: absolute;
     width: 35%;
     height: 50%;
     left: 11%;
     bottom: -136.3%;
-}
+  }
 }
 
+.animeNurseTextContainer {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  margin-left: 12%;
+  margin-top: 10%;
+}
 
-.animeNurseTextContainer{
-    width: 300px;
-    height: 300px;
+.btnSweat {
+  background-color: rgb(9, 38, 165);
+  margin-top: 150px;
+  margin-left: -265px;
+  width: 200px;
+  font-size: 20px;
+}
+
+.btnCough {
+  background-color: rgb(9, 38, 165);
+  margin-top: 150px;
+  margin-left: 120px;
+  width: 200px;
+  font-size: 20px;
+}
+
+/*Cuarta seccion*/
+.doctorSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 550px;
+}
+
+@media (max-height: 799px) {
+  .preventionTextContainer {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: calc(82% - 550px);
+    height: 500px;
     position: absolute;
-    margin-left: 12%;
-    margin-top: 10%;
+  }
 
+  .doctorModelContainer {
+    width: 550px;
+    height: 500px;
+    margin-left: auto;
+    margin-bottom: 1000px;
+  }
 }
 
-.btnSweat{
-    background-color: rgb(9, 38, 165);
-    margin-top: 150px;
-    margin-left: -265px;
-    width: 200px;
-    font-size: 20px;
-}
+@media (min-height: 800px) {
+  .preventionTextContainer {
+    background-color: rgba(255, 255, 255, 0.1);
+    width: calc(76% - 550px);
+    height: 500px;
+    position: absolute;
+  }
 
-.btnCough{
-    background-color: rgb(9, 38, 165);
-    margin-top: 150px;
-    margin-left: 120px;
-    width: 200px;
-    font-size: 20px;
+  .doctorModelContainer {
+    width: 670px;
+    height: 500px;
+    margin-left: auto;
+    margin-bottom: 1000px;
+  }
 }
