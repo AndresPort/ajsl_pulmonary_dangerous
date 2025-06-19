@@ -14,14 +14,15 @@ import SkyStaging from "./staging/SkyStaging";
 import StarsStaging from "./staging/StarsStaging";
 import SparklesStaging from "./staging/SparklesStaging";
 import TreatmentTitle from "./texts/TreatmentTitle";
+import PreventionTittle from "./texts/PreventionTittle";
 import TreatmentText from "./texts/TreatmentText";
+import PreventionText from "./texts/PreventionText";
 import UseSweatStore from "../../../stores/lung-cancer-stores/use-sweat-store";
 import { useRef, useEffect } from "react";
 import { Html } from "@react-three/drei";
 import useSoundStore from "../../../stores/lung-cancer-stores/use-sound-store";
 
 const LungsCancer = () => {
-
   const nurseRef = useRef();
   const { currentAnimation, setCurrentAnimation } = UseSweatStore();
   const reproducir = useSoundStore((state) => state.reproducir);
@@ -181,6 +182,15 @@ const LungsCancer = () => {
               className="preventionTextCanvas"
               shadows={true}
             >
+              <OrbitControls target={[0, 0, 0]} />
+              <PreventionTittle textTittle="Prevencion y cuidados" />
+              <PreventionText
+                text="Evita fumar y la exposición al
+               humo de tabaco. Mantén ambientes libres de contaminantes.
+                Usa equipo de protección si trabajas con sustancias tóxicas.
+                 Haz ejercicio, lleva una dieta saludable y realiza chequeos
+                  médicos si tienes factores de riesgo."
+              />
             </Canvas>
           </div>
 
@@ -195,8 +205,6 @@ const LungsCancer = () => {
           </div>
         </div>
       </section>
-
-
     </div>
   );
 };

@@ -183,7 +183,6 @@
 
 @media (max-height: 799px) {
   .preventionTextContainer {
-    background-color: rgba(255, 255, 255, 0.1);
     width: calc(82% - 550px);
     height: 500px;
     position: absolute;
@@ -199,7 +198,6 @@
 
 @media (min-height: 800px) {
   .preventionTextContainer {
-    background-color: rgba(255, 255, 255, 0.1);
     width: calc(76% - 550px);
     height: 500px;
     position: absolute;

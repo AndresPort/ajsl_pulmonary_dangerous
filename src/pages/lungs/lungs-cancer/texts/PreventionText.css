@@ -1,0 +1,14 @@
+@media (max-height: 799px) {
+    .text{
+    width: 350px;
+    text-align: center;
+} 
+}
+
+@media (min-height: 800px) {
+    .text{
+    width: 380px;
+    text-align: center;
+    font-size: 20px;
+} 
+}   
