@@ -14,6 +14,7 @@ import Tittle from "./texts/Tittle";
 import SkyStaging from "./staging/SkyStaging";
 import StarsStaging from "./staging/StarsStaging";
 import SparklesStaging from "./staging/SparklesStaging";
+import CloudStaging from "./staging/CloudStaging";
 import TreatmentTitle from "./texts/TreatmentTitle";
 import PreventionTittle from "./texts/PreventionTittle";
 import TreatmentText from "./texts/TreatmentText";
@@ -199,7 +200,7 @@ const LungsCancer = () => {
             <Canvas camera={{ position: [0, 0.8, 2.0] }} shadows={true}>
               <OrbitControls target={[0, 0.25, 0]} />
               <Floor scale={0.001} />
-              <StarsStaging />
+              <CloudStaging />
               <HemiSphereLight />
               <Doctor scale={0.015} />
             </Canvas>
