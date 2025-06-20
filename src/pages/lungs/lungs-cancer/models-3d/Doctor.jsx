@@ -1,0 +1,86 @@
+import { useGLTF, useAnimations } from '@react-three/drei'
+import { useRef, useEffect } from "react";
+import UseDoctorAnimationStore from "../../../../stores/lung-cancer-stores/use-doctor-animation-store";
+
+export function Doctor(props) {
+  const group = useRef()
+  const { nodes, materials, animations } = useGLTF('/models-3d/lung-cancer-models/Doctor.glb')
+  const { actions } = useAnimations(animations, group)
+  const { currentAnimation } = UseDoctorAnimationStore();
+
+  // Manejo de animaciones
+    useEffect(() => {
+      if (!actions || !currentAnimation) return;
+  
+      Object.values(actions).forEach((action) => action.stop());
+      const selectedAction = actions[currentAnimation];
+      if (selectedAction) {
+        selectedAction.reset().play();
+      } else {
+        console.warn(`No se encontró la animación: ${currentAnimation}`);
+      }
+  
+      return () => {
+        selectedAction?.stop();
+      };
+    }, [currentAnimation, actions]);
+
+  return (
+    <group ref={group} {...props} dispose={null}>
+      <group name="Scene">
+        <group
+          name="Armature"
+          position={[-0.938, -80, 0]}
+          rotation={[Math.PI / 2, 0, 0]}
+          scale={0.01}>
+          <skinnedMesh
+            name="Hat"
+            castShadow
+            geometry={nodes.Hat.geometry}
+            material={materials.MaskHatMaterial}
+            skeleton={nodes.Hat.skeleton}
+          />
+          <skinnedMesh
+            name="Mask"
+            castShadow
+            geometry={nodes.Mask.geometry}
+            material={materials.MaskHatMaterial}
+            skeleton={nodes.Mask.skeleton}
+          />
+          <skinnedMesh
+            name="Pants"
+            castShadow
+            geometry={nodes.Pants.geometry}
+            material={materials.SkinMaterial}
+            skeleton={nodes.Pants.skeleton}
+          />
+          <skinnedMesh
+            name="Shirt"
+            castShadow  
+            geometry={nodes.Shirt.geometry}
+            material={materials.SkinMaterial}
+            skeleton={nodes.Shirt.skeleton}
+          />
+          <skinnedMesh
+            name="Shoes"
+            castShadow
+            geometry={nodes.Shoes.geometry}
+            material={materials.MaskHatMaterial}
+            skeleton={nodes.Shoes.skeleton}
+          />
+          <skinnedMesh
+            name="Skin"
+            castShadow
+            geometry={nodes.Skin.geometry}
+            material={materials.SkinMaterial}
+            skeleton={nodes.Skin.skeleton}
+          />
+          <primitive object={nodes.mixamorigHips} />
+        </group>
+      </group>
+    </group>
+  )
+}
+
+export default Doctor;
+useGLTF.preload('/models-3d/lung-cancer-models/Doctor.glb')
