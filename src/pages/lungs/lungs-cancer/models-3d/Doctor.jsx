@@ -1,55 +1,61 @@
 import { useGLTF, useAnimations } from '@react-three/drei';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
 import UseDoctorAnimationStore from '../../../../stores/lung-cancer-stores/use-doctor-animation-store';
 
 export function Doctor(props) {
   const group = useRef();
+  const [rotationY, setRotationY] = useState(0); // Estado para la rotación
   const { nodes, materials, animations } = useGLTF('/models-3d/lung-cancer-models/Doctor.glb');
   const { actions, mixer } = useAnimations(animations, group);
   const { currentDoctorAnimation, setCurrentDoctorAnimation } = UseDoctorAnimationStore();
 
-  // Manejo de animaciones y transiciones automáticas
   useEffect(() => {
-  if (!actions || !currentDoctorAnimation || !mixer) return;
+    if (!actions || !currentDoctorAnimation || !mixer) return;
 
-  Object.values(actions).forEach((action) => action.stop());
+    Object.values(actions).forEach((action) => action.stop());
 
-  const selectedAction = actions[currentDoctorAnimation];
-  if (!selectedAction) {
-    console.warn(`No se encontró la animación: ${currentDoctorAnimation}`);
-    return;
-  }
-
-  if (currentDoctorAnimation === 'pushUp') {
-    selectedAction.setLoop(THREE.LoopRepeat);
-  } else {
-    selectedAction.setLoop(THREE.LoopOnce);
-    selectedAction.clampWhenFinished = true;
-  }
-
-  selectedAction.reset().fadeIn(0.2).play();
-
-  const handleFinish = (e) => {
-    if (e.action === selectedAction) {
-      if (currentDoctorAnimation === 'idleToPushUp') {
-        setCurrentDoctorAnimation('pushUp');
-      } else if (currentDoctorAnimation === 'pushUpToIdle') {
-        setCurrentDoctorAnimation('Staying');
-      }
+    const selectedAction = actions[currentDoctorAnimation];
+    if (!selectedAction) {
+      console.warn(`No se encontró la animación: ${currentDoctorAnimation}`);
+      return;
     }
-  };
 
-  mixer.addEventListener('finished', handleFinish);
-  return () => {
-    mixer.removeEventListener('finished', handleFinish);
-    selectedAction.stop();
-  };
-}, [currentDoctorAnimation, actions, mixer, setCurrentDoctorAnimation]);
+    // Lógica de rotación
+    if (currentDoctorAnimation === 'idleToPushUp') {
+      setRotationY(Math.PI / 2); // Rotar al iniciar ejercicio
+    } else if (currentDoctorAnimation === 'pushUpToIdle') {
+      setRotationY(0); // Volver a la rotación original al finalizar
+    }
 
+    if (currentDoctorAnimation === 'pushUp') {
+      selectedAction.setLoop(THREE.LoopRepeat);
+    } else {
+      selectedAction.setLoop(THREE.LoopOnce);
+      selectedAction.clampWhenFinished = true;
+    }
+
+    selectedAction.reset().fadeIn(0.2).play();
+
+    const handleFinish = (e) => {
+      if (e.action === selectedAction) {
+        if (currentDoctorAnimation === 'idleToPushUp') {
+          setCurrentDoctorAnimation('pushUp');
+        } else if (currentDoctorAnimation === 'pushUpToIdle') {
+          setCurrentDoctorAnimation('Staying');
+        }
+      }
+    };
+
+    mixer.addEventListener('finished', handleFinish);
+    return () => {
+      mixer.removeEventListener('finished', handleFinish);
+      selectedAction.stop();
+    };
+  }, [currentDoctorAnimation, actions, mixer, setCurrentDoctorAnimation]);
 
   return (
-    <group ref={group} {...props} dispose={null}>
+    <group ref={group} {...props} dispose={null} rotation={[0, rotationY, 0]}>
       <group name="Scene">
         <group
           name="Armature"
