@@ -1,6 +1,7 @@
 import { useGLTF, useAnimations } from '@react-three/drei';
 import { useRef, useEffect, useState } from 'react';
 import * as THREE from 'three';
+import DoctorSound from "../sounds/DoctorSound";
 import UseDoctorAnimationStore from '../../../../stores/lung-cancer-stores/use-doctor-animation-store';
 
 export function Doctor(props) {
@@ -105,7 +106,9 @@ export function Doctor(props) {
             material={materials.SkinMaterial}
             skeleton={nodes.Skin.skeleton}
           />
-          <primitive object={nodes.mixamorigHips} />
+          <primitive object={nodes.mixamorigHips}>
+            <DoctorSound active={currentDoctorAnimation === "pushUp"} />
+          </primitive>
         </group>
       </group>
     </group>

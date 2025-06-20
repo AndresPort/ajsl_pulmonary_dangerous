@@ -199,7 +199,7 @@ const LungsCancer = () => {
           </div>
 
           <div className="doctorModelContainer">
-            <Canvas camera={{ position: [0, 0.8, 2.0] }} shadows={true}>
+            <Canvas camera={{ position: [0, 0.9, 2.0] }} shadows={true}>
               <OrbitControls target={[0, 0.25, 0]} />
               <Floor scale={0.001} />
               <CloudStaging />
