@@ -20,12 +20,14 @@ import PreventionTittle from "./texts/PreventionTittle";
 import TreatmentText from "./texts/TreatmentText";
 import PreventionText from "./texts/PreventionText";
 import UseSweatStore from "../../../stores/lung-cancer-stores/use-sweat-store";
-import { useRef, useEffect } from "react";
+import UseDoctorAnimationStore from "../../../stores/lung-cancer-stores/use-doctor-animation-store";
+import { useEffect } from "react";
 import { Html } from "@react-three/drei";
 import useSoundStore from "../../../stores/lung-cancer-stores/use-sound-store";
 
 const LungsCancer = () => {
-  const nurseRef = useRef();
+  const { currentDoctorAnimation, setCurrentDoctorAnimation } =
+    UseDoctorAnimationStore();
   const { currentAnimation, setCurrentAnimation } = UseSweatStore();
   const reproducir = useSoundStore((state) => state.reproducir);
   const detener = useSoundStore((state) => state.detener);
@@ -203,6 +205,32 @@ const LungsCancer = () => {
               <CloudStaging />
               <HemiSphereLight />
               <Doctor scale={0.015} />
+              <Html>
+                {currentDoctorAnimation !== "pushUp" &&
+                  currentDoctorAnimation !== "idleToPushUp" && (
+                    <button
+                      className="btnExercise"
+                      onClick={() => {
+                        setCurrentDoctorAnimation("idleToPushUp");
+                      }}
+                      title="Iniciar ejercicio"
+                    >
+                      Método de cuidado y prevención
+                    </button>
+                  )}
+
+                {currentDoctorAnimation === "pushUp" && (
+                  <button
+                    className="btnStopExercise"
+                    onClick={() => {
+                      setCurrentDoctorAnimation("pushUpToIdle");
+                    }}
+                    title="Parar de ejercitarse"
+                  >
+                    Parar de ejercitarse
+                  </button>
+                )}
+              </Html>
             </Canvas>
           </div>
         </div>
