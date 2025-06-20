@@ -16,6 +16,11 @@ import TreatmentText from "./models-3d/html-3d/TreatmentText";
 import data from "./data/data.json"; // Importing data from JSON file
 import SecondaryLight from "./lights/SecondaryLight";
 import Chair from "./models-3d/Chair";
+import Man from "./models-3d/Man";
+import VaccineNeedle from "./models-3d/VaccineNeedle";
+import ButtonMan from "./models-3d/html-3d/ButtonMan";
+
+
 
 const Pneumonia = () => {
   const symptomsRef = useRef(null);
@@ -205,21 +210,22 @@ const Pneumonia = () => {
       <section className="section" ref={preventionRef} id="prevention">
         <div className="content">
           <div className="model-container">
-            <Canvas camera={{ position: [-4, 3, 5] }} shadows={true}>
+            <Canvas camera={{ position: [1, -1, 5] }} shadows={true}>
               <Lights />
               <Controls />
-              <PneumoniaLungs scale={2} position={[0, 0, 0]} />
-              {/* <PersonCoughing scale={2}/>
-              <Chair position={[0, -2, 0]}/> */}
+              <Man scale={2.4} position={[0, -2.9, 0]}/>
+              <Chair scale={1.5} position={[0, -2, 0]}/>
+              <VaccineNeedle  />
               <Recipient />
               <Staging />
+              <ButtonMan />
             </Canvas>
           </div>
           <div className="text-container">
             <h2>Prevención</h2>
             <p>
               Vacunación, higiene adecuada y evitar el contacto con personas
-              infectadas son medidas clave para prevenir la neumonía.
+              infectadas son medidas clave para prevenir la neumonía y tener una vida saludable.
             </p>
           </div>
         </div>
