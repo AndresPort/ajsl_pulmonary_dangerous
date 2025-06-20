@@ -1,25 +1,8 @@
-import { useHelper } from "@react-three/drei";
-import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-import {
-  //DirectionalLightHelper,
-  HemisphereLightHelper,
-  MathUtils,
-  PointLightHelper,
-  SpotLightHelper,
-} from "three";
 
 const Lights = () => {
   const directionalLightRef = useRef();
 
-  const pointLightRef = useRef();
-  useHelper(pointLightRef, PointLightHelper, 2, "cyan");
-
-  const spotLightRef = useRef();
-  useHelper(spotLightRef, SpotLightHelper);
-
-  const hemisphereLightRef = useRef();
-  useHelper(hemisphereLightRef, HemisphereLightHelper);
   return (
     <>
       <ambientLight color={"#F5F5DC"} intensity={1.5} />

@@ -7,6 +7,7 @@ import AnimeNurseSweating from "./models-3d/AnimeNurseSweating";
 import Doctor from "./models-3d/Doctor";
 import Floor from "./models-3d/Floor";
 import Lights from "./lights/Lights";
+import HemiSphereLight from "./lights/HemiSphereLight";
 import SpotLight from "./lights/SpotLight";
 import MultipleAmbientLights from "./lights/MultipleAmbientLights";
 import Tittle from "./texts/Tittle";
@@ -199,7 +200,7 @@ const LungsCancer = () => {
               <OrbitControls target={[0, 0.25, 0]} />
               <Floor scale={0.001} />
               <StarsStaging />
-              <Lights />
+              <HemiSphereLight />
               <Doctor scale={0.015} />
             </Canvas>
           </div>
