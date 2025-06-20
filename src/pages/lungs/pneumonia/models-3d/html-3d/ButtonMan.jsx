@@ -127,7 +127,16 @@ const ButtonMan = () => {
             {/* Overlay de fade local */}
             <div style={overlayStyle(fade)} />
             {visible && (
-                <button onClick={handleSequenceWithFade} style={{ position: 'absolute', zIndex: 1001 }}>
+                <button
+                    onClick={handleSequenceWithFade}
+                    style={{
+                        position: 'absolute',
+                        top: '80%',
+                        left: '50%',
+                        transform: 'translate(-50%, -50%)',
+                        zIndex: 1001
+                    }}
+                >
                     Prevención
                 </button>
             )}
