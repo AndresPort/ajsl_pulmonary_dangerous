@@ -210,3 +210,21 @@
     margin-bottom: 1000px;
   }
 }
+
+.btnExercise{
+  background-color: rgb(255, 0, 0);
+  width: 400px;
+  font-size: 20px;
+  position: absolute;
+  right: -190px;
+  top: 140px;
+}
+
+.btnStopExercise {
+  background-color: rgb(255, 0, 0);
+  width: 250px;
+  font-size: 20px;
+  position: absolute;
+  left: -135px;
+  top: 140px;
+}

@@ -1,8 +1,9 @@
 import { create } from 'zustand';
 
 const UseDoctorAnimationStore = create((set) => ({
-  currentAnimation: 'Staying',
-  setCurrentAnimation: (animation) => set({ currentAnimation: animation }),
+  currentDoctorAnimation: 'Staying',
+  setCurrentDoctorAnimation: (animation) =>
+    set({ currentDoctorAnimation: animation }), // ✅ aquí estaba el error
 }));
 
 export default UseDoctorAnimationStore;
