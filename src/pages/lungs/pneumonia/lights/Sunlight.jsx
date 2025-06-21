@@ -20,7 +20,7 @@ const Sunlight = () => {
     <>
     <directionalLight
       ref={lightRef}
-      color={"#F5F5DC"}
+      color={"#F5F5F5"}
       intensity={2}
       castShadow
       shadow-mapSize-width={1024}
@@ -31,7 +31,7 @@ const Sunlight = () => {
       shadow-camera-top={10}
       shadow-camera-bottom={-10}
     />
-    <ambientLight color={"#F5F5DC"} intensity={1} />
+    <ambientLight color={"#F5F5F5"} intensity={1} />
     </>
     
   );

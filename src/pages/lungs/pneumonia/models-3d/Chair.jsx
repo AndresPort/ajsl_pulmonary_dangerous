@@ -1,11 +1,15 @@
 import { useGLTF } from "@react-three/drei";
+import useManStore from '/src/stores/pneumonia-stores/use-man-store'; // 
 
 const Chair = (props) => {
     const { nodes, materials } = useGLTF("models-3d/pneumonia/chair.glb");
     
+    const chairVisible = useManStore(state => state.chairVisible);
     return (
         <group  {...props} dispose={null}>
-            <mesh geometry={nodes.Chair.geometry} material={materials.ChairMaterial} castShadow></mesh>
+            {chairVisible && (
+                <mesh geometry={nodes.Chair.geometry} material={materials.ChairMaterial} castShadow></mesh>
+            )}
         </group>
     )
 }
