@@ -1,6 +1,7 @@
 import { Html } from "@react-three/drei";
 import { useEffect, useState } from "react";
 import useManStore from "/src/stores/pneumonia-stores/use-man-store";
+import useTitleStore from "/src/stores/pneumonia-stores/use-title-store";
 
 // Estilos para el overlay
 const overlayStyle = (fade) => ({
@@ -24,6 +25,9 @@ const ButtonMan = () => {
     const setPauseSitting = useManStore(state => state.setPauseSitting);
     const setNeedleVisible = useManStore(state => state.setNeedleVisible);
     const setPauseRunning = useManStore(state => state.setPauseRunning);
+
+    // Store del título
+    const setTitle = useTitleStore(state => state.setTitle);
 
     // Interpolación manual de la posición de la jeringa
     const animateNeedle = async (from, to, duration = 1500) => {
@@ -95,11 +99,13 @@ const ButtonMan = () => {
         setPauseSitting(false);
         // 2. Fade out justo antes de cambiar a Running
         await fadeOut();
-        // 3. Cambia a Running y oculta silla/jeringa
+        // 3. Cambia el título a "Vida Sana"
+        setTitle("Vida Sana");
+        // 4. Cambia a Running y oculta silla/jeringa
         setNeedleVisible(false);
         setCurrentAnimation("Running");
         setChairVisible(false);
-        // 4. Fade in
+        // 5. Fade in
         await fadeIn();
     };
 
@@ -116,13 +122,16 @@ const ButtonMan = () => {
                 setNeedlePosition([1.5, -0.5, 0.1]);
                 setVisible(true);
                 setPauseSitting(false); // Asegura que la de sentado esté activa
+                // Reinicia el título a "Vacunación"
+                setTitle("Vacunación");
             }
         };
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
-    }, [currentAnimation, setCurrentAnimation, setChairVisible, setNeedleVisible, setNeedlePosition]);
+    }, [currentAnimation, setCurrentAnimation, setChairVisible, setNeedleVisible, setNeedlePosition, setTitle]);
 
     return (
+        <>
         <Html fullscreen>
             {/* Overlay de fade local */}
             <div style={overlayStyle(fade)} />
@@ -160,6 +169,8 @@ const ButtonMan = () => {
                 </div>
             )}
         </Html>
+        </>
+        
     )
 }
 

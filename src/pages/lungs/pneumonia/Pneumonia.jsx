@@ -14,12 +14,14 @@ import LungsModel from "./models-3d/LungsModel";
 import Title from "./models-3d/html-3d/Title";
 import TreatmentText from "./models-3d/html-3d/TreatmentText";
 import data from "./data/data.json"; // Importing data from JSON file
+import vacunacionData from "./data/data.json"; // Importing vacunacion data
 import SecondaryLight from "./lights/SecondaryLight";
 import Light from "./lights/Light";
 import Chair from "./models-3d/Chair";
 import Man from "./models-3d/Man";
 import VaccineNeedle from "./models-3d/VaccineNeedle";
 import ButtonMan from "./models-3d/html-3d/ButtonMan";
+import DynamicTitle from "./models-3d/html-3d/DynamicTitle";
 
 
 
@@ -35,6 +37,7 @@ const Pneumonia = () => {
   // Función para cambiar entre textos
   const [treatmentText, setTreatmentText] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
+  const [showVaccinePopup, setShowVaccinePopup] = useState(false);
 
   // Función para desplazar a una sección específica
   const scrollToSection = (ref) => {
@@ -91,6 +94,16 @@ const Pneumonia = () => {
   // Handler para cerrar el popup
   const handleClosePopup = () => {
     setShowPopup(false);
+  };
+
+  // Handler para mostrar el popup de vacunación
+  const handleVaccineNeedleClick = () => {
+    setShowVaccinePopup(true);
+  };
+
+  // Handler para cerrar el popup de vacunación
+  const handleCloseVaccinePopup = () => {
+    setShowVaccinePopup(false);
   };
 
   return (
@@ -211,18 +224,33 @@ const Pneumonia = () => {
       <section className="section" ref={preventionRef} id="prevention">
         <div className="content">
           <div className="model-container">
-            <Canvas camera={{ position: [1, -1, 5] }} shadows={true}>
+            <Canvas camera={{ position: [1, 0, 6] }} shadows={true}>
               {/* <Lights /> */}
               <Controls />
               <Man scale={2.4} position={[0, -2.9, 0]}/>
               <Chair scale={1.5} position={[0, -2, 0]}/>
-              <VaccineNeedle  />
+              <VaccineNeedle onClick={handleVaccineNeedleClick} />
               <Recipient />
               <Staging />
-              <ButtonMan />
+              <ButtonMan  />
               <Light position={[-1, 3, 0]}/>
-              
+              <DynamicTitle />
             </Canvas>
+            {/* Popup para mostrar información de vacunación */}
+            {showVaccinePopup && (
+              <div className="popup-overlay" onClick={handleCloseVaccinePopup}>
+                <div
+                  className="popup-content"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <h3>Vacunación</h3>
+                  <p>
+                    {vacunacionData.vacunacion}
+                  </p>
+                  <button onClick={handleCloseVaccinePopup}>Cerrar</button>
+                </div>
+              </div>
+            )}
           </div>
           <div className="text-container">
             <h2>Prevención</h2>
