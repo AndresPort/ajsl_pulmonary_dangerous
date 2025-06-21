@@ -15,6 +15,7 @@ import Title from "./models-3d/html-3d/Title";
 import TreatmentText from "./models-3d/html-3d/TreatmentText";
 import data from "./data/data.json"; // Importing data from JSON file
 import SecondaryLight from "./lights/SecondaryLight";
+import Light from "./lights/Light";
 import Chair from "./models-3d/Chair";
 import Man from "./models-3d/Man";
 import VaccineNeedle from "./models-3d/VaccineNeedle";
@@ -211,7 +212,7 @@ const Pneumonia = () => {
         <div className="content">
           <div className="model-container">
             <Canvas camera={{ position: [1, -1, 5] }} shadows={true}>
-              <Lights />
+              {/* <Lights /> */}
               <Controls />
               <Man scale={2.4} position={[0, -2.9, 0]}/>
               <Chair scale={1.5} position={[0, -2, 0]}/>
@@ -219,6 +220,8 @@ const Pneumonia = () => {
               <Recipient />
               <Staging />
               <ButtonMan />
+              <Light position={[-1, 3, 0]}/>
+              
             </Canvas>
           </div>
           <div className="text-container">
