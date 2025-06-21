@@ -1,10 +1,19 @@
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
+import { useFrame } from '@react-three/fiber'
 
-export function Model(props) {
+export function Prevention(props) {
   const { nodes, materials } = useGLTF('/models-3d/tuberculosis/PreventionTuberculosis.glb')
+    const groupRef = useRef()
+
+    useFrame((state, delta) => {
+    if (groupRef.current) {
+      groupRef.current.position.y = Math.sin(state.clock.elapsedTime) * 0.05 // efecto de flotación
+    }
+  })
+
   return (
-    <group {...props} dispose={null}>
+    <group ref={groupRef} {...props} dispose={null} position={[-0.8, 0, 0]}>
       <mesh
         castShadow
         receiveShadow
