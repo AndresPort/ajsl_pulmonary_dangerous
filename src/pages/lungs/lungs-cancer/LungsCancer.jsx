@@ -4,27 +4,30 @@ import { OrbitControls } from "@react-three/drei";
 import SickLung from "./models-3d/SickLung";
 import SickLungsSemiVisibles from "./models-3d/SickLungsSemiVisibles";
 import AnimeNurseSweating from "./models-3d/AnimeNurseSweating";
+import Doctor from "./models-3d/Doctor";
 import Floor from "./models-3d/Floor";
 import Lights from "./lights/Lights";
+import HemiSphereLight from "./lights/HemiSphereLight";
 import SpotLight from "./lights/SpotLight";
 import MultipleAmbientLights from "./lights/MultipleAmbientLights";
 import Tittle from "./texts/Tittle";
 import SkyStaging from "./staging/SkyStaging";
 import StarsStaging from "./staging/StarsStaging";
 import SparklesStaging from "./staging/SparklesStaging";
+import CloudStaging from "./staging/CloudStaging";
 import TreatmentTitle from "./texts/TreatmentTitle";
+import PreventionTittle from "./texts/PreventionTittle";
 import TreatmentText from "./texts/TreatmentText";
+import PreventionText from "./texts/PreventionText";
 import UseSweatStore from "../../../stores/lung-cancer-stores/use-sweat-store";
-import { useRef, useEffect } from "react";
+import UseDoctorAnimationStore from "../../../stores/lung-cancer-stores/use-doctor-animation-store";
+import { useEffect } from "react";
 import { Html } from "@react-three/drei";
 import useSoundStore from "../../../stores/lung-cancer-stores/use-sound-store";
 
 const LungsCancer = () => {
-  const ancho = window.innerWidth;
-  const alto = window.innerHeight;
-  console.log(`Ancho: ${ancho}px, Alto: ${alto}px`);
-
-  const nurseRef = useRef();
+  const { currentDoctorAnimation, setCurrentDoctorAnimation } =
+    UseDoctorAnimationStore();
   const { currentAnimation, setCurrentAnimation } = UseSweatStore();
   const reproducir = useSoundStore((state) => state.reproducir);
   const detener = useSoundStore((state) => state.detener);
@@ -169,6 +172,64 @@ const LungsCancer = () => {
                 >
                   Tos muy fuerte
                 </button>
+              </Html>
+            </Canvas>
+          </div>
+        </div>
+      </section>
+
+      <section className="doctorSection">
+        <div className="doctorContent">
+          <div className="preventionTextContainer">
+            <Canvas
+              camera={{ position: [0, 0, 1.7] }}
+              className="preventionTextCanvas"
+              shadows={true}
+            >
+              <OrbitControls target={[0, 0, 0]} />
+              <PreventionTittle textTittle="Prevencion y cuidados" />
+              <PreventionText
+                text="Evita fumar y la exposición al
+               humo de tabaco. Mantén ambientes libres de contaminantes.
+                Usa equipo de protección si trabajas con sustancias tóxicas.
+                 Haz ejercicio, lleva una dieta saludable y realiza chequeos
+                  médicos si tienes factores de riesgo."
+              />
+            </Canvas>
+          </div>
+
+          <div className="doctorModelContainer">
+            <Canvas camera={{ position: [0, 0.9, 2.0] }} shadows={true}>
+              <OrbitControls target={[0, 0.25, 0]} />
+              <Floor scale={0.001} />
+              <CloudStaging />
+              <HemiSphereLight />
+              <Doctor scale={0.015} />
+              <Html>
+                {currentDoctorAnimation !== "pushUp" &&
+                  currentDoctorAnimation !== "idleToPushUp" && (
+                    <button
+                      className="btnExercise"
+                      onClick={() => {
+                        setCurrentDoctorAnimation("idleToPushUp");
+                      }}
+                      title="Iniciar ejercicio"
+                    >
+                      Método de cuidado y prevención
+                    </button>
+                  )}
+
+                {currentDoctorAnimation === "pushUp" && (
+                  <button
+                    className="btnStopExercise"
+                    onClick={() => {
+                      setCurrentDoctorAnimation("pushUpToIdle");
+                    }}
+                    title="Parar de ejercitarse"
+                  >
+                    Parar de ejercitarse
+                  </button>
+                )}
               </Html>
             </Canvas>
           </div>
