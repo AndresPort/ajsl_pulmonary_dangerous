@@ -19,10 +19,17 @@ import Title from './texts/Title';
 import StagingOxygen from './staging/StagingOxygen';
 import Encabezado from './texts/Encabezado';
 import Titulo from './texts/Titulo';
+import {Prevention} from './models-3d/Prevention.jsx';
+import LightsPrevention from './lights/LightsPrevention.jsx';
+import TextPrevention from './texts/TextPrevention.jsx';
+import StagingPrevention from './staging/StagingPrevention.jsx';
+import VideoVaccine from './videos/VideoVaccine.jsx';
+import ButtonVideo from './texts/ButtonVideo.jsx';
 
 const Tuberculosis = () => {
   const sintomasRef = useRef(null);
   const tratamientoRef = useRef(null);
+  const [showVideo, setShowVideo] = useState(false);
   const prevencionRef = useRef(null);
   const { currentAnimation, setCurrentAnimation } = useManStore();
   const [useLungsLight, setUseLungsLight] = useState(false);
@@ -33,6 +40,9 @@ const Tuberculosis = () => {
     { name: 'stopCough', keys: ['Space', 'r', 'R'] }
   ];
 
+  const toggleVideo = () => {
+    setShowVideo(prev => !prev);
+  };
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -133,7 +143,16 @@ const Tuberculosis = () => {
       <section className="section" ref={prevencionRef} id="prevencion">
         <div className="content">
           <div className="model-container">
-            {/* Aquí irá el modelo 3D de prevención */}
+            <Canvas camera={{ position: [0, 2, 6] }} shadows={true}>
+            <TextPrevention Encabezado={"Cuidate a ti y a los demas"}/>
+            <Controls />
+            <LightsPrevention />
+            <StagingPrevention/>
+            <Prevention scale={13.5} />
+            <Floor />
+            <ButtonVideo isPlaying={showVideo} onClick={toggleVideo} />
+              {showVideo && <VideoVaccine play={true} />}
+            </Canvas>
           </div>
           <div className="text-container">
             <h2>Prevención</h2>
