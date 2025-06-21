@@ -13,6 +13,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import Perfil from "./pages/profile/Profile";
 import ScrollToTop from "../ScrollToTop";
+import MedalTable from "./pages/quiz/MedalTable";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")).render(
           <Route path="/pneumonia" element={<Pneumonia />} />
           <Route path="/e-c-p" element={<ECP/>} />
           <Route path="/quiz" element={<MaintenancePage />} />
+          <Route path="/quiz/medal-table" element={<MedalTable />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
