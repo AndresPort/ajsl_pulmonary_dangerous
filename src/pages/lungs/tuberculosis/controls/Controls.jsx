@@ -7,7 +7,7 @@ const Controls = () => {
             minPolarAngle={0}
             maxAzimuthAngle={Infinity} 
             minAzimuthAngle={-Infinity} 
-            enableZoom={false}
+            enableZoom={true}
             enablePan={false}
             target={[0, 1, 0]}
             enableDamping={true}

@@ -6,7 +6,7 @@ const TextPrevention = ({ Encabezado }) => {
   const [hovered, setHovered] = useState(false);
   
   return (
-      <Center position={[0, 3, 0]}>
+      <Center position={[0, 4, 0]}>
         <Text3D
           font="fonts/Alice.json"
           bevelEnabled
@@ -23,7 +23,7 @@ const TextPrevention = ({ Encabezado }) => {
           <meshNormalMaterial />
         </Text3D>
         {hovered && (
-                <Html position={[4.3, 5.5, -6.2]}>
+                <Html position={[4.3, 4.5, -6.2]}>
                     <div className="tooltip">Lavate las manos y cubrete al toser o estornudar</div>
                 </Html>
             )}
