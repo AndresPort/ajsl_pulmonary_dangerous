@@ -14,6 +14,8 @@ import Register from "./pages/auth/Register";
 import Perfil from "./pages/profile/Profile";
 import ScrollToTop from "../ScrollToTop";
 import MedalTable from "./pages/quiz/MedalTable";
+import Sitemap from "./pages/sitemap/Sitemap";
+import Termsandconditions from "./pages/terms-and-conditions/Terms-and-conditions";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -32,6 +34,8 @@ createRoot(document.getElementById("root")).render(
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
           <Route path="/perfil" element={<Perfil />} />
+          <Route path="/sitemap" element={<Sitemap />} />
+          <Route path="/terms-and-conditions" element={<Termsandconditions />} />
         </Routes>
       </Layout>
     </BrowserRouter>
