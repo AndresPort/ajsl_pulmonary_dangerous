@@ -22,7 +22,7 @@ const SiteMap = () => {
               <li><a href="/about">Sobre Nosotros</a></li>
               <li><a href="/login">Ingresar</a></li>
               <li><a href="/register">Registrarse</a></li>
-              <li><a href="/profile">Perfil</a></li>
+              <li><a href="/perfil">Perfil</a></li>
               <li><a href="/terms-and-conditions">Términos y Condiciones</a></li>
             </ul>
           </div>
