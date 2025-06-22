@@ -1,4 +1,4 @@
-import { Html } from "@react-three/drei";
+import { Html, Text } from "@react-three/drei";
 import { useState } from "react";
 import "./Titulo.css";
 
@@ -6,22 +6,23 @@ const Titulo = ({ Titulo }) => {
     const [hovered, setHovered] = useState(false);
 
     return (
-        <Html
-            center
-            position={[-0.2, 5, 0]}
-            transform
-            distanceFactor={5}
-            wrapperClass="Titulo"
-        >
-            <div
-                className="titulo-container"
+        <>
+            <Text
+                center
+                position={[0, 7, -6]}
+                fontSize={0.8}
                 onPointerEnter={() => setHovered(true)}
                 onPointerLeave={() => setHovered(false)}
             >
-                <h1>{Titulo}</h1>
-                {hovered && <div className="tooltip">Consulta a tu médico</div>}
-            </div>
-        </Html>
+                {Titulo}
+            </Text>
+
+            {hovered && (
+                <Html position={[0, 6, -6]}>
+                    <div className="tooltip">Consulta a tu medico</div>
+                </Html>
+            )}
+        </>
     );
 };
 
