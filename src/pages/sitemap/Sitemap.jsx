@@ -1,4 +1,4 @@
-import "./SiteMap.css";
+import "./Sitemap.css";
 
 const SiteMap = () => {
   return (
