@@ -79,3 +79,199 @@
 }
 
 /*Segunda sección*/
+
+.secondQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 550px;
+}
+
+.titleSecondQuestion{
+    font-size: 30px;
+    text-align: center;
+}
+
+.secondQuestionCanvasContainer{
+    width: 90%;
+    height: 300px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 300px;
+    grid-gap: 20px;
+    margin-bottom: 50px;
+}
+
+.secondQuestionCancerCanvas,
+.secondQuestionPneumoniaCanvas,
+.secondQuestionECPCanvas,
+.secondQuestionTuberculosisCanvas{
+    border-radius: 40px;
+}
+
+
+.secondQuestionButtonsContainer{
+    width: 90%;
+    height: 70px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 70px;
+    grid-gap: 20px;
+}
+
+.secondQuestionCancerButton,
+.secondQuestionPneumoniaButton,
+.secondQuestionECPButton,
+.secondQuestionTuberculosisButton{
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    background-color: rgb(255, 0, 0);
+}
+
+.secondQuestionCancerButton:hover,
+.secondQuestionPneumoniaButton:hover,
+.secondQuestionECPButton:hover,
+.secondQuestionTuberculosisButton:hover{
+    background-color: rgb(255, 84, 84);
+}
+
+/*tercera sección*/
+
+.thirdQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 550px;
+}
+
+.titleThirdQuestion{
+    font-size: 30px;
+    text-align: center;
+}
+
+.thirdQuestionCanvasContainer{
+    width: 90%;
+    height: 300px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 300px;
+    grid-gap: 20px;
+    margin-bottom: 50px;
+}
+
+.thirdQuestionCancerCanvas,
+.thirdQuestionPneumoniaCanvas,
+.thirdQuestionECPCanvas,
+.thirdQuestionTuberculosisCanvas{
+    border-radius: 40px;
+}
+
+
+.thirdQuestionButtonsContainer{
+    width: 90%;
+    height: 70px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 70px;
+    grid-gap: 20px;
+}
+
+.thirdQuestionCancerButton,
+.thirdQuestionPneumoniaButton,
+.thirdQuestionECPButton,
+.thirdQuestionTuberculosisButton{
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    background-color: rgb(255, 0, 0);
+}
+
+.thirdQuestionCancerButton:hover,
+.thirdQuestionPneumoniaButton:hover,
+.thirdQuestionECPButton:hover,
+.thirdQuestionTuberculosisButton:hover{
+    background-color: rgb(255, 84, 84);
+}
+
+/*cuarta sección*/
+
+.fourthQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 550px;
+}
+
+.titleFourthQuestion{
+    font-size: 30px;
+    text-align: center;
+}
+
+.fourthQuestionCanvasContainer{
+    width: 90%;
+    height: 300px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 300px;
+    grid-gap: 20px;
+    margin-bottom: 50px;
+}
+
+.fourthQuestionCancerCanvas,
+.fourthQuestionPneumoniaCanvas,
+.fourthQuestionECPCanvas,
+.fourthQuestionTuberculosisCanvas{
+    border-radius: 40px;
+}
+
+
+.fourthQuestionButtonsContainer{
+    width: 90%;
+    height: 70px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 70px;
+    grid-gap: 20px;
+}
+
+.fourthQuestionCancerButton,
+.fourthQuestionPneumoniaButton,
+.fourthQuestionECPButton,
+.fourthQuestionTuberculosisButton{
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    background-color: rgb(255, 0, 0);
+}
+
+.fourthQuestionCancerButton:hover,
+.fourthQuestionPneumoniaButton:hover,
+.fourthQuestionECPButton:hover,
+.fourthQuestionTuberculosisButton:hover{
+    background-color: rgb(255, 84, 84);
+}
