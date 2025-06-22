@@ -1,0 +1,81 @@
+.quizPageContainer{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.principalTitle{
+    font-size: 40px;
+    text-align: center;
+    margin-top: 5%;
+    margin-bottom: 60px;
+}
+
+/*Primera sección*/
+
+.firstQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 550px;
+}
+
+.titleFirstQuestion{
+    font-size: 30px;
+    text-align: center;
+}
+
+.firstQuestionCanvasContainer{
+    width: 90%;
+    height: 300px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 300px;
+    grid-gap: 20px;
+    margin-bottom: 50px;
+}
+
+.firstQuestionCancerCanvas,
+.firstQuestionPneumoniaCanvas,
+.firstQuestionECPCanvas,
+.firstQuestionTuberculosisCanvas{
+    border-radius: 40px;
+}
+
+
+.firstQuestionButtonsContainer{
+    width: 90%;
+    height: 70px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 70px;
+    grid-gap: 20px;
+}
+
+.firstQuestionCancerButton,
+.firstQuestionPneumoniaButton,
+.firstQuestionECPButton,
+.firstQuestionTuberculosisButton{
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    background-color: rgb(255, 0, 0);
+}
+
+.firstQuestionCancerButton:hover,
+.firstQuestionPneumoniaButton:hover,
+.firstQuestionECPButton:hover,
+.firstQuestionTuberculosisButton:hover{
+    background-color: rgb(255, 84, 84);
+}
+
+/*Segunda sección*/
