@@ -26,7 +26,7 @@ import Cigarretes from './models-3d/Cigarretes';
 import useSmoker3Store from '../../../stores/e-c-p-stores/use-smoker3-store';
 import Title3d from './texts/Title3d';
 import Npc2 from './models-3d/Npc2';
-import useNpc2Store from '../../../stores/e-c-p-stores/use-Npc2-store';
+import useNpc2Store from '../../../stores/e-c-p-stores/use-npc2-store';
 import Title3d2 from './texts/Title3d2';
 import Title2 from './texts/Title2';
 
