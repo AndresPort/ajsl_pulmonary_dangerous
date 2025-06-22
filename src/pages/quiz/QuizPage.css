@@ -275,3 +275,68 @@
 .fourthQuestionTuberculosisButton:hover{
     background-color: rgb(255, 84, 84);
 }
+
+/*quinta sección*/
+
+.fifthQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 700px;
+}
+
+.titleFifthQuestion{
+    font-size: 30px;
+    text-align: center;
+}
+
+.fifthQuestionCanvasContainer{
+    width: 90%;
+    height: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 50px;
+}
+
+.fifthQuestionDoctorCanvas{
+    border-radius: 40px;
+}
+
+
+.fifthQuestionButtonsContainer{
+    width: 90%;
+    height: 70px;
+    display: grid;
+    margin-left: auto;
+    margin-right: auto;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 70px;
+    grid-gap: 20px;
+}
+
+.fifthQuestionCausesButton,
+.fifthQuestionSymptomsButton,
+.fifthQuestionTreatmentButton{
+    width: 100%;
+    height: 100%;
+    font-size: 30px;
+    background-color: rgb(255, 0, 0);
+}
+
+.fifthQuestionPreventionButton{
+    width: 100%;
+    height: 100%;
+    font-size: 25px;
+    background-color: rgb(255, 0, 0);
+}
+
+.fifthQuestionCausesButton:hover,
+.fifthQuestionSymptomsButton:hover,
+.fifthQuestionTreatmentButton:hover,
+.fifthQuestionPreventionButton:hover{
+    background-color: rgb(255, 84, 84);
+}
