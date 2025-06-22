@@ -1,6 +1,6 @@
 import React, { useEffect,useRef } from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
-import useNpc2Store from '../../../../stores/e-c-p-stores/use-Npc2-store'
+import useNpc2Store from '../../../../stores/e-c-p-stores/use-npc2-store'
 
 const Npc2 = (props) => {
   const group = useRef()
