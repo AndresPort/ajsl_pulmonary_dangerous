@@ -44,7 +44,12 @@ const Header = () => {
             </ul>
           </li>
 
-          {user && <li><a onClick={() => navigate("/quiz")}>Quiz interactivo</a></li>}
+          {user && 
+          <>
+          <li><a onClick={() => navigate("/quiz")}>Quiz interactivo</a></li>
+          <li><a onClick={() => navigate("/quiz/medal-table")}>Medallero</a></li>
+          </>
+          }
           <li><a onClick={() => navigate("/about")}>Sobre nosotros</a></li>
         </ul>
 

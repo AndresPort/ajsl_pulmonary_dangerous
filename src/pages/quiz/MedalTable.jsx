@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import * as THREE from "three";
 import Podium3D from "./models-3d/medal-table/Podium3D";
 import "./MedalTable.css";
+import useAuthStore from "../../stores/use-auth-store";
 
 // Componente de la lista de jugadores
 const PlayerList = ({ players, loading }) => {
@@ -69,126 +70,45 @@ const MedalTable = () => {
     averageScore: 0,
     lastUpdate: new Date().toLocaleDateString('es-ES')
   });
+  const { userLooged } = useAuthStore();
 
   // Función para cargar los datos del medallero desde la API
   const fetchLeaderboard = async () => {
-    setLoading(true);
-    setError(null);
-    
-    try {
-      // TODO: Implementar llamada a la API real
-      // const response = await fetch('/api/quiz-results/leaderboard');
-      // const data = await response.json();
-      
-      // Por ahora usamos datos de ejemplo que simulan la estructura de MongoDB
-      const mockData = [
-        {
-          _id: "1",
-          user: { _id: "user1", name: "María González", email: "maria@example.com" },
-          score: { correctAnswers: 18, wrongAnswers: 2, percentage: 90, grade: "A" },
-          medal: "oro",
-          createdAt: new Date()
-        },
-        {
-          _id: "2", 
-          user: { _id: "user2", name: "Carlos Rodríguez", email: "carlos@example.com" },
-          score: { correctAnswers: 17, wrongAnswers: 3, percentage: 85, grade: "B" },
-          medal: "plata",
-          createdAt: new Date()
-        },
-        {
-          _id: "3",
-          user: { _id: "user3", name: "Ana Martínez", email: "ana@example.com" },
-          score: { correctAnswers: 16, wrongAnswers: 4, percentage: 80, grade: "B" },
-          medal: "bronce",
-          createdAt: new Date()
-        },
-        {
-          _id: "4",
-          user: { _id: "user4", name: "Luis Pérez", email: "luis@example.com" },
-          score: { correctAnswers: 15, wrongAnswers: 5, percentage: 75, grade: "C" },
-          medal: "ninguna",
-          createdAt: new Date()
-        },
-        {
-          _id: "5",
-          user: { _id: "user5", name: "Sofia López", email: "sofia@example.com" },
-          score: { correctAnswers: 14, wrongAnswers: 6, percentage: 70, grade: "C" },
-          medal: "ninguna",
-          createdAt: new Date()
-        },
-        {
-          _id: "6",
-          user: { _id: "user6", name: "Diego Silva", email: "diego@example.com" },
-          score: { correctAnswers: 13, wrongAnswers: 7, percentage: 65, grade: "D" },
-          medal: "ninguna",
-          createdAt: new Date()
-        },
-        {
-          _id: "7",
-          user: { _id: "user7", name: "Valentina Torres", email: "valentina@example.com" },
-          score: { correctAnswers: 12, wrongAnswers: 8, percentage: 60, grade: "D" },
-          medal: "ninguna",
-          createdAt: new Date()
-        },
-        {
-          _id: "8",
-          user: { _id: "user8", name: "Andrés Morales", email: "andres@example.com" },
-          score: { correctAnswers: 11, wrongAnswers: 9, percentage: 55, grade: "F" },
-          medal: "ninguna",
-          createdAt: new Date()
-        },
-        {
-          _id: "9",
-          user: { _id: "user9", name: "Camila Herrera", email: "camila@example.com" },
-          score: { correctAnswers: 10, wrongAnswers: 10, percentage: 50, grade: "F" },
-          medal: "ninguna",
-          createdAt: new Date()
-        },
-        {
-          _id: "10",
-          user: { _id: "user10", name: "Juan Castro", email: "juan@example.com" },
-          score: { correctAnswers: 9, wrongAnswers: 11, percentage: 45, grade: "F" },
-          medal: "ninguna",
-          createdAt: new Date()
-        },
-        {
-          _id: "11",
-          user: { _id: "user11", name: "Laura Fernández", email: "laura@example.com" },
-          score: { correctAnswers: 19, wrongAnswers: 1, percentage: 95, grade: "A+" },
-          medal: "oro",
-          createdAt: new Date()
-        }
-      ];
+  setLoading(true);
+  setError(null);
 
-      // Ordenar por porcentaje de mayor a menor
-      const sortedData = mockData.sort((a, b) => 
-        (b.score?.percentage || 0) - (a.score?.percentage || 0)
-      );
+  try {
+    const token = await userLooged.getIdToken();
+    const response = await fetch("https://backend-ajls.onrender.com/api/quizzes/leaderboard", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      }
+    });
 
-      // Limitar a solo los 10 mejores jugadores
-      const top10Players = sortedData.slice(0, 10);
+    const data = await response.json();
+    const sortedData = data.sort((a, b) => (b.score?.percentage || 0) - (a.score?.percentage || 0));
+    const top10 = sortedData.slice(0, 10);
+    setPlayers(top10);
 
-      setPlayers(top10Players);
-      
-      // Calcular estadísticas
-      const totalParticipants = mockData.length;
-      const averageScore = mockData.reduce((sum, player) => 
-        sum + (player.score?.percentage || 0), 0) / totalParticipants;
-      
-      setStats({
-        totalParticipants,
-        averageScore: Math.round(averageScore),
-        lastUpdate: new Date().toLocaleDateString('es-ES')
-      });
+    // Calcular estadísticas aquí
+    const total = sortedData.length;
+    const avg = total > 0
+      ? (sortedData.reduce((acc, curr) => acc + (curr.score?.percentage || 0), 0) / total).toFixed(1)
+      : 0;
 
-    } catch (err) {
-      setError('Error al cargar el medallero');
-      console.error('Error fetching leaderboard:', err);
-    } finally {
-      setLoading(false);
-    }
-  };
+    setStats({
+      totalParticipants: total,
+      averageScore: avg,
+      lastUpdate: new Date().toLocaleDateString('es-ES')
+    });
+
+  } catch (err) {
+    setError("Error al cargar el medallero");
+    console.error("Error fetching leaderboard:", err);
+  } finally {
+    setLoading(false);
+  }
+};
 
   // Cargar datos al montar el componente
   useEffect(() => {
