@@ -110,14 +110,22 @@ import "./QuizPage.css";
       };
 
       try {
-        const token = await userLooged.getIdToken();
-        const totalQuestions = allQuestions.length;
-        await sendAnswer(token, newAnswer, totalQuestions);
-        console.log(`Respuesta enviada para ${question.id}`);
-      } catch (err) {
-        console.error("Error enviando respuesta", err);
-      }
-    };
+    const token = await userLooged.getIdToken();
+
+    // ✅ FETCH CORRECTO
+    await fetch("https://backend-ajls.onrender.com/api/quizzes/progress", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`
+      },
+      body: JSON.stringify({ newAnswer, totalQuestions })
+    });
+
+  } catch (err) {
+    console.error("Error enviando respuesta", err);
+  }
+};
 
     const handleRestart = () => {
       useQuizStore.getState().resetQuiz();

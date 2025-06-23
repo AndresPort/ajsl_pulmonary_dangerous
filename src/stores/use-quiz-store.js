@@ -31,26 +31,35 @@ const useQuizStore = create((set) => ({
   },
 
   fetchIncompleteQuiz: async (token) => {
-    try {
-      set({ loading: true, error: null });
+  try {
+    set({ loading: true, error: null });
 
-      const res = await fetch("https://backend-ajls.onrender.com/api/quizzes/incomplete", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+    const res = await fetch("https://backend-ajls.onrender.com/api/quizzes/incomplete", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-      const data = await res.json();
+    const data = await res.json();
 
-      if (!res.ok) throw new Error(data.message || "Error al obtener progreso");
+    if (!res.ok) throw new Error(data.message || "Error al obtener progreso");
 
-      set({ quiz: data });
-    } catch (error) {
-      set({ error: error.message });
-    } finally {
-      set({ loading: false });
+    // 🔥 Nuevo: convertir las respuestas a selectedAnswers
+    const selected = {};
+    if (data.answers) {
+      for (const ans of data.answers) {
+        selected[ans.questionId] = ans.selectedOption;
+      }
     }
-  },
+
+    set({ quiz: data, selectedAnswers: selected });
+  } catch (error) {
+    set({ error: error.message });
+  } finally {
+    set({ loading: false });
+  }
+},
+
 
   selectedAnswers: [],
 
@@ -62,7 +71,12 @@ const useQuizStore = create((set) => ({
       },
     })),
 
-    resetQuiz: () => set({ selectedAnswers: [] }),
+    resetQuiz: () => set({
+  selectedAnswers: [],
+  quiz: null,
+  error: null
+}),
+
 
   }));
   

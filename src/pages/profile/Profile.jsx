@@ -1,6 +1,7 @@
 import { useCallback, useEffect } from "react";
 import useAuthStore from "../../stores/use-auth-store";
 import { useNavigate } from "react-router";
+import useQuizStore from "../../stores/use-quiz-store";
 import "./Profile.css";
 
 const Profile = () => {
@@ -17,14 +18,18 @@ const Profile = () => {
       const { displayName, email } = userLooged;
       const data = { displayName, email };
       try {
+        const apiBaseUrl = import.meta.env.VITE_API_BASE_URL || "https://backend-ajls.onrender.com/api/v1";
         const response = await fetch(
-          `${import.meta.env.VITE_API_BASE_URL}users`,
+          `${apiBaseUrl}/users`,
           {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(data),
           }
         );
+        const token = await userLooged.getIdToken();
+        useQuizStore.getState().resetQuiz();
+       await useQuizStore.getState().fetchIncompleteQuiz(token);
         if (!response.ok)
           throw new Error(`Error ${response.status}: ${response.statusText}`);
         return await response.json();
