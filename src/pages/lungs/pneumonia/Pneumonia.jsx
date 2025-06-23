@@ -22,6 +22,8 @@ import Man from "./models-3d/Man";
 import VaccineNeedle from "./models-3d/VaccineNeedle";
 import ButtonMan from "./models-3d/html-3d/ButtonMan";
 import DynamicTitle from "./models-3d/html-3d/DynamicTitle";
+import StarsEffect from "./staging/Stars";
+
 
 
 
@@ -117,6 +119,7 @@ const Pneumonia = () => {
               <PneumoniaLungs scale={2} />
               <Recipient />
               <Staging />
+              <StarsEffect />
             </Canvas>
           </div>
           <div className="text-container">
@@ -148,6 +151,7 @@ const Pneumonia = () => {
               />
               {showSparkles && <SparklesEffect />}
               <Staging />
+              <StarsEffect />
               <Recipient />
             </Canvas>
           </div>
@@ -181,6 +185,7 @@ const Pneumonia = () => {
                 <PneumoniaLungs position={[3, 0, 0]} />
               )}
               <Staging />
+              <StarsEffect />
               <Recipient />
               <TreatmentText
                 text={treatmentText ? data.despues_tratamiento : data.antes_tratamiento}
