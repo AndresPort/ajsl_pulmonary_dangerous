@@ -1,56 +1,71 @@
 import { create } from "zustand";
 
-const useQuizStore = create((set, get) => ({
+const useQuizStore = create((set) => ({
   quiz: null,
   loading: false,
   error: null,
 
-  // Cargar progreso desde el backend
-  fetchIncompleteQuiz: async (token) => {
-    set({ loading: true, error: null });
-    try {
-      const res = await fetch("http://localhost:8080/api/quizzes/incomplete", {
-        method: "GET",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-
-      if (!res.ok) throw new Error("No hay intento guardado");
-
-      const data = await res.json();
-      set({ quiz: data, loading: false });
-    } catch (error) {
-      set({ quiz: null, loading: false, error: error.message });
-    }
-  },
-
-  // Enviar una nueva respuesta al backend
   sendAnswer: async (token, newAnswer, totalQuestions) => {
-    set({ loading: true, error: null });
     try {
+      set({ loading: true, error: null });
+
       const res = await fetch("http://localhost:8080/api/quizzes/progress", {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
         },
         body: JSON.stringify({ newAnswer, totalQuestions }),
       });
 
-      if (!res.ok) throw new Error("Error enviando respuesta");
-
       const data = await res.json();
-      set({ quiz: data.quiz, loading: false });
 
-      return data.quiz;
+      if (!res.ok) throw new Error(data.message || "Error al guardar respuesta");
+
+      set({ quiz: data.quiz });
     } catch (error) {
-      set({ loading: false, error: error.message });
+      set({ error: error.message });
+    } finally {
+      set({ loading: false });
     }
   },
 
-  // Resetear estado (ej: al cerrar sesión)
-  resetQuiz: () => set({ quiz: null, loading: false, error: null }),
-}));
+  fetchIncompleteQuiz: async (token) => {
+    try {
+      set({ loading: true, error: null });
+
+      const res = await fetch("http://localhost:8080/api/quizzes/incomplete", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) throw new Error(data.message || "Error al obtener progreso");
+
+      set({ quiz: data });
+    } catch (error) {
+      set({ error: error.message });
+    } finally {
+      set({ loading: false });
+    }
+  },
+
+  selectedAnswers: [],
+
+  setSelectedAnswer: (questionId, option) =>
+    set((state) => ({
+      selectedAnswers: {
+        ...state.selectedAnswers,
+        [questionId]: option,
+      },
+    })),
+
+    resetQuiz: () => set({ selectedAnswers: [] }),
+
+  }));
+  
 
 export default useQuizStore;
+
