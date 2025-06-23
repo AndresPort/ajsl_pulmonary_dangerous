@@ -335,6 +335,126 @@
 .fifthQuestionPreventionButton:hover {
   background-color: rgb(255, 84, 84);
 }
+
+/*sexta sección*/
+  .sixthQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 700px;
+}
+
+.sixthQuestionButtonsContainer{
+  width: 90%;
+  height: 70px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 70px;
+  grid-gap: 20px;
+}
+.titleSixthQuestion {
+  font-size: 30px;
+  text-align: center;
+}
+
+.sixthQuestionCanvasContainer {
+  width: 90%;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.sixthQuestionManCanvas {
+  border-radius: 40px;
+}
+
+/*septima sección*/
+  .seventhQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 700px;
+}
+
+.seventhQuestionButtonsContainer{
+  width: 90%;
+  height: 70px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 70px;
+  grid-gap: 20px;
+}
+
+.titleSeventhQuestion {
+  font-size: 30px;
+  text-align: center;
+}
+
+.seventhQuestionCanvasContainer {
+  width: 90%;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.seventhQuestionSickManCanvas {
+  border-radius: 40px;
+}
+
+/*octava sección*/
+  .eighthQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 700px;
+}
+
+.eighthQuestionButtonsContainer{
+  width: 90%;
+  height: 70px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 70px;
+  grid-gap: 20px;
+}
+
+.titleEighthQuestion {
+  font-size: 30px;
+  text-align: center;
+}
+
+.eighthQuestionCanvasContainer {
+  width: 90%;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.eighthQuestionNurseCanvas {
+  border-radius: 40px;
+}
+
 .option-button.selected {
   background-color: #4caf50;
   color: white;
@@ -343,11 +463,11 @@
 
 .buttonsGrid {
   display: grid;
-  width: 90%;
+  width: 200px;
   height: 70px;
   margin-left: auto;
-  grid-template-columns: repeat(4, 1fr); /* aseguras 4 columnas iguales */
-  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 130px;
 }
 
 .option-button {
@@ -355,7 +475,7 @@
   height: 60px;
   font-size: 20px;
   border-radius: 12px;
-  background-color: #ff0000;
+  background-color: #1b9be1;
   cursor: pointer;
   transition: all 0.2s ease;
   color: #ffffff;
@@ -399,92 +519,4 @@
   color: #999;
   cursor: not-allowed;
   opacity: 0.6;
-}
-
-
-/*sexta sección*/
-  .sixthQuestionSection {
-  border: 5px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
-  padding: 20px;
-  margin-bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 88%;
-  height: 700px;
-}
-
-.titleSixthQuestion {
-  font-size: 30px;
-  text-align: center;
-}
-
-.sixthQuestionCanvasContainer {
-  width: 90%;
-  height: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-}
-
-.sixthQuestionManCanvas {
-  border-radius: 40px;
-}
-
-/*septima sección*/
-  .seventhQuestionSection {
-  border: 5px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
-  padding: 20px;
-  margin-bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 88%;
-  height: 700px;
-}
-
-.titleSeventhQuestion {
-  font-size: 30px;
-  text-align: center;
-}
-
-.seventhQuestionCanvasContainer {
-  width: 90%;
-  height: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-}
-
-.seventhQuestionSickManCanvas {
-  border-radius: 40px;
-}
-
-/*octava sección*/
-  .eighthQuestionSection {
-  border: 5px solid rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
-  padding: 20px;
-  margin-bottom: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  width: 88%;
-  height: 700px;
-}
-
-.titleEighthQuestion {
-  font-size: 30px;
-  text-align: center;
-}
-
-.eighthQuestionCanvasContainer {
-  width: 90%;
-  height: 450px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 50px;
-}
-
-.eighthQuestionNurseCanvas {
-  border-radius: 40px;
 }

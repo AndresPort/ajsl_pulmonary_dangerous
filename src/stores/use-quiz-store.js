@@ -9,7 +9,7 @@ const useQuizStore = create((set) => ({
     try {
       set({ loading: true, error: null });
 
-      const res = await fetch("http://localhost:8080/api/quizzes/progress", {
+      const res = await fetch("https://backend-ajls.onrender.com/api/quizzes/progress", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +34,7 @@ const useQuizStore = create((set) => ({
     try {
       set({ loading: true, error: null });
 
-      const res = await fetch("http://localhost:8080/api/quizzes/incomplete", {
+      const res = await fetch("https://backend-ajls.onrender.com/api/quizzes/incomplete", {
         headers: {
           Authorization: `Bearer ${token}`,
         },

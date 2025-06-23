@@ -16,6 +16,7 @@ import TuberculosisLung from "./models-3d/quiz-page/TuberculosisLung";
 import useQuizStore from "../../stores/use-quiz-store";
 import useAuthStore from "../../stores/use-auth-store";
 import allQuestions from "./allQuestions";
+import { useNavigate } from "react-router-dom";
 
 import "./QuizPage.css";
 
@@ -30,6 +31,7 @@ const QuizPage = () => {
   const [ref8, inView8] = useInView({ threshold: 0.1 });
   const { sendAnswer, selectedAnswers, setSelectedAnswer } = useQuizStore();
   const { userLooged } = useAuthStore();
+  const navigate = useNavigate();
 
   const renderButtons = (questionIndex) => {
     const question = allQuestions[questionIndex];
@@ -289,7 +291,9 @@ const QuizPage = () => {
             </Canvas>
           )}
         </div>
-        <div className="fifthQuestionButtonsContainer">{renderButtons(4)}</div>
+        <div className="fifthQuestionButtonsContainer">
+          {renderButtons(4)}
+        </div>
       </section>
 
       {/* Sexta sección */}
@@ -312,7 +316,9 @@ const QuizPage = () => {
             </Canvas>
           )}
         </div>
-        <div className="sixthQuestionButtonsContainer">{renderButtons(4)}</div>
+        <div className="sixthQuestionButtonsContainer">
+          {renderButtons(5)}
+        </div>
       </section>
 
       {/* Séptima sección */}
@@ -336,7 +342,7 @@ const QuizPage = () => {
           )}
         </div>
         <div className="seventhQuestionButtonsContainer">
-          {renderButtons(4)}
+          {renderButtons(6)}
         </div>
       </section>
 
@@ -349,7 +355,7 @@ const QuizPage = () => {
           {inView8 && (
             <Canvas
               className="eighthQuestionNurseCanvas"
-              camera={{ position: [0, 4, 4] }}
+              camera={{ position: [0, 4, 8] }}
               shadows
             >
               <OrbitControls target={[0, 0, 0]} />
@@ -362,7 +368,7 @@ const QuizPage = () => {
           )}
         </div>
         <div className="eighthQuestionButtonsContainer">
-          {renderButtons(4)}
+          {renderButtons(7)}
         </div>
       </section>
 
@@ -375,6 +381,12 @@ const QuizPage = () => {
           </p>
           <button className="restartQuizButton" onClick={handleRestart}>
             Realizar de nuevo
+          </button>
+          <button
+            className="goToMedalTableButton"
+            onClick={() => window.location.href = "/quiz/medal-table"} // o usa react-router
+          >
+            Ver Medallero 🏆
           </button>
         </section>
       )}
