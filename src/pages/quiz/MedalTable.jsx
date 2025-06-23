@@ -183,10 +183,9 @@ const MedalTable = () => {
           <div className="info-card">
             <h3>🎯 Cómo subir en el ranking</h3>
             <ul>
-              <li>Completa todos los quizzes</li>
-              <li>Responde correctamente</li>
-              <li>Mejora tu tiempo de respuesta</li>
+              <li>Mantén la calma</li>
               <li>Practica regularmente</li>
+              <li>Responde correctamente</li>
             </ul>
           </div>
         </div>
