@@ -27,4 +27,5 @@ export function OxygenTheraphy(props) {
   )
 }
 
+export default OxygenTheraphy;
 useGLTF.preload('/models-3d/tuberculosis/OxygenTheraphy.glb')

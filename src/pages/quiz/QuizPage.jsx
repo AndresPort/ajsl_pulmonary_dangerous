@@ -5,7 +5,10 @@ import Lights from "./lights/Lights";
 import SkyStaging from "./staging/SkyStaging";
 import Floor from "./models-3d/quiz-page/Floor";
 import Doctor from "./models-3d/quiz-page/Doctor";
+import Nurse from "./models-3d/quiz-page/Nurse";
+import Chair from "./models-3d/quiz-page/Chair";
 import PersonCoughing from "./models-3d/quiz-page/PersonCoughing";
+import OxygenTheraphy from "./models-3d/quiz-page/OxygenTheraphy";
 import SickLungsSemiVisibles from "./models-3d/quiz-page/SickLungsSemiVisibles";
 import PneumoniaLungs from "./models-3d/quiz-page/PneumoniaLungs";
 import SaneLungs from "./models-3d/quiz-page/SaneLungs";
@@ -22,43 +25,44 @@ const QuizPage = () => {
   const [ref3, inView3] = useInView({ threshold: 0.1 });
   const [ref4, inView4] = useInView({ threshold: 0.1 });
   const [ref5, inView5] = useInView({ threshold: 0.1 });
+  const [ref6, inView6] = useInView({ threshold: 0.1 });
+  const [ref7, inView7] = useInView({ threshold: 0.1 });
+  const [ref8, inView8] = useInView({ threshold: 0.1 });
   const { sendAnswer, selectedAnswers, setSelectedAnswer } = useQuizStore();
   const { userLooged } = useAuthStore();
 
-const renderButtons = (questionIndex) => {
-  const question = allQuestions[questionIndex];
-  const selectedOption = selectedAnswers[question.id]; // opción que seleccionó el usuario
+  const renderButtons = (questionIndex) => {
+    const question = allQuestions[questionIndex];
+    const selectedOption = selectedAnswers[question.id]; // opción que seleccionó el usuario
 
-  return (
-    <div className="buttonsGrid">
-      {question.options.map((option, index) => {
-        const isThisSelected = selectedOption === option;
+    return (
+      <div className="buttonsGrid">
+        {question.options.map((option, index) => {
+          const isThisSelected = selectedOption === option;
 
-        return (
-          <button
-            key={index}
-            className={`option-button ${
-              isThisSelected
-                ? "selected"
-                : selectedOption
-                ? "disabled-unselected"
-                : ""
-            }`}
-            onClick={() => {
-              setSelectedAnswer(question.id, option);
-              handleAnswer(question, option);
-            }}
-            disabled={!!selectedOption && !isThisSelected}
-          >
-            {option}
-          </button>
-        );
-      })}
-    </div>
-  );
-};
-
-
+          return (
+            <button
+              key={index}
+              className={`option-button ${
+                isThisSelected
+                  ? "selected"
+                  : selectedOption
+                  ? "disabled-unselected"
+                  : ""
+              }`}
+              onClick={() => {
+                setSelectedAnswer(question.id, option);
+                handleAnswer(question, option);
+              }}
+              disabled={!!selectedOption && !isThisSelected}
+            >
+              {option}
+            </button>
+          );
+        })}
+      </div>
+    );
+  };
 
   const handleAnswer = async (question, selectedOption) => {
     if (!userLooged) {
@@ -86,9 +90,9 @@ const renderButtons = (questionIndex) => {
   };
 
   const handleRestart = () => {
-  useQuizStore.getState().resetQuiz();
-  window.scrollTo({ top: 0, behavior: "smooth" });
-};
+    useQuizStore.getState().resetQuiz();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <div className="quizPageContainer">
@@ -98,11 +102,17 @@ const renderButtons = (questionIndex) => {
 
       {/* Primera sección */}
       <section className="firstQuestionSection" ref={ref1}>
-        <h1 className="titleFirstQuestion">Seleccione el botón al que le corresponda un pulmón con cáncer</h1>
+        <h1 className="titleFirstQuestion">
+          Seleccione el botón al que le corresponda un pulmón con cáncer
+        </h1>
         <div className="firstQuestionCanvasContainer">
           {inView1 && (
             <>
-              <Canvas className="firstQuestionCancerCanvas" camera={{ position: [0, 0, 1.3] }} shadows>
+              <Canvas
+                className="firstQuestionCancerCanvas"
+                camera={{ position: [0, 0, 1.3] }}
+                shadows
+              >
                 <OrbitControls target={[0, 0, 0]} />
                 <SickLungsSemiVisibles scale={0.001} />
                 <SkyStaging />
@@ -129,18 +139,22 @@ const renderButtons = (questionIndex) => {
             </>
           )}
         </div>
-        <div className="firstQuestionButtonsContainer">
-            {renderButtons(0)}
-        </div>
+        <div className="firstQuestionButtonsContainer">{renderButtons(0)}</div>
       </section>
 
       {/* Segunda sección */}
       <section className="secondQuestionSection" ref={ref2}>
-        <h1 className="titleSecondQuestion">Seleccione el botón al que le corresponda un pulmón con neumonía</h1>
+        <h1 className="titleSecondQuestion">
+          Seleccione el botón al que le corresponda un pulmón con neumonía
+        </h1>
         <div className="secondQuestionCanvasContainer">
           {inView2 && (
             <>
-              <Canvas className="secondQuestionCancerCanvas" camera={{ position: [0, 0, 1.3] }} shadows>
+              <Canvas
+                className="secondQuestionCancerCanvas"
+                camera={{ position: [0, 0, 1.3] }}
+                shadows
+              >
                 <OrbitControls target={[0, 0, 0]} />
                 <SickLungsSemiVisibles scale={0.001} />
                 <SkyStaging />
@@ -167,18 +181,23 @@ const renderButtons = (questionIndex) => {
             </>
           )}
         </div>
-        <div className="secondQuestionButtonsContainer">
-          {renderButtons(1)}
-        </div>
+        <div className="secondQuestionButtonsContainer">{renderButtons(1)}</div>
       </section>
 
       {/* Tercera sección */}
       <section className="thirdQuestionSection" ref={ref3}>
-        <h1 className="titleThirdQuestion">Seleccione el botón al que le corresponda un pulmón con Enfermedad crónica pulmonar</h1>
+        <h1 className="titleThirdQuestion">
+          Seleccione el botón al que le corresponda un pulmón con Enfermedad
+          crónica pulmonar
+        </h1>
         <div className="thirdQuestionCanvasContainer">
           {inView3 && (
             <>
-              <Canvas className="thirdQuestionCancerCanvas" camera={{ position: [0, 0, 1.3] }} shadows>
+              <Canvas
+                className="thirdQuestionCancerCanvas"
+                camera={{ position: [0, 0, 1.3] }}
+                shadows
+              >
                 <OrbitControls target={[0, 0, 0]} />
                 <SickLungsSemiVisibles scale={0.001} />
                 <SkyStaging />
@@ -205,18 +224,22 @@ const renderButtons = (questionIndex) => {
             </>
           )}
         </div>
-        <div className="thirdQuestionButtonsContainer">
-          {renderButtons(2)}
-        </div>
+        <div className="thirdQuestionButtonsContainer">{renderButtons(2)}</div>
       </section>
 
       {/* Cuarta sección */}
       <section className="fourthQuestionSection" ref={ref4}>
-        <h1 className="titleFourthQuestion">Seleccione el botón al que le corresponda un pulmón con Tuberculosis</h1>
+        <h1 className="titleFourthQuestion">
+          Seleccione el botón al que le corresponda un pulmón con Tuberculosis
+        </h1>
         <div className="fourthQuestionCanvasContainer">
           {inView4 && (
             <>
-              <Canvas className="fourthQuestionCancerCanvas" camera={{ position: [0, 0, 1.3] }} shadows>
+              <Canvas
+                className="fourthQuestionCancerCanvas"
+                camera={{ position: [0, 0, 1.3] }}
+                shadows
+              >
                 <OrbitControls target={[0, 0, 0]} />
                 <SickLungsSemiVisibles scale={0.001} />
                 <SkyStaging />
@@ -243,17 +266,21 @@ const renderButtons = (questionIndex) => {
             </>
           )}
         </div>
-        <div className="fourthQuestionButtonsContainer">
-          {renderButtons(3)}
-        </div>
+        <div className="fourthQuestionButtonsContainer">{renderButtons(3)}</div>
       </section>
 
       {/* Quinta sección */}
       <section className="fifthQuestionSection" ref={ref5}>
-        <h1 className="titleFifthQuestion">¿A qué sección corresponde la animación del siguiente personaje?</h1>
+        <h1 className="titleFifthQuestion">
+          ¿A qué sección corresponde la animación del siguiente personaje?
+        </h1>
         <div className="fifthQuestionCanvasContainer">
           {inView5 && (
-            <Canvas className="fifthQuestionDoctorCanvas" camera={{ position: [0, -1, 2] }} shadows>
+            <Canvas
+              className="fifthQuestionDoctorCanvas"
+              camera={{ position: [0, -1, 2] }}
+              shadows
+            >
               <OrbitControls target={[0, 0, 0]} />
               <Doctor scale={0.015} />
               <Floor />
@@ -262,17 +289,21 @@ const renderButtons = (questionIndex) => {
             </Canvas>
           )}
         </div>
-        <div className="fifthQuestionButtonsContainer">
-          {renderButtons(4)}
-        </div>
+        <div className="fifthQuestionButtonsContainer">{renderButtons(4)}</div>
       </section>
 
       {/* Sexta sección */}
-      <section className="sixthQuestionSection" ref={ref5}>
-        <h1 className="titleSixthQuestion">¿A qué sección corresponde el siguiente personaje?</h1>
+      <section className="sixthQuestionSection" ref={ref6}>
+        <h1 className="titleSixthQuestion">
+          ¿A qué sección corresponde el siguiente personaje?
+        </h1>
         <div className="sixthQuestionCanvasContainer">
-          {inView5 && (
-            <Canvas className="sixthQuestionDoctorCanvas" camera={{ position: [0, 2, 4] }} shadows>
+          {inView6 && (
+            <Canvas
+              className="sixthQuestionManCanvas"
+              camera={{ position: [0, 2, 4] }}
+              shadows
+            >
               <OrbitControls target={[0, 0, 0]} />
               <PersonCoughing scale={2} position={[0, -1, -1]} />
               <Floor />
@@ -281,22 +312,72 @@ const renderButtons = (questionIndex) => {
             </Canvas>
           )}
         </div>
-        <div className="sixthQuestionButtonsContainer">
+        <div className="sixthQuestionButtonsContainer">{renderButtons(4)}</div>
+      </section>
+
+      {/* Séptima sección */}
+      <section className="seventhQuestionSection" ref={ref7}>
+        <h1 className="titleSeventhQuestion">
+          ¿A qué sección corresponde el siguiente personaje?
+        </h1>
+        <div className="seventhQuestionCanvasContainer">
+          {inView7 && (
+            <Canvas
+              className="seventhQuestionSickManCanvas"
+              camera={{ position: [0, 2, 4] }}
+              shadows
+            >
+              <OrbitControls target={[0, 0, 0]} />
+              <OxygenTheraphy scale={4} />
+              <Floor />
+              <SkyStaging />
+              <Lights />
+            </Canvas>
+          )}
+        </div>
+        <div className="seventhQuestionButtonsContainer">
           {renderButtons(4)}
         </div>
       </section>
 
-      
+      {/* octava sección */}
+      <section className="eighthQuestionSection" ref={ref8}>
+        <h1 className="titleEighthQuestion">
+          ¿A qué sección corresponde el siguiente personaje?
+        </h1>
+        <div className="eighthQuestionCanvasContainer">
+          {inView8 && (
+            <Canvas
+              className="eighthQuestionNurseCanvas"
+              camera={{ position: [0, 4, 4] }}
+              shadows
+            >
+              <OrbitControls target={[0, 0, 0]} />
+              <Chair scale={4} position={[0, -1.5, -0.5]} />
+              <Nurse scale={3} position={[0, -0.9, -2.5]} />
+              <Floor />
+              <SkyStaging />
+              <Lights />
+            </Canvas>
+          )}
+        </div>
+        <div className="eighthQuestionButtonsContainer">
+          {renderButtons(4)}
+        </div>
+      </section>
+
       {Object.keys(selectedAnswers).length === allQuestions.length && (
         <section className="finalQuizSection">
           <h2>¡Has finalizado el quiz!</h2>
-          <p>Gracias por participar. Puedes revisar tus respuestas o intentarlo de nuevo.</p>
+          <p>
+            Gracias por participar. Puedes revisar tus respuestas o intentarlo
+            de nuevo.
+          </p>
           <button className="restartQuizButton" onClick={handleRestart}>
             Realizar de nuevo
           </button>
         </section>
       )}
-
     </div>
   );
 };

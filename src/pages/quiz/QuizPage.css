@@ -427,6 +427,64 @@
   margin-bottom: 50px;
 }
 
-.sixthQuestionDoctorCanvas {
+.sixthQuestionManCanvas {
+  border-radius: 40px;
+}
+
+/*septima sección*/
+  .seventhQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 700px;
+}
+
+.titleSeventhQuestion {
+  font-size: 30px;
+  text-align: center;
+}
+
+.seventhQuestionCanvasContainer {
+  width: 90%;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.seventhQuestionSickManCanvas {
+  border-radius: 40px;
+}
+
+/*octava sección*/
+  .eighthQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 700px;
+}
+
+.titleEighthQuestion {
+  font-size: 30px;
+  text-align: center;
+}
+
+.eighthQuestionCanvasContainer {
+  width: 90%;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.eighthQuestionNurseCanvas {
   border-radius: 40px;
 }
