@@ -45,13 +45,25 @@ const LungsCancer = () => {
         setCurrentAnimation("initialPose");
         detener();
       }
+
+      // NUEVO: parar ejercicio del doctor con tecla "M"
+      if (key === "m" && currentDoctorAnimation === "pushUp") {
+        setCurrentDoctorAnimation("Staying");
+        detener(); // Esto detiene el sonido si se estaba reproduciendo
+      }
     };
 
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [currentAnimation, setCurrentAnimation, detener]);
+  }, [
+    currentAnimation,
+    currentDoctorAnimation,
+    setCurrentAnimation,
+    setCurrentDoctorAnimation,
+    detener,
+  ]);
 
   return (
     <div className="lungs-cancer-page">
@@ -213,7 +225,7 @@ const LungsCancer = () => {
                       onClick={() => {
                         setCurrentDoctorAnimation("idleToPushUp");
                       }}
-                      title="Iniciar ejercicio"
+                      title="Iniciar ejercicio y presione M para parar"
                     >
                       Método de cuidado y prevención
                     </button>
@@ -225,7 +237,7 @@ const LungsCancer = () => {
                     onClick={() => {
                       setCurrentDoctorAnimation("pushUpToIdle");
                     }}
-                    title="Parar de ejercitarse"
+                    title="Parar de ejercitarse o presione M para parar"
                   >
                     Parar de ejercitarse
                   </button>
