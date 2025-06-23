@@ -1,15 +1,15 @@
-.quizPageContainer{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
+.quizPageContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
-.principalTitle{
-    font-size: 40px;
-    text-align: center;
-    margin-top: 5%;
-    margin-bottom: 60px;
+.principalTitle {
+  font-size: 40px;
+  text-align: center;
+  margin-top: 5%;
+  margin-bottom: 60px;
 }
 
 /*Primera sección*/
@@ -25,57 +25,56 @@
   height: 550px;
 }
 
-.titleFirstQuestion{
-    font-size: 30px;
-    text-align: center;
+.titleFirstQuestion {
+  font-size: 30px;
+  text-align: center;
 }
 
-.firstQuestionCanvasContainer{
-    width: 90%;
-    height: 300px;
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 300px;
-    grid-gap: 20px;
-    margin-bottom: 50px;
+.firstQuestionCanvasContainer {
+  width: 90%;
+  height: 300px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 300px;
+  grid-gap: 20px;
+  margin-bottom: 50px;
 }
 
 .firstQuestionCancerCanvas,
 .firstQuestionPneumoniaCanvas,
 .firstQuestionECPCanvas,
-.firstQuestionTuberculosisCanvas{
-    border-radius: 40px;
+.firstQuestionTuberculosisCanvas {
+  border-radius: 40px;
 }
 
-
-.firstQuestionButtonsContainer{
-    width: 90%;
-    height: 70px;
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 70px;
-    grid-gap: 20px;
+.firstQuestionButtonsContainer {
+  width: 90%;
+  height: 70px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 70px;
+  grid-gap: 20px;
 }
 
 .firstQuestionCancerButton,
 .firstQuestionPneumoniaButton,
 .firstQuestionECPButton,
-.firstQuestionTuberculosisButton{
-    width: 100%;
-    height: 100%;
-    font-size: 30px;
-    background-color: rgb(255, 0, 0);
+.firstQuestionTuberculosisButton {
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  background-color: rgb(255, 0, 0);
 }
 
 .firstQuestionCancerButton:hover,
 .firstQuestionPneumoniaButton:hover,
 .firstQuestionECPButton:hover,
-.firstQuestionTuberculosisButton:hover{
-    background-color: rgb(255, 84, 84);
+.firstQuestionTuberculosisButton:hover {
+  background-color: rgb(255, 84, 84);
 }
 
 /*Segunda sección*/
@@ -91,57 +90,56 @@
   height: 550px;
 }
 
-.titleSecondQuestion{
-    font-size: 30px;
-    text-align: center;
+.titleSecondQuestion {
+  font-size: 30px;
+  text-align: center;
 }
 
-.secondQuestionCanvasContainer{
-    width: 90%;
-    height: 300px;
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 300px;
-    grid-gap: 20px;
-    margin-bottom: 50px;
+.secondQuestionCanvasContainer {
+  width: 90%;
+  height: 300px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 300px;
+  grid-gap: 20px;
+  margin-bottom: 50px;
 }
 
 .secondQuestionCancerCanvas,
 .secondQuestionPneumoniaCanvas,
 .secondQuestionECPCanvas,
-.secondQuestionTuberculosisCanvas{
-    border-radius: 40px;
+.secondQuestionTuberculosisCanvas {
+  border-radius: 40px;
 }
 
-
-.secondQuestionButtonsContainer{
-    width: 90%;
-    height: 70px;
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 70px;
-    grid-gap: 20px;
+.secondQuestionButtonsContainer {
+  width: 90%;
+  height: 70px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 70px;
+  grid-gap: 20px;
 }
 
 .secondQuestionCancerButton,
 .secondQuestionPneumoniaButton,
 .secondQuestionECPButton,
-.secondQuestionTuberculosisButton{
-    width: 100%;
-    height: 100%;
-    font-size: 30px;
-    background-color: rgb(255, 0, 0);
+.secondQuestionTuberculosisButton {
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  background-color: rgb(255, 0, 0);
 }
 
 .secondQuestionCancerButton:hover,
 .secondQuestionPneumoniaButton:hover,
 .secondQuestionECPButton:hover,
-.secondQuestionTuberculosisButton:hover{
-    background-color: rgb(255, 84, 84);
+.secondQuestionTuberculosisButton:hover {
+  background-color: rgb(255, 84, 84);
 }
 
 /*tercera sección*/
@@ -157,57 +155,56 @@
   height: 550px;
 }
 
-.titleThirdQuestion{
-    font-size: 30px;
-    text-align: center;
+.titleThirdQuestion {
+  font-size: 30px;
+  text-align: center;
 }
 
-.thirdQuestionCanvasContainer{
-    width: 90%;
-    height: 300px;
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 300px;
-    grid-gap: 20px;
-    margin-bottom: 50px;
+.thirdQuestionCanvasContainer {
+  width: 90%;
+  height: 300px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 300px;
+  grid-gap: 20px;
+  margin-bottom: 50px;
 }
 
 .thirdQuestionCancerCanvas,
 .thirdQuestionPneumoniaCanvas,
 .thirdQuestionECPCanvas,
-.thirdQuestionTuberculosisCanvas{
-    border-radius: 40px;
+.thirdQuestionTuberculosisCanvas {
+  border-radius: 40px;
 }
 
-
-.thirdQuestionButtonsContainer{
-    width: 90%;
-    height: 70px;
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 70px;
-    grid-gap: 20px;
+.thirdQuestionButtonsContainer {
+  width: 90%;
+  height: 70px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 70px;
+  grid-gap: 20px;
 }
 
 .thirdQuestionCancerButton,
 .thirdQuestionPneumoniaButton,
 .thirdQuestionECPButton,
-.thirdQuestionTuberculosisButton{
-    width: 100%;
-    height: 100%;
-    font-size: 30px;
-    background-color: rgb(255, 0, 0);
+.thirdQuestionTuberculosisButton {
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  background-color: rgb(255, 0, 0);
 }
 
 .thirdQuestionCancerButton:hover,
 .thirdQuestionPneumoniaButton:hover,
 .thirdQuestionECPButton:hover,
-.thirdQuestionTuberculosisButton:hover{
-    background-color: rgb(255, 84, 84);
+.thirdQuestionTuberculosisButton:hover {
+  background-color: rgb(255, 84, 84);
 }
 
 /*cuarta sección*/
@@ -223,57 +220,56 @@
   height: 550px;
 }
 
-.titleFourthQuestion{
-    font-size: 30px;
-    text-align: center;
+.titleFourthQuestion {
+  font-size: 30px;
+  text-align: center;
 }
 
-.fourthQuestionCanvasContainer{
-    width: 90%;
-    height: 300px;
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 300px;
-    grid-gap: 20px;
-    margin-bottom: 50px;
+.fourthQuestionCanvasContainer {
+  width: 90%;
+  height: 300px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 300px;
+  grid-gap: 20px;
+  margin-bottom: 50px;
 }
 
 .fourthQuestionCancerCanvas,
 .fourthQuestionPneumoniaCanvas,
 .fourthQuestionECPCanvas,
-.fourthQuestionTuberculosisCanvas{
-    border-radius: 40px;
+.fourthQuestionTuberculosisCanvas {
+  border-radius: 40px;
 }
 
-
-.fourthQuestionButtonsContainer{
-    width: 90%;
-    height: 70px;
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 70px;
-    grid-gap: 20px;
+.fourthQuestionButtonsContainer {
+  width: 90%;
+  height: 70px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 70px;
+  grid-gap: 20px;
 }
 
 .fourthQuestionCancerButton,
 .fourthQuestionPneumoniaButton,
 .fourthQuestionECPButton,
-.fourthQuestionTuberculosisButton{
-    width: 100%;
-    height: 100%;
-    font-size: 30px;
-    background-color: rgb(255, 0, 0);
+.fourthQuestionTuberculosisButton {
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  background-color: rgb(255, 0, 0);
 }
 
 .fourthQuestionCancerButton:hover,
 .fourthQuestionPneumoniaButton:hover,
 .fourthQuestionECPButton:hover,
-.fourthQuestionTuberculosisButton:hover{
-    background-color: rgb(255, 84, 84);
+.fourthQuestionTuberculosisButton:hover {
+  background-color: rgb(255, 84, 84);
 }
 
 /*quinta sección*/
@@ -289,56 +285,55 @@
   height: 700px;
 }
 
-.titleFifthQuestion{
-    font-size: 30px;
-    text-align: center;
+.titleFifthQuestion {
+  font-size: 30px;
+  text-align: center;
 }
 
-.fifthQuestionCanvasContainer{
-    width: 90%;
-    height: 450px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 50px;
+.fifthQuestionCanvasContainer {
+  width: 90%;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
 }
 
-.fifthQuestionDoctorCanvas{
-    border-radius: 40px;
+.fifthQuestionDoctorCanvas {
+  border-radius: 40px;
 }
 
-
-.fifthQuestionButtonsContainer{
-    width: 90%;
-    height: 70px;
-    display: grid;
-    margin-left: auto;
-    margin-right: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 70px;
-    grid-gap: 20px;
+.fifthQuestionButtonsContainer {
+  width: 90%;
+  height: 70px;
+  display: grid;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 70px;
+  grid-gap: 20px;
 }
 
 .fifthQuestionCausesButton,
 .fifthQuestionSymptomsButton,
-.fifthQuestionTreatmentButton{
-    width: 100%;
-    height: 100%;
-    font-size: 30px;
-    background-color: rgb(255, 0, 0);
+.fifthQuestionTreatmentButton {
+  width: 100%;
+  height: 100%;
+  font-size: 30px;
+  background-color: rgb(255, 0, 0);
 }
 
-.fifthQuestionPreventionButton{
-    width: 100%;
-    height: 100%;
-    font-size: 25px;
-    background-color: rgb(255, 0, 0);
+.fifthQuestionPreventionButton {
+  width: 100%;
+  height: 100%;
+  font-size: 25px;
+  background-color: rgb(255, 0, 0);
 }
 
 .fifthQuestionCausesButton:hover,
 .fifthQuestionSymptomsButton:hover,
 .fifthQuestionTreatmentButton:hover,
-.fifthQuestionPreventionButton:hover{
-    background-color: rgb(255, 84, 84);
+.fifthQuestionPreventionButton:hover {
+  background-color: rgb(255, 84, 84);
 }
 .option-button.selected {
   background-color: #4caf50;
@@ -348,11 +343,11 @@
 
 .buttonsGrid {
   display: grid;
+  width: 90%;
+  height: 70px;
+  margin-left: auto;
   grid-template-columns: repeat(4, 1fr); /* aseguras 4 columnas iguales */
-  gap: 180px; /* espacio entre botones */
-  justify-content: center;
-  align-items: center;
-  padding: 10px;
+  grid-gap: 20px;
 }
 
 .option-button {
@@ -360,11 +355,10 @@
   height: 60px;
   font-size: 20px;
   border-radius: 12px;
-  border: 2px solid #ccc;
-  background-color: #f0f0f0;
+  background-color: #ff0000;
   cursor: pointer;
   transition: all 0.2s ease;
-  color: #000;
+  color: #ffffff;
 }
 
 .finalQuizSection {
@@ -405,4 +399,34 @@
   color: #999;
   cursor: not-allowed;
   opacity: 0.6;
+}
+
+
+/*sexta sección*/
+  .sixthQuestionSection {
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 88%;
+  height: 700px;
+}
+
+.titleSixthQuestion {
+  font-size: 30px;
+  text-align: center;
+}
+
+.sixthQuestionCanvasContainer {
+  width: 90%;
+  height: 450px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.sixthQuestionDoctorCanvas {
+  border-radius: 40px;
 }

@@ -5,6 +5,7 @@ import Lights from "./lights/Lights";
 import SkyStaging from "./staging/SkyStaging";
 import Floor from "./models-3d/quiz-page/Floor";
 import Doctor from "./models-3d/quiz-page/Doctor";
+import PersonCoughing from "./models-3d/quiz-page/PersonCoughing";
 import SickLungsSemiVisibles from "./models-3d/quiz-page/SickLungsSemiVisibles";
 import PneumoniaLungs from "./models-3d/quiz-page/PneumoniaLungs";
 import SaneLungs from "./models-3d/quiz-page/SaneLungs";
@@ -265,6 +266,26 @@ const renderButtons = (questionIndex) => {
           {renderButtons(4)}
         </div>
       </section>
+
+      {/* Sexta sección */}
+      <section className="sixthQuestionSection" ref={ref5}>
+        <h1 className="titleSixthQuestion">¿A qué sección corresponde el siguiente personaje?</h1>
+        <div className="sixthQuestionCanvasContainer">
+          {inView5 && (
+            <Canvas className="sixthQuestionDoctorCanvas" camera={{ position: [0, 2, 4] }} shadows>
+              <OrbitControls target={[0, 0, 0]} />
+              <PersonCoughing scale={2} position={[0, -1, -1]} />
+              <Floor />
+              <SkyStaging />
+              <Lights />
+            </Canvas>
+          )}
+        </div>
+        <div className="sixthQuestionButtonsContainer">
+          {renderButtons(4)}
+        </div>
+      </section>
+
       
       {Object.keys(selectedAnswers).length === allQuestions.length && (
         <section className="finalQuizSection">

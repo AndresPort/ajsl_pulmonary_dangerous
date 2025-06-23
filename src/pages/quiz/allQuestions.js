@@ -28,7 +28,26 @@ const allQuestions = [
         questionText: "¿A qué sección corresponde la animación del siguiente personaje?",
         correctOption: "Cáncer de pulmón",
         options: ["Neumonía", "Tuberculosis", "Cáncer de pulmón", "ECP"]
+    },
+    {
+        id: "p6",
+        questionText: "¿A qué sección corresponde la animación del siguiente personaje?",
+        correctOption: "Neumonía",
+        options: ["Neumonía", "Tuberculosis", "Cáncer de pulmón", "ECP"]
+    },
+    {
+        id: "p7",
+        questionText: "¿A qué sección corresponde la animación del siguiente personaje?",
+        correctOption: "Tuberculosis",
+        options: ["Neumonía", "Tuberculosis", "Cáncer de pulmón", "ECP"]
+    },
+    {
+        id: "p8",
+        questionText: "¿A qué sección corresponde la animación del siguiente personaje?",
+        correctOption: "ECP",
+        options: ["Neumonía", "Tuberculosis", "Cáncer de pulmón", "ECP"]
     }
+
 ];
 
 export default allQuestions;
