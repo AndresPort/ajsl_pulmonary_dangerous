@@ -9,6 +9,9 @@ import SickLungsSemiVisibles from "./models-3d/quiz-page/SickLungsSemiVisibles";
 import PneumoniaLungs from "./models-3d/quiz-page/PneumoniaLungs";
 import SaneLungs from "./models-3d/quiz-page/SaneLungs";
 import TuberculosisLung from "./models-3d/quiz-page/TuberculosisLung";
+import useQuizStore from "../../stores/use-quiz-store";
+import useAuthStore from "../../stores/use-auth-store";
+import allQuestions from "./allQuestions";
 
 import "./QuizPage.css";
 
@@ -18,6 +21,73 @@ const QuizPage = () => {
   const [ref3, inView3] = useInView({ threshold: 0.1 });
   const [ref4, inView4] = useInView({ threshold: 0.1 });
   const [ref5, inView5] = useInView({ threshold: 0.1 });
+  const { sendAnswer, selectedAnswers, setSelectedAnswer } = useQuizStore();
+  const { userLooged } = useAuthStore();
+
+const renderButtons = (questionIndex) => {
+  const question = allQuestions[questionIndex];
+  const selectedOption = selectedAnswers[question.id]; // opción que seleccionó el usuario
+
+  return (
+    <div className="buttonsGrid">
+      {question.options.map((option, index) => {
+        const isThisSelected = selectedOption === option;
+
+        return (
+          <button
+            key={index}
+            className={`option-button ${
+              isThisSelected
+                ? "selected"
+                : selectedOption
+                ? "disabled-unselected"
+                : ""
+            }`}
+            onClick={() => {
+              setSelectedAnswer(question.id, option);
+              handleAnswer(question, option);
+            }}
+            disabled={!!selectedOption && !isThisSelected}
+          >
+            {option}
+          </button>
+        );
+      })}
+    </div>
+  );
+};
+
+
+
+  const handleAnswer = async (question, selectedOption) => {
+    if (!userLooged) {
+      console.error("Usuario no autenticado");
+      return;
+    }
+
+    const isCorrect = selectedOption === question.correctOption;
+
+    const newAnswer = {
+      questionId: question.id,
+      questionText: question.text,
+      selectedOption,
+      isCorrect,
+    };
+
+    try {
+      const token = await userLooged.getIdToken();
+      const totalQuestions = allQuestions.length;
+      await sendAnswer(token, newAnswer, totalQuestions);
+      console.log(`Respuesta enviada para ${question.id}`);
+    } catch (err) {
+      console.error("Error enviando respuesta", err);
+    }
+  };
+
+  const handleRestart = () => {
+  useQuizStore.getState().resetQuiz();
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
 
   return (
     <div className="quizPageContainer">
@@ -59,10 +129,7 @@ const QuizPage = () => {
           )}
         </div>
         <div className="firstQuestionButtonsContainer">
-          <button className="firstQuestionCancerButton">1</button>
-          <button className="firstQuestionPneumoniaButton">2</button>
-          <button className="firstQuestionECPButton">3</button>
-          <button className="firstQuestionTuberculosisButton">4</button>
+            {renderButtons(0)}
         </div>
       </section>
 
@@ -100,10 +167,7 @@ const QuizPage = () => {
           )}
         </div>
         <div className="secondQuestionButtonsContainer">
-          <button className="secondQuestionCancerButton">1</button>
-          <button className="secondQuestionPneumoniaButton">2</button>
-          <button className="secondQuestionECPButton">3</button>
-          <button className="secondQuestionTuberculosisButton">4</button>
+          {renderButtons(1)}
         </div>
       </section>
 
@@ -141,10 +205,7 @@ const QuizPage = () => {
           )}
         </div>
         <div className="thirdQuestionButtonsContainer">
-          <button className="thirdQuestionCancerButton">1</button>
-          <button className="thirdQuestionPneumoniaButton">2</button>
-          <button className="thirdQuestionECPButton">3</button>
-          <button className="thirdQuestionTuberculosisButton">4</button>
+          {renderButtons(2)}
         </div>
       </section>
 
@@ -182,10 +243,7 @@ const QuizPage = () => {
           )}
         </div>
         <div className="fourthQuestionButtonsContainer">
-          <button className="fourthQuestionCancerButton">1</button>
-          <button className="fourthQuestionPneumoniaButton">2</button>
-          <button className="fourthQuestionECPButton">3</button>
-          <button className="fourthQuestionTuberculosisButton">4</button>
+          {renderButtons(3)}
         </div>
       </section>
 
@@ -204,12 +262,20 @@ const QuizPage = () => {
           )}
         </div>
         <div className="fifthQuestionButtonsContainer">
-          <button className="fifthQuestionCausesButton">Causas</button>
-          <button className="fifthQuestionSymptomsButton">Síntomas</button>
-          <button className="fifthQuestionTreatmentButton">Tratamiento</button>
-          <button className="fifthQuestionPreventionButton">Prevención y cuidados</button>
+          {renderButtons(4)}
         </div>
       </section>
+      
+      {Object.keys(selectedAnswers).length === allQuestions.length && (
+        <section className="finalQuizSection">
+          <h2>¡Has finalizado el quiz!</h2>
+          <p>Gracias por participar. Puedes revisar tus respuestas o intentarlo de nuevo.</p>
+          <button className="restartQuizButton" onClick={handleRestart}>
+            Realizar de nuevo
+          </button>
+        </section>
+      )}
+
     </div>
   );
 };
